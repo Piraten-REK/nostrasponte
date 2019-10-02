@@ -1,0 +1,64 @@
+/*
+Theme Name: Nostra Sponte
+Theme URI: https://github.com/veyxos/nostrasponte
+Author: Mike Kühnapfel
+Author URI: mailto:kuehnapfel@piratenpartei-rhein-erft.de
+Description: Theme der Piratenpartei Rhein-Erft
+Version: 0.1.0
+License: GNU General Public License 3.0 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0
+*/
+:root {
+  --font: Roboto, "Open Sans", "Helvetica Neue", Helvetica, Arial, "SF-Display", Ubuntu, sans-serif;
+  --font-accent: "Roboto Slab", "Linux Libertine O", Gothic, Times, "Times New Roman", serif;
+  --dracula: #2d3436;
+  --lynx_white: #f5f6f6;
+  --gray: #777;
+  --light-gray: #777;
+  --dark-gray: #343434;
+  --orange: #fd8625;
+  --light_orange: #ffaf40;
+  --purple: #5866a2;
+  --green: #28a035;
+  --lime: #90bb31;
+  --light_blue: #53bccf;
+  --pirate-orange: #ff8800;
+  --pirate-puple: #652480;
+  --dark: v(dracula);
+  --accent: v(orange);
+  --accent2: v(light_orange);
+  --page-padding: 5vw;
+  --header-height: 80px;
+  font-family: var(--font);
+  font-size: 14pt;
+  line-height: 1.3;
+  color: var(--dark);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--lynx_white);
+  scroll-behavior: smooth;
+}
+
+::-moz-selection {
+  background-color: var(--accent2);
+}
+
+::selection {
+  background-color: var(--accent2);
+}
