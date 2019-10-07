@@ -55,3 +55,75 @@ body
 
 ::selection
     background-color: v(accent2)
+
+p
+    margin: 0 0 1.2rem
+    line-height: 1.4
+
+a, button
+    display: inline
+    color: v(accent)
+    text-decoration: none
+    background: none
+    border: none
+    outline: none !important
+    cursor: pointer
+    font: inherit
+
+    &:hover
+        text-decoration: underline
+
+    &.external,
+    &[href^="mailto:"]
+        &:not(.no_img)::after
+            display: inline-block
+            +size(1em)
+            font: normal normal 400 .85em / 1 "icomoon"
+            speak: none
+            vertical-align: middle
+            padding-left: .25em
+            margin-top: -.3em
+
+    &.external:not(.no_img)::after
+        content: "\0020\e900"
+
+    &[href^="mailto:"]:not(.no_img)::after
+        content: "\0020\0902"
+
+    &.btn
+        background-color: v(pirate-purple)
+        color: #fff
+        padding: .6rem .8rem
+        border-radius: .2em
+        box-shadow: 0px 2px 3px #0004
+        transition: all .25s ease-out
+        text-transform: uppercase
+
+        &:hover
+            background-color: #fff
+            color: v(pirate-purple)
+            text-decoration: none
+            transition-timing-function: ease-in
+
+        &.btn_readmore
+            background-color: v(accent)
+            text-transform: none
+
+            &:hover
+                background-color: #fff
+                color: v(accent)
+
+ul.no_bullets
+    list-style: none
+    padding-left: 0
+
+img
+    max-width: 100%
+
+#container
+    flex: 1 0 auto
+    padding: calc(#{v(page-padding)} + #{v(header-height)}) v(page-padding) v(page-padding)
+    display: grid
+    grid: auto / 3fr 1fr
+    grid-column-gap: 2rem
+    

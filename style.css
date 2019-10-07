@@ -62,3 +62,78 @@ body {
 ::selection {
   background-color: var(--accent2);
 }
+
+p {
+  margin: 0 0 1.2rem;
+  line-height: 1.4;
+}
+
+a, button {
+  display: inline;
+  color: var(--accent);
+  text-decoration: none;
+  background: none;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  font: inherit;
+}
+a:hover, button:hover {
+  text-decoration: underline;
+}
+a.external:not(.no_img)::after, a[href^="mailto:"]:not(.no_img)::after, button.external:not(.no_img)::after, button[href^="mailto:"]:not(.no_img)::after {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font: normal normal 400 0.85em/1 "icomoon";
+  speak: none;
+  vertical-align: middle;
+  padding-left: 0.25em;
+  margin-top: -0.3em;
+}
+a.external:not(.no_img)::after, button.external:not(.no_img)::after {
+  content: " ";
+}
+a[href^="mailto:"]:not(.no_img)::after, button[href^="mailto:"]:not(.no_img)::after {
+  content: " ं";
+}
+a.btn, button.btn {
+  background-color: var(--pirate-purple);
+  color: #fff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.2em;
+  box-shadow: 0px 2px 3px #0004;
+  transition: all 0.25s ease-out;
+  text-transform: uppercase;
+}
+a.btn:hover, button.btn:hover {
+  background-color: #fff;
+  color: var(--pirate-purple);
+  text-decoration: none;
+  transition-timing-function: ease-in;
+}
+a.btn.btn_readmore, button.btn.btn_readmore {
+  background-color: var(--accent);
+  text-transform: none;
+}
+a.btn.btn_readmore:hover, button.btn.btn_readmore:hover {
+  background-color: #fff;
+  color: var(--accent);
+}
+
+ul.no_bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+#container {
+  flex: 1 0 auto;
+  padding: calc(var(--page-padding) + var(--header-height)) var(--page-padding) var(--page-padding);
+  display: grid;
+  grid: auto/3fr 1fr;
+  grid-column-gap: 2rem;
+}
