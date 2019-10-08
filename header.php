@@ -47,6 +47,6 @@
 <body class="<?php echo get_post_type(); if (is_admin_bar_showing()) { echo ' admin'; } ?>">
     <header id="site_header">
         <a href="<?php echo is_front_page() ? '#' : site_url(''); ?>"><img src="<?php echo get_theme_file_uri('/img/logotype_black.svg'); ?>" alt="<?php echo bloginfo('title'); ?>"></a>
-        <?php // NAVBAR ?>
+        <?php include 'partials/navbar.php' ?>
     </header>
     <div id="container">
