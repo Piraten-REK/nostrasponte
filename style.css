@@ -30,9 +30,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0
   --light_blue: #53bccf;
   --pirate-orange: #ff8800;
   --pirate-puple: #652480;
-  --dark: v(dracula);
-  --accent: v(orange);
-  --accent2: v(light_orange);
+  --dark: var(--dracula);
+  --accent: var(--orange);
+  --accent2: var(--light_orange);
   --page-padding: 5vw;
   --header-height: 80px;
   font-family: var(--font);
@@ -84,25 +84,8 @@ a, button {
   cursor: pointer;
   font: inherit;
 }
-a:hover, button:hover {
+a:hover, #site_nav a#site_nav_toggle.open, button:hover, #site_nav button#site_nav_toggle.open {
   text-decoration: underline;
-}
-a::after, button::after {
-  content: " ";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  font: normal normal 400 0.85em/1 "icomoon";
-  speak: none;
-  vertical-align: middle;
-  padding-left: 0.25em;
-  margin-top: -0.3em;
-}
-a[href^="mailto:"]::after, button[href^="mailto:"]::after {
-  content: " ं";
-}
-a[href^="#"]::after, a[href="/"]::after, a[href*="//www.piratenpartei-rhein-erft.de"]::after, a[href*="//piratenpartei-rhein-erft.de"]::after, a[href*="//www.rhein-erft-piraten.de"]::after, a[href*="rhein-erft-piraten.de"]::after, a[href*="//127.0.0.1"]::after, a[href*="//localhost"]::after, a[href*="//192.168."]::after, a.no_img::after, button[href^="#"]::after, button[href="/"]::after, button[href*="//www.piratenpartei-rhein-erft.de"]::after, button[href*="//piratenpartei-rhein-erft.de"]::after, button[href*="//www.rhein-erft-piraten.de"]::after, button[href*="rhein-erft-piraten.de"]::after, button[href*="//127.0.0.1"]::after, button[href*="//localhost"]::after, button[href*="//192.168."]::after, button.no_img::after {
-  content: none;
 }
 a.btn, button.btn {
   background-color: var(--pirate-purple);
@@ -113,7 +96,7 @@ a.btn, button.btn {
   transition: all 0.25s ease-out;
   text-transform: uppercase;
 }
-a.btn:hover, button.btn:hover {
+a.btn:hover, #site_nav a.btn#site_nav_toggle.open, button.btn:hover, #site_nav button.btn#site_nav_toggle.open {
   background-color: #fff;
   color: var(--pirate-purple);
   text-decoration: none;
@@ -123,9 +106,27 @@ a.btn.btn_readmore, button.btn.btn_readmore {
   background-color: var(--accent);
   text-transform: none;
 }
-a.btn.btn_readmore:hover, button.btn.btn_readmore:hover {
+a.btn.btn_readmore:hover, #site_nav a.btn.btn_readmore#site_nav_toggle.open, button.btn.btn_readmore:hover, #site_nav button.btn.btn_readmore#site_nav_toggle.open {
   background-color: #fff;
   color: var(--accent);
+}
+
+a::after {
+  content: " ";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font: normal normal 400 0.85em/1 "icomoon";
+  speak: none;
+  vertical-align: middle;
+  padding-left: 0.25em;
+  margin-top: -0.3em;
+}
+a[href^="mailto:"]::after {
+  content: " ं";
+}
+a[href^="#"]::after, a[href="/"]::after, a[href*="//www.piratenpartei-rhein-erft.de"]::after, a[href*="//piratenpartei-rhein-erft.de"]::after, a[href*="//www.rhein-erft-piraten.de"]::after, a[href*="rhein-erft-piraten.de"]::after, a[href*="//127.0.0.1"]::after, a[href*="//localhost"]::after, a[href*="//192.168."]::after, a.no_img::after {
+  content: none;
 }
 
 ul.no_bullets {
@@ -139,8 +140,189 @@ img {
 
 #container {
   flex: 1 0 auto;
-  padding: calc(var(--page-padding) + var(--header-height)) var(--page-padding) var(--page-padding);
+  padding: calc(var(--page-padding) + var(--header-height)) var(--page-padding) v(page-padding);
   display: grid;
   grid: auto/3fr 1fr;
   grid-column-gap: 2rem;
+}
+
+#site_header {
+  --header-padding: 10px;
+  --header-content: calc(var(--header-height) - var(--header-padding) *2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: var(--header-height);
+  padding: 0 var(--header-height);
+  filter: drop-shadow(0px 20x 3px #0003);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+#site_header h1 {
+  margin: 0;
+  padding: var(--header-padding) 0;
+  height: 100%;
+}
+#site_header img {
+  width: auto;
+  height: var(--header-content);
+  position: relative;
+  z-index: 100;
+}
+
+body.admin #site_header {
+  top: 32px;
+}
+
+#site_nav {
+  display: block;
+  height: 100%;
+  z-index: 99;
+}
+#site_nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#site_nav > ul > li {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+#site_nav > ul > li > a, #site_nav > ul > li > button {
+  display: inline-block;
+  height: 100%;
+  line-height: var(--header-content);
+  padding: var(--header-padding) calc(1rem + .3em);
+  cursor: pointer;
+  color: var(--dark-gray);
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+  font-weight: 500;
+  clip-path: polygon(1.5rem 0, 100% 0, calc(100% - 1.5rem) 100%, 0 100%);
+}
+#site_nav > ul > li:hover > a, #site_nav > ul > li#site_nav_toggle.open > a, #site_nav > ul > li:hover > button, #site_nav > ul > li#site_nav_toggle.open > button, #site_nav > ul > li:active > a, #site_nav > ul > li:active > button {
+  color: var(--accent);
+  background: var(--dark);
+  transition: color 0.25s ease-out, background 0.3s ease-out;
+  text-decoration: none;
+  outline: none;
+}
+#site_nav > ul > li.active > a, #site_nav > ul > li.active > button {
+  color: var(--accent2) !important;
+}
+#site_nav > ul > li:not(:last-child) {
+  margin-right: -1.3rem;
+}
+#site_nav > ul > li:not(:last-child)::after {
+  content: "/";
+  color: var(--gray);
+  font-weight: 500;
+  position: relative;
+  left: -0.75em;
+}
+#site_nav > ul > li > ul {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  background: var(--dark-gray);
+  height: auto;
+  min-width: 100%;
+}
+#site_nav > ul > li > ul li * {
+  display: block;
+  padding: 0.4em 0.8em;
+}
+#site_nav > ul > li > ul li:first-child * {
+  padding-top: 0.6em;
+}
+#site_nav > ul > li > ul li:last-child * {
+  padding-bottom: 0.6em;
+}
+#site_nav > ul > li > ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+#site_nav > ul > li > ul li a:hover, #site_nav > ul > li > ul li a#site_nav_toggle.open {
+  background: #fff3;
+}
+#site_nav > ul > li > ul li a.active {
+  color: var(--accent2);
+}
+#site_nav > ul > li > ul hr {
+  padding: 0 0.8em;
+}
+#site_nav > ul > li:hover > ul, #site_nav > ul > li#site_nav_toggle.open > ul, #site_nav > ul > li.open > ul {
+  display: block;
+}
+#site_nav #site_nav_toggle {
+  --toggle-color: var(--gray);
+  display: none;
+  width: 36px;
+  height: var(--header-content);
+  position: absolute;
+  top: var(--header-padding);
+  right: calc(var(--page-padding) - 5px);
+  padding: 0 5px;
+  cursor: pointer;
+}
+#site_nav #site_nav_toggle span {
+  background: var(--toggle-color);
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  top: calc(var(--header-content) / 2 - 2px);
+  right: 5px;
+  transition: all 0.25s ease-in-out;
+}
+#site_nav #site_nav_toggle span::before, #site_nav #site_nav_toggle span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  border-radius: 2px;
+  height: 4px;
+  background: var(--toggle-color);
+  transition: all 0.25s ease-in-out;
+  width: 26px;
+  top: -8px;
+}
+#site_nav #site_nav_toggle span::after {
+  width: 10px;
+  bottom: -8px;
+}
+#site_nav #site_nav_toggle:hover, #site_nav #site_nav_toggle.open {
+  --toggle-color: var(--dark-gray);
+}
+#site_nav #site_nav_toggle.open span {
+  background: transparent;
+}
+#site_nav #site_nav_toggle.open span::before, #site_nav #site_nav_toggle.open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+#site_nav #site_nav_toggle.open span::after {
+  width: 26px;
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#nav_helper {
+  display: none;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 98;
+  background: transparent;
 }

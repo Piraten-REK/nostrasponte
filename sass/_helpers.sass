@@ -1,6 +1,3 @@
-@function v($name)
-    @return unquote(var(--#{$name}))
-
 @mixin size($w, $h: $w)
     @if $w == null
         @error At least one value needed
@@ -8,3 +5,17 @@
         width: $w
         @if $h != null
             height: $h
+
+@mixin position($pos: null, $top: null, $right: null, $bottom: null, $left: null, $z: null)
+    @if ($pos != null)
+        position: $pos
+    @if ($top != null)
+        top: $top
+    @if ($right != null)
+        right: $right
+    @if ($bottom != null)
+        bottom: $bottom
+    @if ($left != null)
+        left: $left
+    @if ($z != null)
+        z-index: $z

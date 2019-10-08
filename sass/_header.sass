@@ -1,0 +1,172 @@
+#site_header
+    --header-padding: 10px
+    --header-content: calc(var(--header-height) - var(--header-padding) *2)
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: #fff
+    height: var(--header-height)
+    padding: 0 var(--header-height)
+    filter: drop-shadow(0px 20x 3px #0003)
+    +position(fixed, 0, 0, null, 0, 100)
+    
+    h1
+        margin: 0
+        padding: var(--header-padding) 0
+        height: 100%
+
+    img
+        +size(auto, var(--header-content))
+        +position(relative, null, null, null, null, 100)
+
+@at-root
+    body.admin #site_header
+        top: 32px
+
+    #site_nav
+        display: block
+        height: 100%
+        z-index: 99
+
+        ul
+            list-style: none
+            margin: 0
+            padding: 0
+            height: 100%
+
+        &> ul > li
+            display: inline-block
+            height: 100%
+            position: relative
+
+            &> a,
+            &> button
+                display: inline-block
+                height: 100%
+                line-height: var(--header-content)
+                padding: var(--header-padding) calc(1rem + .3em)
+                cursor: pointer
+                color: var(--dark-gray)
+                transition: all .3s ease-out
+                text-transform: uppercase
+                letter-spacing: 1pt
+                font-weight: 500
+                clip-path: polygon(1.5rem 0, 100% 0, calc(100% - 1.5rem) 100%, 0 100%)
+
+            &:hover,
+            &:active
+                &> a,
+                &> button
+                    color: var(--accent)
+                    background: var(--dark)
+                    transition: color .25s ease-out, background .3s ease-out
+                    text-decoration: none
+                    outline: none
+
+            &.active
+                &> a,
+                &> button
+                    color: var(--accent2) !important
+
+            &:not(:last-child)
+                margin-right: -1.3rem
+
+                &::after
+                    content: "\002f"
+                    color: var(--gray)
+                    font-weight: 500
+                    position: relative
+                    left: -.75em
+
+            &> ul
+                display: none
+                position: absolute
+                top: var(--header-height)
+                background: var(--dark-gray)
+                height: auto
+                min-width: 100%
+
+                li
+                    *
+                        display: block
+                        padding: .4em .8em
+
+                    &:first-child *
+                        padding-top: .6em
+
+                    &:last-child *
+                        padding-bottom: .6em
+
+                    a
+                        color: #fff
+                        text-decoration: none
+
+                        &:hover
+                            background: #fff3
+
+                        &.active
+                            color: var(--accent2)
+
+                hr
+                    padding: 0 .8em
+
+            &:hover,
+            &.open
+                &> ul
+                    display: block
+
+        #site_nav_toggle
+            --toggle-color: var(--gray)
+            display: none
+            +size(36px, var(--header-content))
+            +position(absolute, var(--header-padding), calc(var(--page-padding) - 5px))
+            padding: 0 5px
+            cursor: pointer
+
+            span
+                background: var(--toggle-color)
+                +size(18px, 4px)
+                border-radius: 2px
+                +position(absolute, calc(var(--header-content) / 2 - 2px), 5px)
+                transition: all .25s ease-in-out
+
+                &::before
+                    content: ""
+                    display: block
+                    position: absolute
+                    right: 0
+                    border-radius: 2px
+                    height: 4px
+                    background: var(--toggle-color)
+                    transition: all .25s ease-in-out
+                    width: 26px
+                    top: -8px
+
+                &::after
+                    @extend ::before
+                    width: 10px
+                    bottom: -8px
+
+            &:hover
+                --toggle-color: var(--dark-gray)
+
+            &.open
+                @extend :hover
+                
+                span
+                    background: transparent
+
+                    &::before
+                        top: 0
+                        transform: rotate(-45deg)
+
+                    &::after
+                        width: 26px
+                        bottom: 0
+                        transform: rotate(45deg)
+
+    #nav_helper
+        display: none
+        +size(100%, calc(100vh - var(--header-height)))
+        +position(fixed, var(--header-height), 0, 0, 0, 98)
+        background: transparent
