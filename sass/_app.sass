@@ -1,5 +1,11 @@
 @import 'helpers'
 
+@font-face 
+    font-family: "icomoon"
+    font-style: normal
+    font-weight: 400
+    src: url("./fonts/icomoon/icomoon.ttf?8zhr51") format("truetype"), url("./fonts/icomoon/icomoon.woff?8zhr51") format("woff"), url("./fonts/icomoon/icomoon.svg#icomoon") format("svg")
+
 \:root
     // FONT VARIABLES
     --font: Roboto, "Open Sans", "Helvetica Neue", Helvetica, Arial, "SF-Display", Ubuntu, sans-serif
@@ -72,23 +78,32 @@ a, button
 
     &:hover
         text-decoration: underline
-
-    &.external,
-    &[href^="mailto:"]
-        &:not(.no_img)::after
-            display: inline-block
-            +size(1em)
-            font: normal normal 400 .85em / 1 "icomoon"
-            speak: none
-            vertical-align: middle
-            padding-left: .25em
-            margin-top: -.3em
-
-    &.external:not(.no_img)::after
+    
+    &::after
         content: "\0020\e900"
+        display: inline-block
+        +size(1em)
+        font: normal normal 400 .85em / 1 "icomoon"
+        speak: none
+        vertical-align: middle
+        padding-left: .25em
+        margin-top: -.3em
 
-    &[href^="mailto:"]:not(.no_img)::after
+    &[href^="mailto:"]::after
         content: "\0020\0902"
+
+    &[href^="#"],
+    &[href="/"],
+    &[href*="//www.piratenpartei-rhein-erft.de"],
+    &[href*="//piratenpartei-rhein-erft.de"],
+    &[href*="//www.rhein-erft-piraten.de"],
+    &[href*="rhein-erft-piraten.de"],
+    &[href*="//127.0.0.1"],
+    &[href*="//localhost"],
+    &[href*="//192.168."],
+    &.no_img
+        &::after
+            content: none
 
     &.btn
         background-color: v(pirate-purple)

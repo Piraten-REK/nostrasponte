@@ -8,6 +8,12 @@ Version: 0.1.0
 License: GNU General Public License 3.0 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0
 */
+@font-face {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/icomoon/icomoon.ttf?8zhr51") format("truetype"), url("./fonts/icomoon/icomoon.woff?8zhr51") format("woff"), url("./fonts/icomoon/icomoon.svg#icomoon") format("svg");
+}
 :root {
   --font: Roboto, "Open Sans", "Helvetica Neue", Helvetica, Arial, "SF-Display", Ubuntu, sans-serif;
   --font-accent: "Roboto Slab", "Linux Libertine O", Gothic, Times, "Times New Roman", serif;
@@ -81,7 +87,8 @@ a, button {
 a:hover, button:hover {
   text-decoration: underline;
 }
-a.external:not(.no_img)::after, a[href^="mailto:"]:not(.no_img)::after, button.external:not(.no_img)::after, button[href^="mailto:"]:not(.no_img)::after {
+a::after, button::after {
+  content: " ";
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -91,11 +98,11 @@ a.external:not(.no_img)::after, a[href^="mailto:"]:not(.no_img)::after, button.e
   padding-left: 0.25em;
   margin-top: -0.3em;
 }
-a.external:not(.no_img)::after, button.external:not(.no_img)::after {
-  content: " ";
-}
-a[href^="mailto:"]:not(.no_img)::after, button[href^="mailto:"]:not(.no_img)::after {
+a[href^="mailto:"]::after, button[href^="mailto:"]::after {
   content: " ं";
+}
+a[href^="#"]::after, a[href="/"]::after, a[href*="//www.piratenpartei-rhein-erft.de"]::after, a[href*="//piratenpartei-rhein-erft.de"]::after, a[href*="//www.rhein-erft-piraten.de"]::after, a[href*="rhein-erft-piraten.de"]::after, a[href*="//127.0.0.1"]::after, a[href*="//localhost"]::after, a[href*="//192.168."]::after, a.no_img::after, button[href^="#"]::after, button[href="/"]::after, button[href*="//www.piratenpartei-rhein-erft.de"]::after, button[href*="//piratenpartei-rhein-erft.de"]::after, button[href*="//www.rhein-erft-piraten.de"]::after, button[href*="rhein-erft-piraten.de"]::after, button[href*="//127.0.0.1"]::after, button[href*="//localhost"]::after, button[href*="//192.168."]::after, button.no_img::after {
+  content: none;
 }
 a.btn, button.btn {
   background-color: var(--pirate-purple);
