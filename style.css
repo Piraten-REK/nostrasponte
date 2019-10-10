@@ -496,6 +496,63 @@ body.admin #site_header {
   animation-play-state: paused;
 }
 
+#sidebar {
+  grid-area: 2/2/3/3;
+}
+#sidebar section h2 {
+  margin: 3rem 0 0.3rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1pt;
+  color: #777;
+}
+#sidebar #search form {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+#sidebar #search form #s {
+  border-radius: 0.25rem;
+  background: #fff;
+  border: 2px solid #dadada;
+  outline: none;
+  color: var(--dark);
+  font-family: var(--font);
+  font-size: 1rem;
+  padding: 0.6rem 3.8rem 0.6rem 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+#sidebar #search form #searchsubmit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent2);
+  border: none;
+  outline: none;
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: block;
+  width: 3rem;
+  font-size: 1.25rem;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+#sidebar #search form #searchsubmit:hover, #sidebar #search form #searchsubmit:focus {
+  transition-timing-function: ease-in;
+  backgroud: var(--accent);
+}
+
 @keyframes wiggle {
   0%, 90%, 100% {
     transform: rotateZ(0);

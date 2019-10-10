@@ -14,4 +14,10 @@ while ($hero -> have_posts()): $hero -> the_post(); ?>
     <div class="btn_wrapper"><a href="<?php the_permalink(); ?>" class="btn btn_readmore" title="&bdquo;<?php echo the_title(); ?>&ldquo; weiterlesen">Weiterlesen</a></div>
 </section><?php endwhile; wp_reset_query(); ?>
 
-<?php get_footer(); ?>
+<main>
+</main>
+
+<?php 
+include('partials/sidebar.php');
+get_footer(); 
+?>
