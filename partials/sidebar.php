@@ -74,18 +74,19 @@ function shareLink($platform) {
             '12' => 'Dez'
         );
         $args = array(
-            'posts_per_page' => 5,
-            'post_type' => 'appointment',
-            'meta_key' => 'date',
-            'orderby' => 'meta_value',
-            'order' => 'DESC'
+            // 'posts_per_page' => 5,
+            'post_type' => 'calendar',
+            // 'meta_key' => 'date',
+            // 'orderby' => 'meta_value',
+            // 'order' => 'DESC'
         );
         $query = new WP_Query($args);
+        if ($query -> have_posts()) {
         while ($query -> have_posts()): $query -> the_post();
         [$y, $m, $d] = explode('-', get_field('date'));
         $M = $ms[$m] ?>
         <article data-year="<?php echo $y; ?>" data-month="<?php echo $m; ?>" data-day="<?php echo $d; ?>" data-time-start="<?php the_field('start'); ?>" data-time-end="<?php the_field('end'); ?>" title="<?php the_title(); ?>&#013;<?php echo "$d. $M. $y" . (get_field('start') ? ', ' . get_field('start') . (get_field('end') ? ' - ' . get_field('end') : '') . ' Uhr' : ''); ?>" class="calendar">
-            <a href="<?php the_permalik(); ?>">
+            <a href="<?php the_permalink(); ?>">
                 <header>
                     <p class="date"><span class="day"><?php echo (int) $d; ?></span><span class="month"><?php echo $M; ?></span></p>
                     <h5><?php the_title(); ?></h5>
@@ -106,7 +107,7 @@ function shareLink($platform) {
                     <?php if (get_the_content() !== ''): ?><p class="text"><?php echo wp_trim_words(str_replace('&', '&amp;', get_the_content()), 30); ?></p><?php endif; ?>
                 </div>
             </a>
-    </article><?php endwhile; wp_reset_query(); ?>
-    <a href="<?php echo site_url('termine'); ?>" class="showmore" alt="Alle Termine anzeigen">alle Termine anzeigen</a>
+        </article><?php endwhile; } else { echo "No appointments found!"; } wp_reset_query(); ?>
+        <a href="<?php echo site_url('termine'); ?>" class="showmore" alt="Alle Termine anzeigen">alle Termine anzeigen</a>
     </section>
 </aside>
