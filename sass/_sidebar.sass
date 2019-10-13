@@ -32,13 +32,7 @@
             background: var(--accent2)
             border: none
             outline: none
-            font-family: "icomoon" !important
-            speak: none
-            font-style: normal
-            font-weight: 400
-            font-variant: normal
-            text-transform: none
-            line-height: 1
+            +icomoon
             display: block
             width: 3rem
             font-size: 1.25rem
@@ -52,3 +46,135 @@
             &:focus
                 transition-timing-function: ease-in
                 backgroud: var(--accent)
+
+    // CALENDAR
+    #calendar
+        article
+            --calendar-height: 3rem
+            min-height: var(--calendar-height)
+            width: 100%
+
+            &:not(:last-child)
+                margin-bottom: 6pt
+
+            &> a
+                display: block
+                color: inherit
+                text-decoration: none
+                overflow: hidden
+                border-radius: .2em
+                position: relative
+
+                &:hover,
+                &:focus
+                    .more
+                        max-height: 1000pt
+
+                header
+                    position: relative
+                    z-index: 9
+                    background: var(--accent2)
+                    border-radius: .2em
+                    overflow: hidden
+                    height: var(--calendar-height)
+                    box-shadow: 0pt 2pt 3pt #0002
+
+                    .date
+                        +position(absolute, 0, null, 0, 0)
+                        width: 5rem
+                        margin: 0
+                        color: #fff
+                        background: var(--accent)
+                        clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%)
+                        text-align: center
+                        display: flex
+                        flex-direction: column
+                        justify-content: center
+                        align-items: center
+                        padding-right: .5rem
+
+                        .day
+                            font-size: 1.67rem
+                            font-weight: 700
+
+                        .month
+                            text-transform: uppercase
+
+                        span
+                            line-height: 1
+
+                    h5
+                        +position(absolute, 0, null, 0, 5rem)
+                        margin: 0
+                        padding: 0 1em
+                        line-height: var(--calendar-height)
+                        font-size: 1.35rem
+                        font-weight: 500
+                        color: #fff
+                        width: calc(100% - 5rem)
+                        overflow: hidden
+                        white-space: nowrap
+                        text-overflow: ellipsis
+                    
+                .more
+                    z-index: 8
+                    background: #fff
+                    border: 2px solid #dadada
+                    border-top: none
+                    border-radius: 0 0 .2em .2em
+                    color: var(--dark-gray)
+                    padding: 0 .8em
+                    margin-top: -.2em
+                    height: auto
+                    max-height: 0
+                    overflow: hidden
+                    transition: max-height 1s ease-in-out
+
+                    table
+                        width: 100%
+                        border-collapse: collapse
+
+                        th
+                            width: 2em
+
+                            &::before
+                                +icomoon
+
+                        .time th::before
+                            content: "\e907"
+
+                        .place th::before
+                            content: "\e908"
+
+                        tr:not(:last-child) > *
+                            padding-bottom: .3em
+                            border-bottom: 1pt solid #dadada
+
+                        tr:not(:first-child) > *
+                            padding-top: .3em
+
+                    .text
+                        padding: .6em .6em 0
+                        margin: .4em 0 0
+
+                    &> :first-child
+                        margin-top: 1em
+
+                    &> :last-child
+                        margin-bottom: .8em
+                        
+                    
+                &:first-child a header
+                    border-radius: .3em .3em .2em .2em
+
+                &:last-child a header
+                    border-radius: .2em .2em .3em .3em
+
+        a.showmore
+            color: #777
+            display: block
+            text-align: center
+            margin-top: .8rem
+
+        
+    

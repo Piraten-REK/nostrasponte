@@ -560,6 +560,143 @@ body.admin #site_header {
   transition-timing-function: ease-in;
   backgroud: var(--accent);
 }
+#sidebar #calendar article {
+  --calendar-height: 3rem;
+  min-height: var(--calendar-height);
+  width: 100%;
+}
+#sidebar #calendar article:not(:last-child) {
+  margin-bottom: 6pt;
+}
+#sidebar #calendar article > a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 0.2em;
+  position: relative;
+}
+#sidebar #calendar article > a:hover .more, #sidebar #calendar #site_nav article > a#site_nav_toggle.open .more, #site_nav #sidebar #calendar article > a#site_nav_toggle.open .more, #sidebar #calendar article > a:focus .more {
+  max-height: 1000pt;
+}
+#sidebar #calendar article > a header {
+  position: relative;
+  z-index: 9;
+  background: var(--accent2);
+  border-radius: 0.2em;
+  overflow: hidden;
+  height: var(--calendar-height);
+  box-shadow: 0pt 2pt 3pt #0002;
+}
+#sidebar #calendar article > a header .date {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5rem;
+  margin: 0;
+  color: #fff;
+  background: var(--accent);
+  clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0.5rem;
+}
+#sidebar #calendar article > a header .date .day {
+  font-size: 1.67rem;
+  font-weight: 700;
+}
+#sidebar #calendar article > a header .date .month {
+  text-transform: uppercase;
+}
+#sidebar #calendar article > a header .date span {
+  line-height: 1;
+}
+#sidebar #calendar article > a header h5 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 5rem;
+  margin: 0;
+  padding: 0 1em;
+  line-height: var(--calendar-height);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #fff;
+  width: calc(100% - 5rem);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#sidebar #calendar article > a .more {
+  z-index: 8;
+  background: #fff;
+  border: 2px solid #dadada;
+  border-top: none;
+  border-radius: 0 0 0.2em 0.2em;
+  color: var(--dark-gray);
+  padding: 0 0.8em;
+  margin-top: -0.2em;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
+}
+#sidebar #calendar article > a .more table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#sidebar #calendar article > a .more table th {
+  width: 2em;
+}
+#sidebar #calendar article > a .more table th::before {
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+}
+#sidebar #calendar article > a .more table .time th::before {
+  content: "";
+}
+#sidebar #calendar article > a .more table .place th::before {
+  content: "";
+}
+#sidebar #calendar article > a .more table tr:not(:last-child) > * {
+  padding-bottom: 0.3em;
+  border-bottom: 1pt solid #dadada;
+}
+#sidebar #calendar article > a .more table tr:not(:first-child) > * {
+  padding-top: 0.3em;
+}
+#sidebar #calendar article > a .more .text {
+  padding: 0.6em 0.6em 0;
+  margin: 0.4em 0 0;
+}
+#sidebar #calendar article > a .more > :first-child {
+  margin-top: 1em;
+}
+#sidebar #calendar article > a .more > :last-child {
+  margin-bottom: 0.8em;
+}
+#sidebar #calendar article > a:first-child a header {
+  border-radius: 0.3em 0.3em 0.2em 0.2em;
+}
+#sidebar #calendar article > a:last-child a header {
+  border-radius: 0.2em 0.2em 0.3em 0.3em;
+}
+#sidebar #calendar a.showmore {
+  color: #777;
+  display: block;
+  text-align: center;
+  margin-top: 0.8rem;
+}
 
 @keyframes wiggle {
   0%, 90%, 100% {
