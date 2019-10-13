@@ -116,9 +116,15 @@ a::after {
   display: inline-block;
   width: 1em;
   height: 1em;
-  font: normal normal 400 0.85em/1 "icomoon";
+  font-family: "icomoon" !important;
   speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
   vertical-align: middle;
+  font-size: 0.85em;
   padding-left: 0.25em;
   margin-top: -0.3em;
 }
@@ -462,6 +468,7 @@ body.admin #site_header {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  vertical-align: middle;
   vertical-align: baseline;
 }
 #hero .metadata > span .category::before, #hero .metadata > span #site_nav #site_nav_toggle span.category::after, #site_nav #site_nav_toggle #hero .metadata > span span.category::after {
@@ -539,6 +546,7 @@ body.admin #site_header {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  vertical-align: middle;
   display: block;
   width: 3rem;
   font-size: 1.25rem;
