@@ -32,7 +32,12 @@ function shareLink($platform) {
             <input id="searchsubmit" type="submit" value="&#xe909;" tabindex="-1">
         </form>
     </section>
-    <!-- ORT INFO -->
+    <?php if (has_category()): ?><section id="place">
+        <h2 title="" aria-label="">Ort</h2>
+        <?php foreach(get_the_category() as $cat): ?><article class="place-wrapper">
+            <?php echo $cat -> description; ?>
+        </article><?php endforeach; ?>
+    </section><?php endif; ?>
     <?php if (is_single()): ?><section id="share">
         <h2 title="Diesen Artikel teilen" aria-label="Diesen Artikel teilen">Teilen</h2>
         <ul>
