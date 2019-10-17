@@ -506,6 +506,101 @@ body.admin #site_header {
 main {
   grid-area: 2/1/3/2;
 }
+main #posts > .grid {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  align-items: start;
+}
+main #posts > .grid article.card {
+  border: 1px solid var(--light-gray);
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 3px #0002;
+  overflow: hidden;
+  background: #fff;
+}
+main #posts > .grid article.card .post_img {
+  width: 100%;
+  height: 0;
+  padding: 0 0 56.25%;
+  background: linear-gradient(to right bottom, var(--accent2), var(--accent)) center center/cover no-repeat;
+}
+main #posts > .grid article.card .post_img[style*="background-image:"] {
+  filter: brightness(0.8);
+}
+main #posts > .grid article.card header {
+  padding: 0.3rem 1.2rem;
+}
+main #posts > .grid article.card header .metadata {
+  font-size: 0.7em;
+  opacity: 0.6;
+  width: auto;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.2rem;
+  margin: 0 0 0.6rem;
+}
+main #posts > .grid article.card header .metadata span {
+  white-space: nowrap;
+}
+main #posts > .grid article.card header .metadata span::before, main #posts > .grid article.card header .metadata #site_nav #site_nav_toggle span::after, #site_nav #site_nav_toggle main #posts > .grid article.card header .metadata span::after {
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+}
+main #posts > .grid article.card header .metadata span.category {
+  margin-right: 0.6rem;
+}
+main #posts > .grid article.card header .metadata span.category::before, main #posts > .grid article.card header .metadata #site_nav #site_nav_toggle span.category::after, #site_nav #site_nav_toggle main #posts > .grid article.card header .metadata span.category::after {
+  content: " ";
+}
+main #posts > .grid article.card header .metadata span.date::before, main #posts > .grid article.card header .metadata #site_nav #site_nav_toggle span.date::after, #site_nav #site_nav_toggle main #posts > .grid article.card header .metadata span.date::after {
+  content: " ";
+}
+main #posts > .grid article.card header a {
+  color: inherit;
+}
+main #posts > .grid article.card header a:hover, main #posts > .grid article.card header #site_nav a#site_nav_toggle.open, #site_nav main #posts > .grid article.card header a#site_nav_toggle.open {
+  color: var(--accent);
+}
+main #posts > .grid article.card header h3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+main #posts > .grid article.card .excerpt {
+  margin: 0;
+  padding: 0 1.2rem;
+  font-size: 0.85rem;
+}
+main #posts > .grid article.card .btn.btn_readmore {
+  border-radius: 0;
+  box-shadow: none;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  backgrund: var(--accent);
+}
+main #posts > .grid article.card .btn.btn_readmore:hover, main #posts > .grid article.card #site_nav .btn.btn_readmore#site_nav_toggle.open, #site_nav main #posts > .grid article.card .btn.btn_readmore#site_nav_toggle.open {
+  background: var(--accent2);
+  color: #fff;
+}
+main #posts > .grid[data-count="1"], main #posts > .grid[data-count="2"] {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+main #posts > .grid[data-count="1"] article.card, main #posts > .grid[data-count="2"] article.card {
+  width: 33.333%;
+}
 
 #sidebar {
   grid-area: 2/2/3/3;
