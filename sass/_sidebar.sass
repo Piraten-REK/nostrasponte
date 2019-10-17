@@ -175,6 +175,80 @@
             display: block
             text-align: center
             margin-top: .8rem
-
         
-    
+    // SHARE
+    #share
+        ul
+            margin: 0
+            padding: 0
+            list-style: none
+            text-align: center
+            display: flex
+            justify-content: center
+            align-items: center
+
+            li
+                display: inline-block
+
+                &:not(:last-child)
+                    margin-right: 5px
+
+                a, button
+                    --social-button-height: 2.5rem
+                    padding: 0
+                    display: block
+                    width: var(--social-button-height)
+                    height: var(--social-button-height)
+                    background: var(--dark-gray)
+                    color: #fff
+                    border-radius: 50%
+                    transistion: transform .25s ease-in-out
+
+                    @mixin socialButton($pos)
+                        background: url("./img/social.svg") $pos 0% / auto 100% no-repeat
+
+                    &.twitter
+                        +socialButton(0%)
+
+                    &.facebook
+                        +socialButton(25%)
+
+                    &.reddit
+                        +socialButton(50%)
+
+                    &.whatsapp
+                        +socialButton(75%)
+
+                    &.telegram
+                        +socialButton(100%)
+
+                    &:hover,
+                    &:focus
+                        text-decoration: none
+                        transform: scale(1.1)
+
+                    &:not(.mail),
+                    &:not(.link)
+                        &::after
+                            content: none
+
+                    &.mail,
+                    &.link
+                        display: flex
+                        justify-content: center
+                        align-items: center
+
+                        &::after
+                            display: inline
+                            +icomoon
+                            font-size: calc(var(--social-button-height) * .6)
+                            margin: 0
+                            padding: 0
+
+                    &.mail
+                        &::after
+                            content: "\e902"
+
+                    &.link
+                        &::after
+                            content: "\e903"
