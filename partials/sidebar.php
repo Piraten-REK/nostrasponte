@@ -45,10 +45,10 @@ function shareLink($platform) {
             <li><button class="link" data-link="<?php the_permalink(); ?>" title="Link kopieren"></button></a>
         </ul>
     </section>
-    <section id="author">
+    <?php if (get_post_type() === 'post'): ?><section id="author">
         <h2>Der Autor</h2>
         <a class="author_avatar no_img" href="<?php the_author_url(); ?>">
-            <img src="<?php echo get_avatar_url(get_the_author_ID(), array('size'=>450)) ?>">
+            <img src="<?php echo get_avatar_url(get_the_author_ID()) !== "" ? get_avatar_url(get_the_author_ID(), array('size'=>450)) : get_theme_file_uri('img/default_avatar.jpg'); ?>">
         </a>
         <a class="author_name" href="<?php the_author_url(); ?>">
             <h3>
@@ -56,7 +56,8 @@ function shareLink($platform) {
                 <?php the_author_firstname(); ?> <?php the_author_lastname(); ?>
             </h3>
         </a>
-    </section><?php endif; ?>
+        <p class="author_bio"><?php the_author_description(); ?></p>
+    </section><?php endif; endif; ?>
     <section id="calendar">
         <h2 title="Unsere Termine" aria-label="Termine">Triff uns!</h2>
         <?php $ms = array(
