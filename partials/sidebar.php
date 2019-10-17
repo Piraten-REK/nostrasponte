@@ -74,11 +74,11 @@ function shareLink($platform) {
             '12' => 'Dez'
         );
         $args = array(
-            // 'posts_per_page' => 5,
+            'posts_per_page' => 5,
             'post_type' => 'calendar',
-            // 'meta_key' => 'date',
-            // 'orderby' => 'meta_value',
-            // 'order' => 'DESC'
+            'meta_key' => 'date',
+            'orderby' => 'meta_value',
+            'order' => 'DESC'
         );
         $query = new WP_Query($args);
         if ($query -> have_posts()) {
