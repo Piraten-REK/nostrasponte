@@ -32,12 +32,6 @@ function shareLink($platform) {
             <input id="searchsubmit" type="submit" value="&#xe909;" tabindex="-1">
         </form>
     </section>
-    <?php if (has_category()): ?><section id="place">
-        <h2 title="" aria-label="">Ort</h2>
-        <?php foreach(get_the_category() as $cat): ?><article class="place-wrapper">
-            <?php echo $cat -> description; ?>
-        </article><?php endforeach; ?>
-    </section><?php endif; ?>
     <?php if (is_single()): ?><section id="share">
         <h2 title="Diesen Artikel teilen" aria-label="Diesen Artikel teilen">Teilen</h2>
         <ul>
@@ -50,6 +44,12 @@ function shareLink($platform) {
             <li><button class="link" data-link="<?php the_permalink(); ?>" title="Link kopieren"></button></a>
         </ul>
     </section>
+    <?php if (has_category()): ?><section id="place">
+        <h2 title="" aria-label="">Ort</h2>
+        <?php foreach(get_the_category() as $cat): ?><article class="place-wrapper">
+            <?php echo $cat -> description; ?>
+        </article><?php endforeach; ?>
+    </section><?php endif; ?>
     <?php if (get_post_type() === 'post'): ?><section id="author">
         <h2>Der Autor</h2>
         <a class="author_avatar no_img" href="<?php the_author_url(); ?>">
