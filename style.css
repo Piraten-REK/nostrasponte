@@ -50,6 +50,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0
 html, body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -58,7 +59,6 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: var(--lynx_white);
-  scroll-behavior: smooth;
 }
 
 ::-moz-selection {
@@ -213,7 +213,7 @@ body.admin #site_header {
   font-weight: 500;
   clip-path: polygon(1.5rem 0, 100% 0, calc(100% - 1.5rem) 100%, 0 100%);
 }
-#site_nav > ul > li:hover > a, #site_nav > ul > li#site_nav_toggle.open > a, #site_nav > ul > li:hover > button, #site_nav > ul > li#site_nav_toggle.open > button, #site_nav > ul > li:active > a, #site_nav > ul > li:active > button {
+#site_nav > ul > li:hover > a, #site_nav > ul > li#site_nav_toggle.open > a, #site_nav > ul > li:hover > button, #site_nav > ul > li#site_nav_toggle.open > button, #site_nav > ul > li:active > a, #site_nav > ul > li:active > button, #site_nav > ul > li.open > a, #site_nav > ul > li.open > button {
   color: var(--accent);
   background: var(--dark);
   transition: color 0.25s ease-out, background 0.3s ease-out;
@@ -503,6 +503,10 @@ body.admin #site_header {
   animation-play-state: paused;
 }
 
+main {
+  grid-area: 2/1/3/2;
+}
+
 #sidebar {
   grid-area: 2/2/3/3;
 }
@@ -530,6 +534,9 @@ body.admin #site_header {
   padding: 0.6rem 3.8rem 0.6rem 0.8rem;
   width: 100%;
   box-sizing: border-box;
+}
+#sidebar #search form #s:hover, #sidebar #search form #s:focus, #sidebar #search form #s:active {
+  box-shadow: 0px 0px 3px var(--accent);
 }
 #sidebar #search form #searchsubmit {
   position: absolute;
@@ -696,6 +703,131 @@ body.admin #site_header {
   display: block;
   text-align: center;
   margin-top: 0.8rem;
+}
+#sidebar #share ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sidebar #share ul li {
+  display: inline-block;
+}
+#sidebar #share ul li:not(:last-child) {
+  margin-right: 5px;
+}
+#sidebar #share ul li a, #sidebar #share ul li button {
+  --social-button-height: 2.5rem;
+  padding: 0;
+  display: block;
+  width: var(--social-button-height);
+  height: var(--social-button-height);
+  background: var(--dark-gray);
+  color: #fff;
+  border-radius: 50%;
+  transistion: transform 0.25s ease-in-out;
+}
+#sidebar #share ul li a.twitter, #sidebar #share ul li button.twitter {
+  background: url("./img/social.svg") 0% 0%/auto 100% no-repeat;
+}
+#sidebar #share ul li a.facebook, #sidebar #share ul li button.facebook {
+  background: url("./img/social.svg") 25% 0%/auto 100% no-repeat;
+}
+#sidebar #share ul li a.reddit, #sidebar #share ul li button.reddit {
+  background: url("./img/social.svg") 50% 0%/auto 100% no-repeat;
+}
+#sidebar #share ul li a.whatsapp, #sidebar #share ul li button.whatsapp {
+  background: url("./img/social.svg") 75% 0%/auto 100% no-repeat;
+}
+#sidebar #share ul li a.telegram, #sidebar #share ul li button.telegram {
+  background: url("./img/social.svg") 100% 0%/auto 100% no-repeat;
+}
+#sidebar #share ul li a:hover, #sidebar #share ul li #site_nav a#site_nav_toggle.open, #site_nav #sidebar #share ul li a#site_nav_toggle.open, #sidebar #share ul li a:focus, #sidebar #share ul li button:hover, #sidebar #share ul li #site_nav button#site_nav_toggle.open, #site_nav #sidebar #share ul li button#site_nav_toggle.open, #sidebar #share ul li button:focus {
+  text-decoration: none;
+  transform: scale(1.1);
+}
+#sidebar #share ul li a:not(.mail)::after, #sidebar #share ul li a:not(.link)::after, #sidebar #share ul li button:not(.mail)::after, #sidebar #share ul li button:not(.link)::after {
+  content: none;
+}
+#sidebar #share ul li a.mail, #sidebar #share ul li a.link, #sidebar #share ul li button.mail, #sidebar #share ul li button.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sidebar #share ul li a.mail::after, #sidebar #share ul li a.link::after, #sidebar #share ul li button.mail::after, #sidebar #share ul li button.link::after {
+  display: inline;
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  font-size: calc(var(--social-button-height) * .6);
+  margin: 0;
+  padding: 0;
+}
+#sidebar #share ul li a.mail::after, #sidebar #share ul li button.mail::after {
+  content: "";
+}
+#sidebar #share ul li a.link::after, #sidebar #share ul li button.link::after {
+  content: "";
+}
+#sidebar #author {
+  display: grid;
+  grid: auto auto auto/1fr 3fr;
+  grid-column-gap: 1.4rem;
+}
+#sidebar #author h2 {
+  grid-area: 1/1/2/3;
+}
+#sidebar #author .author_avatar {
+  grid-area: 2/1/4/2;
+}
+#sidebar #author .author_avatar img {
+  width: 100%;
+  height: auto;
+  background: var(--gray);
+  border-radius: 50%;
+}
+#sidebar #author .author_avatar img:hover, #sidebar #author .author_avatar #site_nav img#site_nav_toggle.open, #site_nav #sidebar #author .author_avatar img#site_nav_toggle.open, #sidebar #author .author_avatar img:active {
+  box-shadow: 0px 0px 3px var(--accent);
+}
+#sidebar #author .author_name {
+  grid-area: 2/2/3/3;
+  color: var(--dark);
+  text-decoration: none;
+}
+#sidebar #author .author_name:hover, #sidebar #author #site_nav .author_name#site_nav_toggle.open, #site_nav #sidebar #author .author_name#site_nav_toggle.open {
+  color: var(--accent);
+}
+#sidebar #author .author_name:hover h3 span, #sidebar #author #site_nav .author_name#site_nav_toggle.open h3 span, #site_nav #sidebar #author .author_name#site_nav_toggle.open h3 span {
+  color: var(--accent2);
+}
+#sidebar #author .author_name::after {
+  content: none;
+}
+#sidebar #author .author_name h3 {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+#sidebar #author .author_name h3 span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--gray);
+}
+#sidebar #author .author_bio {
+  grid-area: 3/2/4/3;
+}
+#sidebar #author .author_bio p {
+  margin: 0;
 }
 
 @keyframes wiggle {
