@@ -51,14 +51,16 @@
             padding-bottom: .2em
             margin-bottom: .3em
 
-            span::before
+            span::before,
+            time::before
                 +icomoon
                 vertical-align: baseline
 
             .category::before
                 content: "\e908\0020"
 
-            .date
+            .date,
+            time
                 margin-left: .6rem
 
                 &::before
