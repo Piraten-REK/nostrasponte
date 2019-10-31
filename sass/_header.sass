@@ -7,7 +7,7 @@
     background-color: #fff
     height: var(--header-height)
     padding: 0 var(--header-height)
-    filter: drop-shadow(0px 20x 3px #0003)
+    filter: drop-shadow(0px 20px 3px #0003)
     +position(fixed, 0, 0, null, 0, 100)
     
     h1
@@ -116,58 +116,172 @@
                 &> ul
                     display: block
 
-        #site_nav_toggle
-            --toggle-color: var(--gray)
-            display: none
-            +size(36px, var(--header-content))
-            +position(absolute, var(--header-padding), calc(var(--page-padding) - 5px))
-            padding: 0 5px
-            cursor: pointer
+    #site_nav_toggle
+        --toggle-color: var(--gray)
+        display: none
+        +size(36px, var(--header-content))
+        +position(absolute, var(--header-padding), null, null, calc(var(--page-padding) - 5px))
+        padding: 0 5px
+        cursor: pointer
 
-            span
-                background: var(--toggle-color)
-                +size(18px, 4px)
+        span
+            background: var(--toggle-color)
+            +size(18px, 4px)
+            border-radius: 2px
+            +position(absolute, calc(var(--header-content) / 2 - 2px), null, null, 5px)
+            transition: all .25s ease-in-out
+
+            &::before
+                content: ""
+                display: block
+                position: absolute
+                left: 0
                 border-radius: 2px
-                +position(absolute, calc(var(--header-content) / 2 - 2px), 5px)
+                height: 4px
+                background: var(--toggle-color)
                 transition: all .25s ease-in-out
+                width: 26px
+                top: -8px
+
+            &::after
+                @extend ::before
+                width: 10px
+                top: unset
+                bottom: -8px
+
+        &:hover
+            --toggle-color: var(--dark-gray)
+
+        &.open
+            @extend :hover
+            
+            span
+                background: transparent
 
                 &::before
-                    content: ""
-                    display: block
-                    position: absolute
-                    right: 0
-                    border-radius: 2px
-                    height: 4px
-                    background: var(--toggle-color)
-                    transition: all .25s ease-in-out
-                    width: 26px
-                    top: -8px
+                    top: 0
+                    transform: rotate(45deg)
 
                 &::after
-                    @extend ::before
-                    width: 10px
-                    bottom: -8px
-
-            &:hover
-                --toggle-color: var(--dark-gray)
-
-            &.open
-                @extend :hover
-                
-                span
-                    background: transparent
-
-                    &::before
-                        top: 0
-                        transform: rotate(-45deg)
-
-                    &::after
-                        width: 26px
-                        bottom: 0
-                        transform: rotate(45deg)
+                    width: 26px
+                    bottom: 0
+                    transform: rotate(-45deg)
 
     #nav_helper
         display: none
         +size(100%, calc(100vh - var(--header-height)))
         +position(fixed, var(--header-height), 0, 0, 0, 98)
         background: transparent
+
+@media (max-width: 930px)
+    #site_header
+        justify-content: center
+
+        #site_nav
+            display: none
+            +position(absolute, var(--header-height))
+            background: var(--dark)
+            +size(100%, calc(var(--header-height) * .8))
+            text-align: center
+            transition: all 300ms ease-in-out
+            transform: rotateX(90deg)
+            transform-origin: center top
+
+            &> ul > li
+                &> a,
+                &> button
+                    line-height: calc(var(--header-height) * .8)
+                    padding: 0 1.3rem
+                    color: #fff
+
+                &:hover
+                    &> a,
+                    &> button
+                        background: #fff3
+
+                &> ul
+                    text-align: left
+                    top: calc(var(--header-height) * .8)
+        
+        #site_nav_toggle.open ~ #site_nav
+            display: block
+            animation: open_nav_h .3s ease-in-out 0s 1 normal forwards
+
+        #site_nav_toggle
+            display: block
+
+@media (max-width: 630px)
+    \:root
+        --header-height: 60px
+        
+    #site_header
+        #site_nav
+            display: block
+            +size(80%, calc(100vh - var(--header-height)))
+            left: 0
+            padding: 1em var(--page-padding)
+            overflow: hidden auto
+
+            transform: translateX(calc(-100% - 50px))
+
+            &> ul > li
+                display: block
+                height: auto
+                text-align: left
+
+
+                &> a,
+                &> button
+                    display: inline-block
+                    +size(100%)
+                    line-height: 1
+                    padding: var(--header-padding) 0
+                    text-align: left
+                    clip-path: none
+
+                    &:hover
+                        background: #fff3
+
+                &:hover
+                    &> a,
+                    &> button
+                        background: unset
+
+                &:not(:last-child)::after
+                    content: ""
+                    display: block
+                    margin: .5rem 0
+                    padding: 0
+                    +size(100%, 4px)
+                    background: var(--gray)
+
+                &> ul
+                    display: block
+                    position: static
+                    background: none
+
+                    li
+                        a
+                            padding: .2em .3em
+                            white-space: auto
+
+                    hr
+                        margin: .3em 0 .2em
+                        padding: 0
+                        width: 33.33333%
+
+        #site_nav_toggle.open
+            &~ #site_nav
+                animation-name: open_nav_v
+                transform-origin: left center
+
+            &~ #nav_helper
+                display: block
+                transition: all .3s ease-out
+                background: #0007
+
+        img
+            +size(var(--header-height))
+            object-fit: cover
+            object-position: left top
+            margin-top: 20px
