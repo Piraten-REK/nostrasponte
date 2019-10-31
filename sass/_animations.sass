@@ -5,3 +5,15 @@
         transform: rotateZ(3deg)
     95%
         transform: rotateZ(-3deg)
+
+@keyframes openToast
+    from
+        transform: translateX(calc(100% + 2rem + 3px))
+    to
+        transform: translateX(0)
+
+@keyframes closeToast
+    from
+        transform: translateX(0)
+    to
+        transform: translateX(calc(100% + 2rem + 3px))
