@@ -89,3 +89,33 @@ main
 
                 article.card
                     width: 33.333%
+
+        #pagination
+            text-algin: center
+            margin-top: 2rem
+
+            .page-numbers
+                color: #fff
+                text-decoration: none
+                display: inline-block
+                padding: .25em .45em
+                background: var(--accent)
+
+                &.current,
+                &:hover,
+                &:active
+                    background: var(--accent2)
+
+                &.next
+                    clip-path: polygon(0 0, calc(100% - .5em) 0, 100% 50%, calc(100% - .5em) 100%, 0 100%)
+                    padding-right: .9em
+            
+                &.prev
+                    clip-path: polygon(.5em 0, 100% 0, 100% 100%, .5em 100%, 0 50%)
+                    padding-left: .9em
+
+                &:not(.prev):first-child
+                    border-radius: .3em 0 0 .3em
+
+                &:not(.next):last-child
+                    border-radius: 0 .3em .3em 0
