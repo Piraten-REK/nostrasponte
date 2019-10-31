@@ -3,7 +3,7 @@
 function getShareLink($platform) {
     switch (strtolower($platform)) {
         case 'twitter':
-            return 'https://twitter.com/tweet/intent?text=' . urlencode(get_the_title()) . '&url=' . urlencode(get_the_permalink()) . '&via=P1R4T3N';
+            return 'https://twitter.com/intent/tweet?text=' . urlencode(get_the_title()) . '&url=' . urlencode(get_the_permalink()) . '&via=P1R4T3N';
         case 'facebook':
             return 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode(get_the_permalink()) . (has_post_thumbnail() ? '&picture=' . urlencode(get_the_post_thumbnail_url()) : (has_site_icon() ? '&picture=' . urlencode(get_site_icon_url()) : '')) . '&title=' . urlencode(get_the_title()) . '&description=' . urlencode(wp_trim_words(get_the_excerpt(), 12, '…')) . '&caption=' . urlencode(get_bloginfo('title'));
         case 'reddit':
@@ -13,7 +13,7 @@ function getShareLink($platform) {
         case 'telegram':
             return 'https://telegram.me/share/url?url=' . urlencode(get_the_permalink()) . '&text=' . urlencode(get_the_title() . ' – ' . get_bloginfo('title'));
         case 'mail':
-            return 'mailto:info@piratenpartei-rhein-erft.de?subject=' . urlencode(get_the_title() . ' – ' . get_bloginfo('title')) . '&body=' . urlencode(get_the_title() . ' auf der Website der ' . get_bloginfo('title') . "\n\n" . get_the_permalink()); 
+            return 'mailto:info@piratenpartei-rhein-erft.de?subject=' . rawurlencode(get_the_title() . ' – ' . get_bloginfo('title')) . '&body=' . rawurlencode(get_the_title() . ' auf der Website der ' . get_bloginfo('title') . "\n\n" . get_the_permalink()); 
         default:
             throw new Error();
     }
@@ -28,8 +28,8 @@ function shareLink($platform) {
     <section id="search">
         <h2 title="Seite dursuchen" aria-label="Suchen">Suche</h2>
         <form action="<?php echo site_url(''); ?>" role="search" method="get">
-            <input id="s" type="search" value="<?php if (is_search()) { echo $_GET['s']; } ?>" placeholder="Suche" name="s">
             <input id="searchsubmit" type="submit" value="&#xe909;" tabindex="-1">
+            <input id="s" type="search" value="<?php if (is_search()) { echo $_GET['s']; } ?>" placeholder="Suche" name="s">
         </form>
     </section>
     <?php if (is_single()): ?><section id="share">
@@ -45,9 +45,11 @@ function shareLink($platform) {
         </ul>
     </section>
     <?php if (has_category()): ?><section id="place">
-        <h2 title="" aria-label="">Ort</h2>
         <?php foreach(get_the_category() as $cat): ?><article class="place-wrapper">
-            <?php echo $cat -> description; ?>
+            <h2>Piraten <?php echo $cat -> name; ?></h2>
+            <div>
+                <?php echo $cat -> description; ?>
+            </div>
         </article><?php endforeach; ?>
     </section><?php endif; ?>
     <?php if (get_post_type() === 'post'): ?><section id="author">
