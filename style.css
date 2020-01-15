@@ -211,6 +211,10 @@ img {
   max-width: 100%;
 }
 
+figure {
+  margin: 0;
+}
+
 span.pre {
   display: inline-block;
   margin: 0;
