@@ -7,5 +7,5 @@
     <?php the_content(); ?>
 </main><?php endwhile; ?>
 
-<?php include('sidebar.php');
+<?php include('partials/sidebar.php');
 get_footer(); ?>
