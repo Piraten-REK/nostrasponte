@@ -946,6 +946,9 @@ main #posts > .grid article.card header h3 {
   margin: 0;
   font-weight: 400;
   font-size: 1.25rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 main #posts > .grid article.card .excerpt {
   margin: 0;
