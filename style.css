@@ -644,7 +644,7 @@ body.admin #site_header {
   border-top: 5px solid #ffffff42;
 }
 #site_footer h3 {
-  margin: 0 0 1.4rem;
+  margin: 0;
   font-weight: 400;
 }
 #site_footer h3 ~ * {
