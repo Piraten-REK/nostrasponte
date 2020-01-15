@@ -896,6 +896,8 @@ main #posts > .grid article.card .post_img:not([style*="background-image:"]) {
 }
 main #posts > .grid article.card .post_img[style*="background-image:"] {
   filter: brightness(0.8);
+  background-position: center center;
+  background-size: cover;
 }
 main #posts > .grid article.card header {
   padding: 0.3rem 1.2rem;
