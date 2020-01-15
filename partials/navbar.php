@@ -34,7 +34,7 @@ function checkPages($arr) {
         </li><li <?php setActive(checkPages(array('standpunkte', 'vorstand', 'piraten'))); ?>> <!-- Partei -->
             <button>Politik</button>
             <ul>
-                <li><a href="<?php echo site_url('wer-wir-sind'); ?>" <?php setActive(is_page('wer-wir-sind')); ?>>Warum?</a></li>
+                <li><a href="<?php echo site_url('warum'); ?>" <?php setActive(is_page('wer-wir-sind')); ?>>Warum?</a></li>
                 <?php /* <li><a href="<?php echo site_url('vorstand'); ?>" <?php setActive(is_page('vorstand')); ?>>Wahlprogramm</a></li> */ ?>
                 <!-- <li><a href="<?php echo site_url('piraten'); ?>" <?php setActive(is_page('piraten')); ?>>Piraten im Kreis</a></li> -->
             </ul>
