@@ -40,7 +40,7 @@ function checkPages($arr) {
             <button>Mitmachen</button>
             <ul>
                 <li><a href="<?php echo site_url('termine') ?>" <?php setActive(is_page('termine')) ?>>Triff uns!</a></li>
-                <li><a href="https://mitglieder.piratenpartei.de">Werde Pirat!</a></li>
+                <li><a href="https://mitglieder.piratenpartei.de" target="_blank">Werde Pirat!</a></li>
                 <li><a href="<?php echo site_url('spenden') ?>" <?php setActive(is_page('spenden')) ?>>Spenden</a></li>
                 <li><a href="<?php echo site_url('kontakt') ?>" <?php setActive(is_page('kontakt')) ?>>Kontakt</a></li>
                 <hr>
