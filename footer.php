@@ -3,9 +3,10 @@
         <div>
             <h3>Social Media</h3>
             <ul class="no_bullets">
-                <li><a target="_blank" href="https://instagram.com/piratenpartei_rheinerft">Instagram</a></li>
+                <li><a target="_blank" href="https://instagram.com/piraten_rhein_erft">Instagram</a></li>
                 <li><a target="_blank" href="https://facebook.com/PiratenRheinErft">Facebook</a></li>
-                <li><a target="_blank" href="https://twitter.com/P1R4T3N">Twitter</a></li>
+                <li><a target="_blank" href="https://twitter.com/Piraten_REK">Twitter</a></li>
+                <li><a target="_blank" href="https://chat.whatsapp.com/JW7V1YCXVC20iVgfA9mkW8">WhatsApp</a></li>
                 <li><a href="https://discord.gg/ZJFQVcj" target="_blank" title="Discord-Server der Piratenpartei Deutschland">Discord</a></li>
             </ul>
         </div>
@@ -16,7 +17,7 @@
                 <li><a href="https://piratenpartei.de">Piratenpartei Deutschland</a></li>
                 <li><a target="_self" href="https://wiki.piratenpartei.de/NRW:Rhein-Erft-Kreis">Piraten Wiki</a></li>
                 <li><a href="<?php echo site_url('impressum') ?>">Impressum</a></li>
-                <li><a href="<?php echo site_url('datenschutzerklärung') ?>">Datenschutz</a></li>
+                <li><a href="<?php echo site_url('datenschutzerklaerung') ?>">Datenschutz</a></li>
             </ul>
         </div>
         <div id="license">

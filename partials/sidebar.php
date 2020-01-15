@@ -3,7 +3,7 @@
 function getShareLink($platform) {
     switch (strtolower($platform)) {
         case 'twitter':
-            return 'https://twitter.com/intent/tweet?text=' . urlencode(get_the_title()) . '&url=' . urlencode(get_the_permalink()) . '&via=P1R4T3N';
+            return 'https://twitter.com/intent/tweet?text=' . urlencode(get_the_title()) . '&url=' . urlencode(get_the_permalink()) . '&via=Piraten_REK';
         case 'facebook':
             return 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode(get_the_permalink()) . (has_post_thumbnail() ? '&picture=' . urlencode(get_the_post_thumbnail_url()) : (has_site_icon() ? '&picture=' . urlencode(get_site_icon_url()) : '')) . '&title=' . urlencode(get_the_title()) . '&description=' . urlencode(wp_trim_words(get_the_excerpt(), 12, '…')) . '&caption=' . urlencode(get_bloginfo('title'));
         case 'reddit':
@@ -34,15 +34,18 @@ function shareLink($platform) {
     </section>
     <?php if (is_single()): ?><section id="share">
         <h2 title="Diesen Artikel teilen" aria-label="Diesen Artikel teilen">Teilen</h2>
-        <ul>
-            <li><a class="twitter" href="<?php shareLink('twitter'); ?>" target="_blank" title="twittern"></a></li>
-            <li><a class="facebook" href="<?php shareLink('facebook'); ?>" target="_blank" title="auf Facebook posten"></a></li>
-            <li><a class="reddit" href="<?php shareLink('reddit'); ?>" target="_blank" title="auf Reddit posten"></a></li>
-            <li><a class="whatsapp" href="<?php shareLink('whatsapp'); ?>" target="_blank" title="per WhatsApp verschiken"></a></li>
-            <li><a class="telegram" href="<?php shareLink('telegram'); ?>" target="_blank" title="per Telegram verschicken"></a></li>
-            <li><a class="mail" href="<?php shareLink('mail'); ?>" title="per Mail verschicken"></a></li>
-            <li><button class="link" data-link="<?php the_permalink(); ?>" title="Link kopieren"></button></a>
-        </ul>
+        <div class="wrapper">
+            <ul>
+                <li><a class="twitter" href="<?php shareLink('twitter'); ?>" target="_blank" title="twittern"></a></li>
+                <li><a class="facebook" href="<?php shareLink('facebook'); ?>" target="_blank" title="auf Facebook posten"></a></li>
+                <li><a class="reddit" href="<?php shareLink('reddit'); ?>" target="_blank" title="auf Reddit posten"></a></li>
+                <li><a class="whatsapp" href="<?php shareLink('whatsapp'); ?>" target="_blank" title="per WhatsApp verschiken"></a></li>
+                <li><a class="telegram" href="<?php shareLink('telegram'); ?>" target="_blank" title="per Telegram verschicken"></a></li>
+            </ul><ul>
+                <li><a class="mail" href="<?php shareLink('mail'); ?>" title="per Mail verschicken"></a></li>
+                <li><button class="link" data-link="<?php the_permalink(); ?>" title="Link kopieren"></button></a>
+            </ul>
+        </div>
     </section>
     <?php if (has_category()): ?><section id="place">
         <?php foreach(get_the_category() as $cat): ?><article class="place-wrapper">
@@ -59,12 +62,18 @@ function shareLink($platform) {
         </a>
         <a class="author_name" href="<?php the_author_url(); ?>">
             <h3>
-                <span>@<?php the_author_nickname(); ?></span>
-                <?php the_author_firstname(); ?> <?php the_author_lastname(); ?>
+                <span>@<?php the_author_meta('nickname'); ?></span>
+                <?php the_author_meta('first_name'); ?> <?php the_author_meta('last_name'); ?>
             </h3>
         </a>
-        <p class="author_bio"><?php the_author_description(); ?></p>
-    </section><?php endif; endif; ?>
+        <p class="author_bio"><?php the_author_meta('description'); ?></p>
+    </section>
+    <?php if (get_the_tags()): ?><section id="tags">
+        <h2>Themen</h2>
+        <ul>
+            <?php foreach(get_the_tags() as $tag): ?><li><a href="<?php echo get_tag_link($tag -> term_id); ?>" title="Thema <?php echo $tag -> name; ?>"><?php echo $tag -> name; ?></a></li><?php endforeach; ?>
+        </ul>
+    </section><?php endif; endif; endif; ?>
     <section id="calendar">
         <h2 title="Unsere Termine" aria-label="Termine">Triff uns!</h2>
         <?php $ms = array(
@@ -108,14 +117,14 @@ function shareLink($platform) {
                             </tr><?php endif; ?>
                             <tr class="place">
                                 <th></th>
-                                <td><?php echo get_field('mumble') ? 'Mumble Server der Piratenpartei NRW<br><a href="mumble://">Link zum Mumble</a>' : preg_replace("/<br ?\/?>\r?\n?/", ', ', get_field('place')) ?></td>
+                                <td><?php switch(get_field('mumble-discord')) { case 'mumble': echo '<a href="mumble://">Mumble Server der Piratenpartei NRW</a>'; break; case 'discord': echo '<a href="">Discord-Server der Piratenpartei Rhein-Erft</a>'; break; default: echo preg_replace("/<br ?\/?>\r?\n?/", ', ', get_field('place')); } ?></td>
                             </tr>
                         </tbody>
                     </table>
                     <?php if (get_the_content() !== ''): ?><p class="text"><?php echo wp_trim_words(str_replace('&', '&amp;', get_the_content()), 30); ?></p><?php endif; ?>
                 </div>
             </a>
-        </article><?php endwhile; } else { echo "No appointments found!"; } wp_reset_query(); ?>
+        </article><?php endwhile; } else { echo "Keine Termine gefunden!"; } wp_reset_query(); ?>
         <a href="<?php echo site_url('termine'); ?>" class="showmore" alt="Alle Termine anzeigen">alle Termine anzeigen</a>
     </section>
 </aside>

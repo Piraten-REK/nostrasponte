@@ -75,7 +75,8 @@ a, button
         text-decoration: underline
 
     &.btn
-        background-color: var(--pirate-purple)
+        display: inline-block
+        background-color: var(--accent)
         color: #fff
         padding: .6rem .8rem
         border-radius: .2em
@@ -85,17 +86,13 @@ a, button
 
         &:hover
             background-color: #fff
-            color: var(--pirate-purple)
+            color: var(--accent)
             text-decoration: none
             transition-timing-function: ease-in
 
-        &.btn_readmore
-            background-color: var(--accent)
-            text-transform: none
-
-            &:hover
-                background-color: #fff
-                color: var(--accent)
+        &.btn_secondary
+            background-color: #fff
+            color: var(--accent)
 
 a
     &::after
@@ -116,6 +113,9 @@ a
     &[href*="//piratenpartei-rhein-erft.de"],
     &[href*="//www.rhein-erft-piraten.de"],
     &[href*="rhein-erft-piraten.de"],
+    &[href*="piraten-rek.de"],
+    &[href*="//www.piraten-rek.de"],
+    &[href*="//black-pearl.piraten-rek.de"],
     &[href*="//127.0.0.1"],
     &[href*="//localhost"],
     &[href*="//192.168."],
@@ -130,6 +130,11 @@ ul.no_bullets
 img
     max-width: 100%
 
+span.pre
+    display: inline-block
+    margin: 0
+    font: normal normal 400 1em/1 monospace
+
 #container
     flex: 1 0 auto
     padding: calc(var(--page-padding) + var(--header-height)) var(--page-padding) var(--page-padding)
@@ -139,12 +144,85 @@ img
 
     @media (max-width: 1419px)
         grid-template-columns: 2fr 1fr
+
+    #post_header
+        grid-area: 1 / 1 / 2 / 3
+        height: 25vh
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        align-items: flex-start
+        margin: calc(var(--page-padding) * -1) calc(var(--page-padding) * -1) calc(var(--page-padding) * .5)
+        padding: calc(var(--page-padding) * .5) var(--page-padding)
+        position: relative
+
+        &[style*="background-image:"]
+            background: center center / cover no-repeat
+
+            &::before
+                content: ""
+                display: block
+                +size(100%)
+                +position(absolute, 0, 0, 0, 0)
+                z-index: 9
+                background: linear-gradient(to top, #0004 0%, transparent 60%) center center / cover no-repeat
+
+        &:not([style*="background-image:"])
+            background: linear-gradient(to right bottom, var(--light_orange), var(--orange)) center center / cover no-repeat, url("./img/anchors.svg") top -10% left -10% / 3rem auto repeat, linear-gradient(to top, #0004 0%, transparent 60%) center center / cover no-repeat
+            background-blend-mode: overlay
+
+        .metadata
+            font-size: .7rem
+            width: auto
+            border-bottom: 1px solid #fffa
+            padding-bottom: .2rem
+            margin: 0 0 .6rem
+            color: #fffa
+            display: inline-block
+            position: relative
+            z-index: 10
+
+            span, time
+                white-space: nowrap
+
+                &::before
+                    +icomoon
+                    vertical-align: baseline
+                    font-size: .7rem
+
+                &.category
+                    margin-right: .6rem
+
+                    &::before
+                        content: "\e908\0020"
+
+                &.date::before
+                    content: "\e906\0020"
+
+        a
+            color: inherit
+
+            &:hover
+                color: #fff
+
+        h2
+            color: #fff
+            margin: 0
+            position: relative
+            z-index: 10
+
+        @media (max-width: 819px)
+            grid-area: 1 / 1 / 2 / 3
+
+
     
 @import 'header'
 @import 'footer'
 @import 'hero'
 @import 'main'
 @import 'sidebar'
+@import '404'
+@import 'search'
 @import 'toast'
 
 @import 'animations'

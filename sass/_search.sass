@@ -1,0 +1,23 @@
+body.search #container
+    &> header
+        margin-bottom: 1.2rem
+        grid-area: 1 / 1 / 2 / 2
+
+        @media (max-width: 819px)
+            grid-area: 1 / 1 / 2 / 3
+
+        p
+            margin: 0
+        h2
+            font-size: 2rem
+            margin: 0
+            text-transform: uppercase
+
+            &::before
+                content: "\201e"
+            
+            &::after
+                content: "\201c"
+
+    #sidebar
+        grid-area: 1 / 2 / 3 / 3

@@ -1,13 +1,18 @@
 #sidebar
     grid-area: 2 / 2 / 3 / 3
 
-    section h2
-        margin: 3rem 0 .3rem
-        font-size: 1rem
-        text-transform: uppercase
-        font-weight: 700
-        letter-spacing: 1pt
-        color: #777
+    section
+        h2
+            margin: 3rem 0 .3rem
+            font-size: 1rem
+            text-transform: uppercase
+            font-weight: 700
+            letter-spacing: 1pt
+            color: #777
+
+        &:first-child h2
+            margin-top: 0
+
 
     // SEARCH
     #search form
@@ -50,7 +55,7 @@
             &:hover,
             &:focus
                 transition-timing-function: ease-in
-                backgroud: var(--accent)
+                background: var(--accent)
 
                 &~ #s
                     box-shadow: 0px 0px 3px var(--accent)
@@ -187,80 +192,97 @@
         
     // SHARE
     #share
-        ul
-            margin: 0
-            padding: 0
-            list-style: none
-            text-align: center
+        .wrapper
             display: flex
             justify-content: center
             align-items: center
 
-            li
-                display: inline-block
+            @media (max-width: 420px)
+                flex-direction: column
 
-                &:not(:last-child)
+            ul
+                margin: 0
+                padding: 0
+                list-style: none
+                text-align: center
+                display: flex
+                justify-content: center
+                align-items: center
+
+                @media (max-width: 420px)
+                    &:last-child
+                        margin-top: 5px
+
+                &:first-of-type
                     margin-right: 5px
 
-                a, button
-                    --social-button-height: 2.5rem
-                    padding: 0
-                    display: block
-                    width: var(--social-button-height)
-                    height: var(--social-button-height)
-                    background: var(--dark-gray)
-                    color: #fff
-                    border-radius: 50%
-                    transistion: transform .25s ease-in-out
+                li
+                    display: inline-block
 
-                    @mixin socialButton($pos)
-                        background: url("./img/social.svg") $pos 0% / auto 100% no-repeat
+                    &:not(:last-child)
+                        margin-right: 5px
 
-                    &.twitter
-                        +socialButton(0%)
+                    
 
-                    &.facebook
-                        +socialButton(25%)
+                    a, button
+                        --social-button-height: 2.5rem
+                        padding: 0
+                        display: block
+                        width: var(--social-button-height)
+                        height: var(--social-button-height)
+                        background: var(--dark-gray)
+                        color: #fff
+                        border-radius: 50%
+                        transistion: transform .25s ease-in-out
 
-                    &.reddit
-                        +socialButton(50%)
+                        @mixin socialButton($pos)
+                            background: url("./img/social.svg") $pos 0% / auto 100% no-repeat
 
-                    &.whatsapp
-                        +socialButton(75%)
+                        &.twitter
+                            +socialButton(0%)
 
-                    &.telegram
-                        +socialButton(100%)
+                        &.facebook
+                            +socialButton(25%)
 
-                    &:hover,
-                    &:focus
-                        text-decoration: none
-                        transform: scale(1.1)
+                        &.reddit
+                            +socialButton(50%)
 
-                    &:not(.mail),
-                    &:not(.link)
-                        &::after
-                            content: none
+                        &.whatsapp
+                            +socialButton(75%)
 
-                    &.mail,
-                    &.link
-                        display: flex
-                        justify-content: center
-                        align-items: center
+                        &.telegram
+                            +socialButton(100%)
 
-                        &::after
-                            display: inline
-                            +icomoon
-                            font-size: calc(var(--social-button-height) * .6)
-                            margin: 0
-                            padding: 0
+                        &:hover,
+                        &:focus
+                            text-decoration: none
+                            transform: scale(1.1)
 
-                    &.mail
-                        &::after
-                            content: "\e902"
+                        &:not(.mail),
+                        &:not(.link)
+                            &::after
+                                content: none
 
-                    &.link
-                        &::after
-                            content: "\e903"
+                        &.mail,
+                        &.link
+                            display: flex
+                            justify-content: center
+                            align-items: center
+
+                            &::after
+                                display: inline
+                                +icomoon
+                                font-size: calc(var(--social-button-height) * .6)
+                                margin: 0
+                                padding: 0
+
+                        &.mail
+                            &::after
+                                content: "\e902"
+
+                        &.link
+                            &::after
+                                content: "\e903"
 
     // AUTHOR
     #author
@@ -288,6 +310,9 @@
             color: var(--dark)
             text-decoration: none
 
+            @media (max-width: 819px)
+                color: #fff
+
             &:hover
                 color: var(--accent)
 
@@ -309,18 +334,53 @@
                     font-weight: 400
                     color: var(--gray)
 
-
+                    @media (max-width: 819px)
+                        color: rgba(#fff, .6)
 
         .author_bio
             grid-area: 3 / 2 / 4 / 3
 
+            @media (max-width: 819px)
+                color: #fff
+
             p
                 margin: 0
 
+    // ORT
+    #place
+        @media (max-width: 819px)
+            color: #fff
+
+    // Themen
+    #tags
+        ul
+            margin: 0
+            padding: 0
+            list-style: none
+
+            li
+                margin: 0
+                padding: 0 0 0 1em
+                position: relative
+
+                &::before
+                    content: ""
+                    display: block
+                    +size(.3em)
+                    +position(absolute, .5em, null, null, 0)
+                    background: var(--dark)
+
+                a
+                    color: inherit
+
+                    &:hover
+                        color: var(--accent)
+                        text-decoration: none
+
     @media (max-width: 819px)
-        grid-area: 2 / 1 / 3 / 3
+        grid-area: 3 / 1 / 4 / 3 !important
         background-color: var(--light-gray)
-        margin: 0 calc(-1 * var(--page-padding)) calc(-1 * var(--page-padding))
+        margin: var(--page-padding) calc(-1 * var(--page-padding)) calc(-1 * var(--page-padding))
         padding: var(--page-padding)
 
         section
