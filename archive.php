@@ -35,7 +35,7 @@ get_header(); ?>
                         <span class="category"><?php the_category(' &bull; '); ?></span>
                         <time datetime="<?php the_date('Y-m-d'); ?>" class="date"><?php echo get_the_date('d') . '. ' . $months[get_the_date('n')] . ' ' . get_the_date('Y'); ?></time>
                     </p>
-                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                    <h3 title="<?php the_title(); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 </header>
                 <p class="excerpt"><?php echo wp_trim_words(get_the_excerpt(), 18, '&hellip;'); ?></p>
                 <a href="<?php the_permalink(); ?>" class="btn btn_readmore" title="&bdquo;<?php the_title(); ?>&ldquo; weiterlesen">Weiterlesen</a>
