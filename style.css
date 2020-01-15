@@ -193,13 +193,12 @@ a::after {
   line-height: 1;
   vertical-align: middle;
   font-size: 0.85em;
-  padding-left: 0.25em;
   margin-top: -0.3em;
 }
 a[href^="mailto:"]::after {
-  content: " ं";
+  content: " ं";
 }
-a[href^="#"]::after, a[href="/"]::after, a[href*="//www.piratenpartei-rhein-erft.de"]::after, a[href*="//piratenpartei-rhein-erft.de"]::after, a[href*="//www.rhein-erft-piraten.de"]::after, a[href*="rhein-erft-piraten.de"]::after, a[href*="piraten-rek.de"]::after, a[href*="//www.piraten-rek.de"]::after, a[href*="//black-pearl.piraten-rek.de"]::after, a[href*="//127.0.0.1"]::after, a[href*="//localhost"]::after, a[href*="//192.168."]::after, a.no_img::after {
+a[href^="#"]::after, a[href="/"]::after, a[href*="//www.piratenpartei-rhein-erft.de"]::after, a[href*="//piratenpartei-rhein-erft.de"]::after, a[href*="//www.rhein-erft-piraten.de"]::after, a[href*="rhein-erft-piraten.de"]::after, a[href*="piraten-rek.de"]::after, a[href*="//www.piraten-rek.de"]::after, a[href*="//black-pearl.piraten-rhein-erft.de"]::after, a[href*="//127.0.0.1"]::after, a[href*="//localhost"]::after, a[href*="//192.168."]::after, a.no_img::after {
   content: none;
 }
 
