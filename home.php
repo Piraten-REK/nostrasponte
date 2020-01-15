@@ -2,7 +2,7 @@
 <main><?php
     $curPage = get_query_var('paged');
     $args = array(
-        'posts_per_page' => 1,
+        'posts_per_page' => 6,
         'paged' => $curPage
     );
     $posts = new WP_Query($args); ?>

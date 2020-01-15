@@ -15,7 +15,7 @@
 function pp_archive_per_page($query) {
     if (is_tax('category')) {
         $curPage = get_query_var('paged');
-        $query -> set('posts_per_page', 5);
+        $query -> set('posts_per_page', 6);
         $query -> set('post_type', 'appointment');
         $query -> set('meta_key', 'date');
         $query -> set('orderby', 'meta_value');
