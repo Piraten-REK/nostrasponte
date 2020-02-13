@@ -1,0 +1,23 @@
+@mixin size($w, $h: $w) {
+  @if $w == null {
+    @error At east one value needed;
+  } @else {
+    width: $w;
+    @if $h != null {
+      height: $h;
+    }
+  }
+}
+
+@mixin icomoon() {
+  font: {
+    style: normal;
+    variant: normal;
+    weight: 400;
+    family: "icomoon" !important;
+  }
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  vertical-align: middle;
+}

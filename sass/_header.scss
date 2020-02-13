@@ -1,0 +1,147 @@
+#site_header {
+  $headerPadding: 10pt;
+  $headerContent: #{$headerHeight - $headerPadding * 2};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  height: $headerHeight;
+  padding: 0 calc(50% - #{$pageWidth / 2} + #{$pagePadding});
+  filter: drop-shadow(0 2pt 3pt #0003);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+
+  h1 {
+    margin: 0;
+    padding: $headerPadding 0;
+    height: 100%;
+  }
+
+  img {
+    @include size(auto, $headerContent);
+    position: relative;
+    z-index: 100;
+  }
+
+  #site_nav {
+    display: block;
+    height: 100%;
+    z-index: 99;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    & > ul > li {
+      display: inline-block;
+      height: 100%;
+      position: relative;
+
+      & > a,
+      & > button {
+        display: inline-block;
+        height: 100%;
+        line-height: $headerContent;
+        padding: $headerPadding calc(1rem + .3em);
+        cursor: pointer;
+        color: $dark-gray;
+        transition: all .3s ease-out;
+        text-transform: uppercase;
+        letter-spacing: 1pt;
+        font-weight: 500;
+        clip-path: polygon(1.5rem 0, 100% 0, calc(100% - 1.5rem) 100%, 0 100%);
+      }
+
+      &:hover,
+      &:active,
+      &.open {
+        & > a,
+        & > button {
+          color: $accent;
+          background: $dark;
+          transition: color .25s ease-out, background .3s ease-out;
+          text-decoration: underline;
+          outline: none;
+        }
+      }
+
+      &.active {
+        & > a,
+        & > button {
+          color: $accent2 !important;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: -1.3rem;
+
+        &::after {
+          content: "\002f";
+          color: $dark;
+          font-weight: 500;
+          position: relative;
+          left: -.75rem;
+        }
+      }
+
+      & > ul {
+        display: none;
+        position: absolute;
+        top: $headerHeight;
+        background: $dark-gray;
+        height: auto;
+        min-width: 100%;
+
+        li {
+          * {
+            display: block;
+            padding: .4em .8em;
+          }
+
+          &:first-child * {
+            padding-top: .6em;
+          }
+
+          &:last-child * {
+            padding-bottom: .6em;
+          }
+
+          a {
+            color: #fff;
+            text-decoration: none;
+
+            &:hover {
+              background: #fff3;
+            }
+
+            &.active {
+              color: $accent2;
+            }
+          }
+        }
+
+        hr {
+          padding: 0 .8em;
+        }
+      }
+      &:hover,
+      &.open {
+        & > ul {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@at-root {
+  body.admin #site_header {
+    top: 32px;
+  }
+}

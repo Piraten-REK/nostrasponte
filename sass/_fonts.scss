@@ -1,0 +1,36 @@
+@mixin roboto($name) {
+  @font-face {
+    font-family: "Roboto";
+    @if str-index($name, "Italic") == null {
+      font-style: normal;
+    } @else {
+      font-style: italic;
+    }
+    @if str-index($name, "Black") != null {
+      font-weight: 900;
+    } @else if str-index($name, "Bold") != null {
+      font-weight: 700;
+    } @else if str-index($name, "Light") != null {
+      font-weight: 300;
+    } @else if str-index($name, "Medium") != null {
+      font-weight: 500;
+    } @else if str-index($name, "Thin") != null {
+      font-weight: 200;
+    } @else {
+      font-weight: 400;
+    }
+    src: local("Roboto-#{$name}"), url("./fonts/roboto/Roboto-#{$name}.ttf") format("truetype");
+  }
+}
+
+@each $type in ("Regular", "Italic", "Medium", "MediumItalic", "Bold", "BoldItalic", "Black", "BlackItalic", "Light", "LightItalic", "Thin", "ThinItalic") {
+  @include roboto($type);
+}
+
+// icomoon
+@font-face {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/icomoon/icomoon.ttf?8zhr51") format("truetype"), url("./fonts/icomoon/icomoon.woff?8zhr51") format("woff"), url("./fonts/icomoon/icomoon.svg#icomoon") format("svg");
+}
