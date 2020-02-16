@@ -1,0 +1,70 @@
+@use 'config';
+
+section {
+  h2 {
+    margin: 3rem 0 .3rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1pt;
+    color: config.$gray;
+  }
+
+  &:first-child h2 {
+    margin-top: 0;
+  }
+}
+
+// Search
+#search form {
+  width: 100%;
+  display: block;
+  position: relative;
+
+  #s {
+    border-radius: .25rem;
+    background: #fff;
+    border: 1pt solid config.$light-gray;
+    outline: none !important;
+    color: config.$dark;
+    font: normal normal 400 1rem/1 config.$font;
+    padding: .6rem 3.8rem .6rem .8rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: 0 0 3pt config.$accent;
+    }
+  }
+
+  #searchsubmit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: config.$accent2;
+    border: none;
+    outline: none;
+    @include config.icomoon;
+    display: block;
+    width: 3rem;
+    font-size: 1.25rem;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: all .25s ease-out;
+    border-radius: 0 .25rem .25rem 0;
+
+    &:hover,
+    &:focus {
+      transition-timing-function: ease-in;
+      background: config.$accent;
+
+      & ~ #s {
+        box-shadow: 0 0 3pt config.$accent;
+      }
+    }
+  }
+}

@@ -1,8 +1,10 @@
+@use 'config';
+
 #site_footer {
-  background: $dark;
+  background: config.$dark;
   color: #fff;
-  margin: 0 calc(50% - #{$pageWidth / 2});
-  padding: #{$pagePadding / 2} $pagePadding;
+  margin: 0 calc(50% - #{config.$pageWidth / 2});
+  padding: #{config.$pagePadding / 2} config.$pagePadding;
   font-weight: 300;
   @include containerShadow();
   display: flex;
@@ -54,7 +56,7 @@
       &:hover,
       &:active,
       &:focus {
-        color: $accent;
+        color: config.$accent;
         text-decoration: none;
       }
     }
@@ -69,7 +71,8 @@
     position: fixed;
     bottom: 3vmin;
     right: 3vmin;
-    @include size(3rem);
+    width: 3em;
+    height: 3em;
     font-size: 1.5rem;
     text-align: center;
     font-weight: 400;
@@ -85,13 +88,13 @@
 
     &::before {
       content: "\e90b";
-      @include icomoon();
+      @include config.icomoon();
     }
 
     &:hover,
     &:active,
     &:focus {
-      background: $accent2;
+      background: config.$accent2;
       color: #fff;
       text-decoration: none;
       transition-timing-function: ease-out;
