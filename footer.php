@@ -30,7 +30,7 @@
             <span>&copy;&nbsp;<?php echo date('Y'); ?></span>
             <span>Piratenpartei&nbsp;Deutschland Kreisverband&nbsp;Rhein-Erft</span>
         </div>
-        <button id="btn_up" title="Nach oben" onclick="window.scrollTo(window.scrollX, 0)">&uarr;</button>
+        <button id="btn_up" title="Nach oben" onclick="window.scrollTo(window.scrollX, 0)"></button>
     </footer>
     <?php wp_footer(); ?>
 </body>

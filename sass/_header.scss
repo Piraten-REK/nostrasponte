@@ -1,5 +1,5 @@
 #site_header {
-  $headerPadding: 10pt;
+  $headerPadding: 7pt;
   $headerContent: #{$headerHeight - $headerPadding * 2};
   display: flex;
   justify-content: space-between;
@@ -7,7 +7,7 @@
   background: #fff;
   height: $headerHeight;
   padding: 0 calc(50% - #{$pageWidth / 2} + #{$pagePadding});
-  filter: drop-shadow(0 2pt 3pt #0003);
+  filter: drop-shadow(0 2pt 3pt rgba(#000, .2));
   position: fixed;
   top: 0;
   right: 0;
@@ -16,12 +16,12 @@
 
   h1 {
     margin: 0;
-    padding: $headerPadding 0;
+    padding: #{$headerPadding / 2} 0;
     height: 100%;
   }
 
   img {
-    @include size(auto, $headerContent);
+    @include size(auto, #{$headerHeight - $headerPadding});
     position: relative;
     z-index: 100;
   }
@@ -66,7 +66,7 @@
           color: $accent;
           background: $dark;
           transition: color .25s ease-out, background .3s ease-out;
-          text-decoration: underline;
+          text-decoration: none;
           outline: none;
         }
       }

@@ -8,7 +8,11 @@ $accent: $orange;
 $accent2: $light-orange;
 $pagePadding: 2.5rem;
 $pageWidth: 1200px;
-$headerHeight: 80px;
+$headerHeight: 50pt;
+
+@mixin containerShadow() {
+  box-shadow: 0 5pt 5pt rgba(#000, .3);
+}
 
 :root {
   font-family: $font;
@@ -35,7 +39,7 @@ body {
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background-color: $lynx_white;
+  background: url("./img/anchors_white.svg") top center / 5rem auto repeat fixed darken($lynx_white, 3);
 }
 
 ::-moz-selection {
@@ -143,7 +147,9 @@ span.pre {
   max-width: $pageWidth;
   margin: 0 auto;
   padding: calc(#{$pagePadding} + #{$headerHeight}) $pagePadding $pagePadding;
-
+  background: #fff;
+  @include containerShadow();
 }
 
 @import 'header';
+@import 'footer';

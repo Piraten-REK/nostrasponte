@@ -73,7 +73,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0
   font-family: "icomoon";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/icomoon/icomoon.ttf?8zhr51") format("truetype"), url("./fonts/icomoon/icomoon.woff?8zhr51") format("woff"), url("./fonts/icomoon/icomoon.svg#icomoon") format("svg"); }
+  font-display: block;
+  src: url("./fonts/icomoon/icomoon.eot?iqvg9c");
+  src: url("./fonts/icomoon/icomoon.eot?iqvg9c#iefix") format("embedded-opentype"), url("./fonts/icomoon/icomoon.ttf?iqvg9c") format("truetype"), url("./fonts/icomoon/icomoon.woff?iqvg9c") format("woff"), url("./fonts/icomoon/icomoon.svg?iqvg9c#icomoon") format("svg"); }
 :root {
   font-family: Roboto, "Open Sans", "Helveticva Neue", Helvetica, Arial, "SF-Display", Ubuntu, sans-serif;
   font-size: 14pt;
@@ -95,7 +97,7 @@ body {
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background-color: #f5f6f6; }
+  background: url("./img/anchors_white.svg") top center/5rem auto repeat fixed #edefef; }
 
 ::-moz-selection {
   background-color: #ffaf40; }
@@ -176,16 +178,18 @@ span.pre {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: calc(2.5rem + 80px) 2.5rem 2.5rem; }
+  padding: calc(2.5rem + 50pt) 2.5rem 2.5rem;
+  background: #fff;
+  box-shadow: 0 5pt 5pt rgba(0, 0, 0, 0.3); }
 
 #site_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  height: 80px;
+  height: 50pt;
   padding: 0 calc(50% - 600px + 2.5rem);
-  filter: drop-shadow(0 2pt 3pt #0003);
+  filter: drop-shadow(0 2pt 3pt rgba(0, 0, 0, 0.2));
   position: fixed;
   top: 0;
   right: 0;
@@ -193,11 +197,11 @@ span.pre {
   z-index: 100; }
   #site_header h1 {
     margin: 0;
-    padding: 10pt 0;
+    padding: 3.5pt 0;
     height: 100%; }
   #site_header img {
     width: auto;
-    height: 53.3333333333px;
+    height: 43pt;
     position: relative;
     z-index: 100; }
   #site_header #site_nav {
@@ -216,8 +220,8 @@ span.pre {
       #site_header #site_nav > ul > li > a, #site_header #site_nav > ul > li > button {
         display: inline-block;
         height: 100%;
-        line-height: 53.3333333333px;
-        padding: 10pt calc(1rem + .3em);
+        line-height: 36pt;
+        padding: 7pt calc(1rem + .3em);
         cursor: pointer;
         color: #343434;
         transition: all .3s ease-out;
@@ -229,7 +233,7 @@ span.pre {
         color: #fd8625;
         background: #2d3436;
         transition: color .25s ease-out, background .3s ease-out;
-        text-decoration: underline;
+        text-decoration: none;
         outline: none; }
       #site_header #site_nav > ul > li.active > a, #site_header #site_nav > ul > li.active > button {
         color: #ffaf40 !important; }
@@ -244,7 +248,7 @@ span.pre {
       #site_header #site_nav > ul > li > ul {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 50pt;
         background: #343434;
         height: auto;
         min-width: 100%; }
@@ -269,5 +273,81 @@ span.pre {
 
 body.admin #site_header {
   top: 32px; }
+#site_footer {
+  background: #2d3436;
+  color: #fff;
+  margin: 0 calc(50% - 600px);
+  padding: 1.25rem 2.5rem;
+  font-weight: 300;
+  box-shadow: 0 5pt 5pt rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start; }
+  #site_footer > div:nth-child(1) {
+    width: calc(33.33333% - 1rem); }
+  #site_footer > div:nth-child(2) {
+    width: calc(33.33333% - 1rem); }
+  #site_footer > div:nth-child(3) {
+    width: calc(33.33333% - 1rem); }
+  #site_footer > div:nth-child(4) {
+    width: 100%; }
+  #site_footer > div#copyright {
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 2pt solid rgba(255, 255, 255, 0.4); }
+    #site_footer > div#copyright :first-child {
+      padding-right: .3em; }
+  #site_footer > div#license p {
+    display: inline-block;
+    text-align: left;
+    font-size: .8em; }
+  #site_footer > div h3 {
+    margin: 0;
+    font-weight: 400; }
+    #site_footer > div h3 ~ * {
+      margin-top: .5em; }
+  #site_footer > div ul a {
+    color: inherit; }
+    #site_footer > div ul a:hover, #site_footer > div ul a:active, #site_footer > div ul a:focus {
+      color: #fd8625;
+      text-decoration: none; }
+  #site_footer > div > :last-child {
+    margin-bottom: 0; }
+  #site_footer #btn_up {
+    display: none;
+    position: fixed;
+    bottom: 3vmin;
+    right: 3vmin;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.5rem;
+    background: #fff;
+    border-radius: 50%;
+    transition: all .2s ease-in;
+    box-shadow: 0 0.7pt 2pt rgba(0, 0, 0, 0.25); }
+    #site_footer #btn_up.show {
+      display: block; }
+    #site_footer #btn_up::before {
+      content: "\e90b";
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 400;
+      font-family: "icomoon" !important;
+      line-height: 1;
+      speak: none;
+      text-transform: none;
+      vertical-align: middle; }
+    #site_footer #btn_up:hover, #site_footer #btn_up:active, #site_footer #btn_up:focus {
+      background: #ffaf40;
+      color: #fff;
+      text-decoration: none;
+      transition-timing-function: ease-out; }
 
 /*# sourceMappingURL=style.css.map */

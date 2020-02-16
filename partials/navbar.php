@@ -15,7 +15,7 @@ function checkPages($arr) {
     <ul>
         <li <?php setActive(is_front_page()); ?>> <!-- Home -->
             <a href="<?php echo is_front_page() ? '#' : site_url(''); ?>">Home</a>
-        </li><li <?php setActive(get_post_type() === 'post' || is_post_type_archive('post') || checkPages(array('kreisverband', 'bruehl', 'erftstadt', 'frechen', 'kerpen'))); ?>> <!-- Aktuelles -->
+        </li><li <?php setActive(get_post_type() === 'post' && !is_front_page() || is_post_type_archive('post') || checkPages(array('kreisverband', 'bruehl', 'erftstadt', 'frechen', 'kerpen'))); ?>> <!-- Aktuelles -->
             <button>Vor Ort</button>
             <ul>
                 <li><a href="<?php echo site_url('kreisverband'); ?>" <?php setActive(is_page('kreisverband')); ?>>Kreisverband</a></li>
