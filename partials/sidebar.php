@@ -28,8 +28,8 @@ function shareLink($platform) {
     <section id="search">
         <h2 title="Seite dursuchen" aria-label="Suchen">Suche</h2>
         <form action="<?php echo site_url(''); ?>" role="search" method="get">
-            <input id="searchsubmit" type="submit" value="&#xe909;" tabindex="-1">
-            <input id="s" type="search" value="<?php if (is_search()) { echo $_GET['s']; } ?>" placeholder="Suche" name="s">
+            <input data-id="searchsubmit" type="submit" value="&#xe909;" tabindex="-1">
+            <input data-id="s" type="search" value="<?php if (is_search()) { echo $_GET['s']; } ?>" placeholder="Suche" name="s">
         </form>
     </section>
     <?php if (is_single()): ?><section id="share">
@@ -39,11 +39,11 @@ function shareLink($platform) {
                 <li><a class="twitter" href="<?php shareLink('twitter'); ?>" target="_blank" title="twittern"></a></li>
                 <li><a class="facebook" href="<?php shareLink('facebook'); ?>" target="_blank" title="auf Facebook posten"></a></li>
                 <li><a class="reddit" href="<?php shareLink('reddit'); ?>" target="_blank" title="auf Reddit posten"></a></li>
-                <li><a class="whatsapp" href="<?php shareLink('whatsapp'); ?>" target="_blank" title="per WhatsApp verschiken"></a></li>
+                <li><a class="whatsapp" href="<?php shareLink('whatsapp'); ?>" target="_blank" title="per WhatsApp verschicken"></a></li>
                 <li><a class="telegram" href="<?php shareLink('telegram'); ?>" target="_blank" title="per Telegram verschicken"></a></li>
             </ul><ul>
                 <li><a class="mail" href="<?php shareLink('mail'); ?>" title="per Mail verschicken"></a></li>
-                <li><button class="link" data-link="<?php the_permalink(); ?>" title="Link kopieren"></button></a>
+                <li><button class="link" data-link="<?php the_permalink(); ?>" title="Link kopieren"></button></li>
             </ul>
         </div>
     </section>

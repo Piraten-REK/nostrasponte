@@ -1,4 +1,5 @@
 @use 'config';
+@use 'helpers';
 
 #site_header {
   $headerPadding: 7pt;
@@ -15,6 +16,10 @@
   right: 0;
   left: 0;
   z-index: 100;
+
+  @media (max-width: #{config.$pageWidth}) {
+    padding: 0 config.$pagePadding;
+  }
 
   h1 {
     margin: 0;
@@ -34,6 +39,11 @@
     height: 100%;
     z-index: 99;
 
+    form {
+      @include helpers.searchform();
+      display: none !important;
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -51,14 +61,13 @@
         display: inline-block;
         height: 100%;
         line-height: $headerContent;
-        padding: $headerPadding calc(1rem + .3em);
+        padding: $headerPadding 1rem;
         cursor: pointer;
         color: config.$dark-gray;
         transition: all .3s ease-out;
         text-transform: uppercase;
         letter-spacing: 1pt;
         font-weight: 500;
-        clip-path: polygon(1.5rem 0, 100% 0, calc(100% - 1.5rem) 100%, 0 100%);
       }
 
       &:hover,
@@ -82,14 +91,45 @@
       }
 
       &:not(:last-child) {
-        margin-right: -1.3rem;
+        margin-right: 0;
 
         &::after {
-          content: "\002f";
-          color: config.$dark;
-          font-weight: 500;
+          content: "";
+          display: inline-block;
+          height: 1em;
+          width: 2pt;
+          background: config.$gray;
           position: relative;
-          left: -.75rem;
+          left: -.1em;
+          top: .15em;
+        }
+      }
+
+      @supports (clip-path: polygon(1.5rem 0, 100% 0, calc(100% - 1.5rem) 100%, 0 100%)) {
+        & > a,
+        & > button {
+          clip-path: polygon(1.5rem 0, 100% 0, calc(100% - 1.5rem) 100%, 0 100%);
+          padding: $headerPadding calc(1rem + .3em);
+        }
+
+        &:last-child {
+          margin-right: calc(-1rem - .3em);
+        }
+
+        &:not(:last-child) {
+          margin-right: calc(-1rem - .3em);
+
+          &::after {
+            content: "\002f";
+            color: config.$dark;
+            font-weight: 500;
+            top: 0;
+            left: -.75rem;
+            display: inline;
+            width: auto;
+            height: auto;
+            background: none;
+          }
         }
       }
 
@@ -102,16 +142,16 @@
         min-width: 100%;
 
         li {
-          * {
+          a {
             display: block;
             padding: .4em .8em;
           }
 
-          &:first-child * {
+          &:first-child a {
             padding-top: .6em;
           }
 
-          &:last-child * {
+          &:last-child a {
             padding-bottom: .6em;
           }
 
@@ -147,7 +187,15 @@
   }
 
   #nav_helper {
-    display: none;
+    position: fixed;
+    top: config.$headerHeight;
+    right: 0;
+    left: 0;
+    background: #000;
+    height: calc(100vh - #{config.$headerHeight});
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease-out;
   }
 
 }
@@ -155,5 +203,141 @@
 @at-root {
   body.admin #site_header {
     top: 32px;
+
+  }
+}
+
+@media (max-width: 790px), handheld  {
+  #site_header {
+    justify-content: center;
+
+    #site_nav {
+      position: absolute;
+      top: config.$headerHeight;
+      left: 0;
+      height: calc(100vh - #{config.$headerHeight});
+      background: config.$dark-gray;
+      width: 220pt;
+      max-width: 80%;
+      padding: #{config.$pagePadding / 2};
+      overflow: hidden scroll;
+      box-shadow: 2pt 0 3pt rgba(#000, .2);
+      transform: translateX(calc(-100% - 5pt));
+      transition: transform .3s ease-in;
+
+      form {
+        display: block !important;
+        margin-bottom: 2rem;
+      }
+
+      ul {
+        height: auto;
+      }
+
+      & > ul > li {
+        display: block;
+
+        & > a,
+        & > button {
+          color: #fff;
+          padding: 0;
+          clip-path: none;
+        }
+
+        &:last-child {
+          margin: 0;
+        }
+
+        &:not(:last-child) {
+          margin: 0;
+          &::after {
+            content: none;
+          }
+        }
+
+        & > ul {
+          display: block;
+          position: static;
+        }
+      }
+    }
+
+    #site_nav_toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: config.$headerHeight;
+      height: config.$headerHeight;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+
+      span {
+        &,
+        &::before,
+        &::after {
+          display: block;
+          background: config.$dark;
+          height: 3pt;
+          border-radius: 3pt;
+          transition: all .3s ease-in-out;
+        }
+        & {
+          position: relative;
+          width: 12pt;
+          margin-right: 18pt;
+          transition-duration: .15s;
+        }
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+        }
+        &::before {
+          width: 30pt;
+          top: -8pt;
+          left: 0;
+        }
+        &::after {
+          width: 20pt;
+          margin-right: 10pt;
+          bottom: -8pt;
+          left: 0;
+        }
+      }
+
+      &.open {
+        span {
+          & {
+            width: 0;
+            margin-right: 30pt;
+          }
+          &::before {
+            width: 20pt;
+            margin: 0 5pt;
+            top: 0;
+            transform: rotate(45deg);
+          }
+          &::after {
+            width: 20pt;
+            margin: 0 5pt;
+            bottom: 0;
+            transform: rotate(-45deg);
+          }
+        }
+
+        & ~ #site_nav {
+          transform: translateX(0);
+          transition-timing-function: ease-out;
+        }
+
+        & ~ #nav_helper {
+          opacity: .7;
+          pointer-events: initial;
+          transition-timing-function: ease-in;
+        }
+      }
+    }
   }
 }

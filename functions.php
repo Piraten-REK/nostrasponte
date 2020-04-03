@@ -4,7 +4,8 @@
 function pp_setup() {
     // TODO: Change versionnumber for production
     wp_enqueue_style('main', get_stylesheet_uri(), NULL, microtime(), 'all');
-    wp_enqueue_script('main-js', get_theme_file_uri('js/main.js'), NULL, microtime(), true);
+    wp_enqueue_script('main-js', get_theme_file_uri('js/main.min.js'), NULL, microtime(), true);
+    wp_enqueue_script('tetris-js', get_theme_file_uri('js/tetris.min.js'), NULL, microtime(), true);
 }
 add_action('wp_enqueue_scripts', 'pp_setup');
 

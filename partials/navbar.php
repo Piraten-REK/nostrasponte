@@ -12,6 +12,10 @@ function checkPages($arr) {
 ?>
 <div id="site_nav_toggle"><span></span></div>
 <nav id="site_nav">
+    <form action="<?php echo site_url(''); ?>" role="search" method="get">
+        <input data-id="searchsubmit" type="submit" value="&#xe909;" tabindex="-1">
+        <input data-id="s" type="search" value="<?php if (is_search()) { echo $_GET['s']; } ?>" placeholder="Suche" name="s">
+    </form>
     <ul>
         <li <?php setActive(is_front_page()); ?>> <!-- Home -->
             <a href="<?php echo is_front_page() ? '#' : site_url(''); ?>">Home</a>

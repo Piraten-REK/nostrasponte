@@ -1,4 +1,5 @@
 @use 'config';
+@use 'helpers';
 
 #site_footer {
   background: config.$dark;
@@ -6,11 +7,15 @@
   margin: 0 calc(50% - #{config.$pageWidth / 2});
   padding: #{config.$pagePadding / 2} config.$pagePadding;
   font-weight: 300;
-  @include containerShadow();
+  @include helpers.containerShadow();
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media (max-width: #{config.$pageWidth}) {
+    margin: 0;
+  }
 
   & > div {
     @for $i from 1 through 3 {
@@ -25,10 +30,11 @@
 
     &#copyright {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: baseline;
       margin-top: 1em;
       padding-top: 1em;
+      padding-right: 2rem;
       border-top: 2pt solid rgba(#fff, .4);
 
       :first-child {
@@ -67,7 +73,7 @@
   }
 
   #btn_up {
-    display: none;
+    display: block;
     position: fixed;
     bottom: 3vmin;
     right: 3vmin;
@@ -81,9 +87,11 @@
     border-radius: 50%;
     transition: all .2s ease-in;
     box-shadow: 0 .7pt 2pt rgba(#000, .25);
+    transform: scale(0);
 
     &.show {
-      display: block;
+      transform: scale(1);
+      transition-timing-function: cubic-bezier(0.42, 0, 0.23, 2.1);
     }
 
     &::before {
@@ -98,6 +106,30 @@
       color: #fff;
       text-decoration: none;
       transition-timing-function: ease-out;
+    }
+  }
+
+  @media (max-width: 620px) {
+    & > div {
+      @for $i from 1 through 2 {
+        &:nth-child(#{$i}) {
+          width: calc(50% - .75rem);
+        }
+      }
+      &:nth-child(3) {
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    & > div {
+      width: 100% !important;
+
+      &:nth-child(2) {
+        margin-top: 1.5rem;
+      }
     }
   }
 }

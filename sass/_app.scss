@@ -1,15 +1,13 @@
+@use "sass:meta";
 @use 'config';
+@use 'helpers';
 
 @import 'fonts';
 
-@mixin containerShadow() {
-  box-shadow: 0 5pt 5pt rgba(#000, .3);
-}
-
 :root {
   font-family: config.$font;
-  font-size: 14pt;
-  line-height: 1.3;
+  font-size: 12pt;
+  line-height: 1.25;
   color: config.$dark;
 }
 
@@ -85,32 +83,21 @@ a, button {
 }
 
 a {
-  &::after {
-    content: "\0020\e900";
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    @include config.icomoon();
-    font-size: .85em;
-    margin-top: -.3em;
-  }
+  span[class$="-link-img-wrapper"] {
+    white-space: nowrap;
 
-  &[href^="mailto:"]::after {
-    content: "\0020\e902";
-  }
-
-  &[href^="#"],
-  &[href="/"],
-  &[href*="//www.piratenpartei-rhein-erft.de"],
-  &[href*="//piratenpartei-rhein-erft.de"],
-  &[href*="www.piraten-rek.de"],
-  &[href*="//piraten-rek.de"],
-  &[href*="//black-pearl.piratenpartei-rhein-erft.de"],
-  &[href*="//127.0.0.1"],
-  &[href*="localhost"],
-  &.no_img {
     &::after {
-      content: none;
+      @include config.icomoon;
+      display: inline-block;
+      margin: -.1em 0 0 .3em;
+    }
+
+    &.external-link-img-wrapper::after {
+      content: "\e900";
+    }
+
+    &.mail-link-img-wrapper::after {
+      content: "\e902";
     }
   }
 }
@@ -141,7 +128,7 @@ span.pre {
   margin: 0 auto;
   padding: calc(#{config.$pagePadding} + #{config.$headerHeight}) config.$pagePadding config.$pagePadding;
   background: #fff;
-  @include containerShadow();
+  @include helpers.containerShadow();
 
   &::before,
   &::after {
@@ -164,7 +151,7 @@ span.pre {
   #sidebar {
     float: right;
     width: calc(25% - 1rem);
-    @import 'sidebar';
+    @include meta.load-css("sidebar");
   }
 }
 
