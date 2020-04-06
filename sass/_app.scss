@@ -82,8 +82,8 @@ a, button {
   }
 }
 
-a {
-  span[class$="-link-img-wrapper"] {
+* {
+  &[class$="-link-img-wrapper"] {
     white-space: nowrap;
 
     &::after {

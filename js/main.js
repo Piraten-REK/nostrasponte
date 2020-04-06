@@ -178,7 +178,16 @@ function links() {
     var mail = /^mailto:/;
     var links = Array.from(document.getElementsByTagName('a'));
     links.filter(function (it) { return !notExternal.test(it.href) && !it.classList.contains('no_img'); })
-        .forEach(function (it) { return it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="external-link-img-wrapper">$2</span>'); });
+        .forEach(function (it) {
+        if (!it.hasAttribute('rel') || it.getAttribute('rel') !== 'external')
+            it.setAttribute('rel', 'external');
+        if (/\S+\s\S+/.test(it.innerText))
+            it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="external-link-img-wrapper">$2</span>');
+        else
+            it.classList.add('external-link-img-wrapper');
+    });
+    // links.filter(it => !notExternal.test(it.href) && !it.classList.contains('no_img'))
+    //     .forEach(it => it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="external-link-img-wrapper">$2</span>'));
     links.filter(function (it) { return mail.test(it.href) && !it.classList.contains('no_img'); })
         .forEach(function (it) { return it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="mail-link-img-wrapper">$2</span>'); });
 }
