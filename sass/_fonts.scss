@@ -27,6 +27,24 @@
   @include roboto($type);
 }
 
+// PoliticsHead
+@font-face {
+  font-family: "PoliticsHead";
+  font-style: normal;
+  font-weight: 700;
+  src: local("PoliticsHead"), url("./fonts/politicshead/PoliticsHeadv1_9.otf") format("opentype");
+}
+
+// DejaRip
+@each $type, $props in ('': normal 400, '-Bold': normal 700, '-BoldItalic': italic 700, '-Italic': italic 400) {
+  @font-face {
+    font-family: DejaRip;
+    font-style: nth($props, 1);
+    font-weight: nth($props, 2);
+    src: local("DejaRip#{$type}"), url("./fonts/dejarip/DejaRip#{$type}.otf") format("opentype");
+  }
+}
+
 // icomoon
 @font-face {
   font-family: "icomoon";
