@@ -1,5 +1,5 @@
 <?php
-    $content = file_get_contents('https://wiki.piratenpartei.de/Spezial:Exportieren/NRW:Rhein-Erft-Kreis/Kreisverband/Satzung', false, stream_context_create(array(
+$content = file_get_contents('https://wiki.piratenpartei.de/Spezial:Exportieren/NRW:Rhein-Erft-Kreis/Vorstand/Gesch%C3%A4ftsordnung', false, stream_context_create(array(
     'http' => array(
         'timeout' => 20
     )
