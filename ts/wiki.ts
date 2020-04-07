@@ -1,5 +1,5 @@
-const load = window.location.pathname.indexOf('satzung') >= 0 ? 'getSatzung.php' : 'getGO.php';
-fetch(`/wp-content/themes/nostrasponte/${load}`).then(r => r.text()).then(s => (new DOMParser()).parseFromString(s, 'text/xml'))
+const load = window.location.pathname.indexOf('satzung') >= 0 ? 'satzung' : 'go';
+fetch(`/wp-content/themes/nostrasponte/wiki.php?p=${load}`).then(r => r.text()).then(s => (new DOMParser()).parseFromString(s, 'text/xml'))
     .then(xml => {
         const lastEdited = new Date((<Element> xml.documentElement.querySelector('page revision timestamp')).innerHTML);
         const content = (<Element> xml.documentElement.querySelector('page revision text')).innerHTML;

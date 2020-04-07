@@ -1,5 +1,5 @@
-var load = window.location.pathname.indexOf('satzung') >= 0 ? 'getSatzung.php' : 'getGO.php';
-fetch("/wp-content/themes/nostrasponte/" + load).then(function (r) { return r.text(); }).then(function (s) { return (new DOMParser()).parseFromString(s, 'text/xml'); })
+var load = window.location.pathname.indexOf('satzung') >= 0 ? 'satzung' : 'go';
+fetch("/wp-content/themes/nostrasponte/wiki.php?p=" + load).then(function (r) { return r.text(); }).then(function (s) { return (new DOMParser()).parseFromString(s, 'text/xml'); })
     .then(function (xml) {
     var lastEdited = new Date(xml.documentElement.querySelector('page revision timestamp').innerHTML);
     var content = xml.documentElement.querySelector('page revision text').innerHTML;
