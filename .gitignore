@@ -5,5 +5,5 @@
 
 .sass-cache
 
-node_modules/
-yarn.lock
+./assets/src/node_modules/
+./assets/src/yarn.lock
