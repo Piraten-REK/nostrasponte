@@ -19,7 +19,7 @@
     } @else {
       font-weight: 400;
     }
-    src: local("Roboto-#{$name}"), url("./fonts/roboto/Roboto-#{$name}.ttf") format("truetype");
+    src: local("Roboto-#{$name}"), url("../fonts/roboto/Roboto-#{$name}.ttf") format("truetype");
   }
 }
 
@@ -32,7 +32,7 @@
   font-family: "PoliticsHead";
   font-style: normal;
   font-weight: 700;
-  src: local("PoliticsHead"), url("./fonts/politicshead/PoliticsHeadv1_9.otf") format("opentype");
+  src: local("PoliticsHead"), url("../fonts/politicshead/PoliticsHeadv1_9.otf") format("opentype");
 }
 
 // DejaRip
@@ -41,7 +41,7 @@
     font-family: DejaRip;
     font-style: nth($props, 1);
     font-weight: nth($props, 2);
-    src: local("DejaRip#{$type}"), url("./fonts/dejarip/DejaRip#{$type}.otf") format("opentype");
+    src: local("DejaRip#{$type}"), url("../fonts/dejarip/DejaRip#{$type}.otf") format("opentype");
   }
 }
 
@@ -51,9 +51,9 @@
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src:  url('./fonts/icomoon/icomoon.eot?iqvg9c');
-  src:  url('./fonts/icomoon/icomoon.eot?iqvg9c#iefix') format('embedded-opentype'),
-    url('./fonts/icomoon/icomoon.ttf?iqvg9c') format('truetype'),
-    url('./fonts/icomoon/icomoon.woff?iqvg9c') format('woff'),
-    url('./fonts/icomoon/icomoon.svg?iqvg9c#icomoon') format('svg');
+  src:  url('../fonts/icomoon/icomoon.eot?iqvg9c');
+  src:  url('../fonts/icomoon/icomoon.eot?iqvg9c#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/icomoon.ttf?iqvg9c') format('truetype'),
+    url('../fonts/icomoon/icomoon.woff?iqvg9c') format('woff'),
+    url('../fonts/icomoon/icomoon.svg?iqvg9c#icomoon') format('svg');
 }

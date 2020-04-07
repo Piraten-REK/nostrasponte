@@ -19,7 +19,7 @@ $months = array(
 
 $hero = new WP_Query($args);
 while ($hero -> have_posts()): $hero -> the_post(); ?>
-<section id="hero" style="background-image: url('<?php echo has_post_thumbnail(get_the_ID()) ? get_the_post_thumbnail_url(get_the_ID()) : get_theme_file_uri('img/standard_hero.jpg'); ?>">
+<section id="hero" style="background-image: url('<?php echo has_post_thumbnail(get_the_ID()) ? get_the_post_thumbnail_url(get_the_ID()) : get_theme_file_uri('/assets/img/standard_hero.jpg'); ?>">
     <p class="metadata"><span><span class="category"><?php the_category(' &bull; '); ?></span> <time datetime="<?php the_date('Y-m-d'); ?>" class="date"><?php echo get_the_date('d') . '. ' . $months[get_the_date('n')] . ' ' . get_the_date('Y'); ?></time></span></p>
     <header>
         <h2><?php the_title(); ?></h2>
