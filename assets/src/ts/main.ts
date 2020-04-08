@@ -163,7 +163,7 @@ function backToTopVisibility() {
 
 function links() {
     /** Regular Expression that defines a link that should be considered as NOT external */
-    const notExternal = /^(?:[#\/]|(?:https?:\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft\.de|127\.0\.0\.\d{1,3}|.*localhost(?:\/|$))|mailto:|tel:|fax:))/i;
+    const notExternal = /^(?:[#\/]|(?:https?:\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft\.de|127\.0\.0\.\d{1,3}|.*localhost(?:\/|$))|mailto:|tel:|fax:|^$))/i;
     /** Regular Expression that defines a link that should be considered a mail address */
     const mail = /^mailto:/;
     const links = Array.from(document.getElementsByTagName('a'));

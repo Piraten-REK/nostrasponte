@@ -2,23 +2,27 @@
     <footer id="site_footer">
         <div>
             <h3>Social Media</h3>
-            <ul class="no_bullets">
-                <li><a target="_blank" href="https://instagram.com/piraten_rhein_erft">Instagram</a></li>
-                <li><a target="_blank" href="https://facebook.com/PiratenRheinErft">Facebook</a></li>
-                <li><a target="_blank" href="https://twitter.com/Piraten_REK">Twitter</a></li>
-                <li><a target="_blank" href="https://chat.whatsapp.com/JW7V1YCXVC20iVgfA9mkW8">WhatsApp</a></li>
-                <li><a href="https://discord.gg/ZJFQVcj" target="_blank" title="Discord-Server der Piratenpartei Deutschland">Discord</a></li>
-            </ul>
+            <?php if (has_nav_menu('footer_social')) {
+                wp_nav_menu([
+                    'theme_location' => 'footer_social',
+                    'container' => false,
+                    'menu_class' => 'no_bullets',
+                    'fallback_cb' => false,
+                    'depth' => 1
+                ]);
+            } ?>
         </div>
         <div>
             <h3>Links</h3>
-            <ul class="no_bullets">
-                <li><a href="https://piratenpartei-nrw.de">Piratenpartei NRW</a></li>
-                <li><a href="https://piratenpartei.de">Piratenpartei Deutschland</a></li>
-                <li><a target="_self" href="https://wiki.piratenpartei.de/NRW:Rhein-Erft-Kreis">Piraten Wiki</a></li>
-                <li><a href="<?php echo site_url('impressum') ?>">Impressum</a></li>
-                <li><a href="<?php echo site_url('datenschutzerklaerung') ?>">Datenschutz</a></li>
-            </ul>
+	        <?php if (has_nav_menu('footer_links')) {
+		        wp_nav_menu([
+			        'theme_location' => 'footer_links',
+			        'container' => false,
+			        'menu_class' => 'no_bullets',
+			        'fallback_cb' => false,
+			        'depth' => 1
+		        ]);
+	        } ?>
         </div>
         <div id="license">
             <a class="no_img" rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="<?php echo get_theme_file_uri('/assets/img/cc_by_nd.png') ?>" /></a>

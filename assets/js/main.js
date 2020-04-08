@@ -173,7 +173,7 @@ function backToTopVisibility() {
 }
 function links() {
     /** Regular Expression that defines a link that should be considered as NOT external */
-    var notExternal = /^(?:[#\/]|(?:https?:\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft\.de|127\.0\.0\.\d{1,3}|.*localhost(?:\/|$))|mailto:|tel:|fax:))/i;
+    var notExternal = /^(?:[#\/]|(?:https?:\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft\.de|127\.0\.0\.\d{1,3}|.*localhost(?:\/|$))|mailto:|tel:|fax:|^$))/i;
     /** Regular Expression that defines a link that should be considered a mail address */
     var mail = /^mailto:/;
     var links = Array.from(document.getElementsByTagName('a'));
@@ -186,8 +186,6 @@ function links() {
         else
             it.classList.add('external-link-img-wrapper');
     });
-    // links.filter(it => !notExternal.test(it.href) && !it.classList.contains('no_img'))
-    //     .forEach(it => it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="external-link-img-wrapper">$2</span>'));
     links.filter(function (it) { return mail.test(it.href) && !it.classList.contains('no_img'); })
         .forEach(function (it) { return it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="mail-link-img-wrapper">$2</span>'); });
 }
