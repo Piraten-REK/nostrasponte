@@ -173,8 +173,6 @@ function links() {
             if (/\S+\s\S+/.test(it.innerText)) it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="external-link-img-wrapper">$2</span>');
             else it.classList.add('external-link-img-wrapper');
         });
-    // links.filter(it => !notExternal.test(it.href) && !it.classList.contains('no_img'))
-    //     .forEach(it => it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="external-link-img-wrapper">$2</span>'));
     links.filter(it => mail.test(it.href) && !it.classList.contains('no_img'))
         .forEach(it => it.innerHTML = it.innerText.replace(/(\s)([^\s]+)$/, '$1<span class="mail-link-img-wrapper">$2</span>'));
 }

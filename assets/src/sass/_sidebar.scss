@@ -17,7 +17,7 @@ section {
 }
 
 // Search
-#search form {
+[id^="search-"] form {
   @include helpers.searchform();
 }
 
