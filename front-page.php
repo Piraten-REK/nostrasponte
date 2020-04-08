@@ -56,6 +56,7 @@ while ($hero -> have_posts()): $hero -> the_post(); ?>
 </main>
 
 <?php 
-include('partials/sidebar.php');
+//include('partials/sidebar.php');
+get_sidebar();
 get_footer(); 
 ?>
