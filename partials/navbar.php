@@ -1,15 +1,3 @@
-<?php
-
-function setActive($predicate) {
-    if ($predicate) echo 'class="active"';
-}
-function checkPages($arr) {
-    foreach ($arr as $pageName)
-        if (is_page($pageName)) return true;
-    return false;
-}
-
-?>
 <div id="site_nav_toggle"><span></span></div>
 <nav id="site_nav">
     <?php
