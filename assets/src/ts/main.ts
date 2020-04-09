@@ -111,6 +111,28 @@ function initNavToggle() {
     document.querySelectorAll('#site_nav_toggle, #nav_helper').forEach(it => it.addEventListener('click', () => (document.querySelector('#site_nav_toggle') as HTMLElement).classList.toggle('open')));
 }
 
+function initShareButtons() {
+    // @ts-ignore
+    document.querySelectorAll('[id^="ns_share_buttons_widget"] a').forEach((it: HTMLAnchorElement) => {
+        if (!it.href.match(/^(?:mailto:)|(?:https:\/\/telegram.me\/)|(?:whatsapp:\/\/)/)) {
+            it.addEventListener('click', event => {
+                event.preventDefault();
+                window.open(it.href, undefined, 'width=600,height=400,resizable=no,menubar=no,status=no,scrollbars=yes');
+            });
+        }
+    });
+    // @ts-ignore
+    const link: HTMLAnchorElement|undefined = document.querySelector('[id^="ns_share_buttons_widget"] button.link');
+    if (link) link.addEventListener('click', () => {
+        copyTextToClipboard(<string> link.dataset.link).then(() => {
+            (new Toast('Link wurde in Zwischenanlage kopiert!').show())
+        }).catch((e: Error) => {
+            console.error(e);
+            (new Toast('Link konnte nicht kopiert werden', 'Fehler')).show();
+        });
+    });
+}
+
 /**
  * Asynchronous function that copies a given text to clipboard
  * @param text Text to be copied
@@ -151,7 +173,7 @@ function copyTextToClipboard(text: string): Promise<string> {
 
 function backToTopVisibility() {
     function scroll() {
-        if (window.scrollY > 200 || (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        if (window.scrollY > 200) {
             (document.getElementById('btn_up') as HTMLButtonElement).classList.add('show');
         } else {
             (document.getElementById('btn_up') as HTMLButtonElement).classList.remove('show');
@@ -180,5 +202,6 @@ function links() {
 // Load all functions
 initNavButtons();
 initNavToggle();
+initShareButtons();
 backToTopVisibility();
 links();

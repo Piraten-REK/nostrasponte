@@ -1,5 +1,4 @@
 @use 'config';
-@use 'helpers';
 
 section {
   h2 {
@@ -16,92 +15,6 @@ section {
   }
 }
 
-// Search
-[id^="search-"] form {
-  @include helpers.searchform();
-}
 
-// SHARE
-#share .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:first-of-type {
-      margin-right: 5pt;
-    }
-
-    li {
-      display: inline-block;
-
-      &:not(:last-child) {
-        margin-right: 5pt;
-      }
-
-      a, button {
-        $height: 2.5rem;
-        padding: 0;
-        display: block;
-        width: $height;
-        height: $height;
-        background: config.$dark-gray;
-        color: #fff;
-        border-radius: 50%;
-        transition: all .25s ease-in-out;
-
-        $socialButtons: ("twitter", "facebook", "reddit", "whatsapp", "telegram");
-
-        @for $i from 1 through length($socialButtons) {
-          &.#{nth($socialButtons, $i)} {
-            background: url("./img/social.svg") #{($i - 1) * 25%} 0 / auto 100% no-repeat;
-          }
-        }
-
-        &:hover,
-        &:focus {
-          text-decoration: none;
-          transform: scale(1.1);
-        }
-
-        &:not(.mail),
-        &:not(.link) {
-          &::after {
-            content: none;
-          }
-        }
-
-        &.mail,
-        &.link {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          &::after {
-            display: block;
-            @include config.icomoon();
-            font-size: #{$height * .6};
-            margin: 0;
-            padding: 0;
-          }
-        }
-
-        &.mail::after {
-          content: "\e902";
-        }
-
-        &.link::after {
-          content: "\e903";
-        }
-      }
-    }
-  }
-}
+// Widgets
+@import './widgets';

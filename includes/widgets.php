@@ -11,3 +11,7 @@ function ns_widgets() {
 		'after_title' => '</h2>'
 	]);
 }
+
+function ns_widgets_init() {
+	register_widget('Ns_Share_Buttons');
+}

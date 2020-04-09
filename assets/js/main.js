@@ -121,6 +121,28 @@ function initNavButtons() {
 function initNavToggle() {
     document.querySelectorAll('#site_nav_toggle, #nav_helper').forEach(function (it) { return it.addEventListener('click', function () { return document.querySelector('#site_nav_toggle').classList.toggle('open'); }); });
 }
+function initShareButtons() {
+    // @ts-ignore
+    document.querySelectorAll('[id^="ns_share_buttons_widget"] a').forEach(function (it) {
+        if (!it.href.match(/^(?:mailto:)|(?:https:\/\/telegram.me\/)|(?:whatsapp:\/\/)/)) {
+            it.addEventListener('click', function (event) {
+                event.preventDefault();
+                window.open(it.href, undefined, 'width=600,height=400,resizable=no,menubar=no,status=no,scrollbars=yes');
+            });
+        }
+    });
+    // @ts-ignore
+    var link = document.querySelector('[id^="ns_share_buttons_widget"] button.link');
+    if (link)
+        link.addEventListener('click', function () {
+            copyTextToClipboard(link.dataset.link).then(function () {
+                (new Toast('Link wurde in Zwischenanlage kopiert!').show());
+            }).catch(function (e) {
+                console.error(e);
+                (new Toast('Link konnte nicht kopiert werden', 'Fehler')).show();
+            });
+        });
+}
 /**
  * Asynchronous function that copies a given text to clipboard
  * @param text Text to be copied
@@ -161,7 +183,7 @@ function copyTextToClipboard(text) {
 }
 function backToTopVisibility() {
     function scroll() {
-        if (window.scrollY > 200 || (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        if (window.scrollY > 200) {
             document.getElementById('btn_up').classList.add('show');
         }
         else {
@@ -192,5 +214,6 @@ function links() {
 // Load all functions
 initNavButtons();
 initNavToggle();
+initShareButtons();
 backToTopVisibility();
 links();
