@@ -50,5 +50,6 @@ get_header(); ?>
         </div>
     </section>
 </main>
-<?php include('partials/sidebar.php');
+<?php
+get_sidebar();
 get_footer(); ?>
