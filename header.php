@@ -14,7 +14,17 @@
 </head>
 <body <?php body_class(); ?>>
     <header id="site_header">
-        <h1><a href="<?php echo is_front_page() ? '#' : site_url(''); ?>"><img src="<?php echo get_theme_file_uri('/assets/img/logotype_black.svg'); ?>" alt="<?php bloginfo('title'); ?>"></a></h1>
+        <h1><a href="<?php echo is_front_page() ? '#' : get_home_url(); ?>">
+                <?php
+                if (function_exists('the_custom_logo')) {
+                    the_custom_logo();
+                } else {
+	                ?>
+                    <img src="<?php echo get_theme_file_uri('/assets/img/logotype_black.svg'); ?>" alt="<?php bloginfo('title'); ?>">
+                    <?php
+                }
+                ?>
+            </a></h1>
         <?php get_template_part('partials/navbar'); ?>
     </header>
     <div id="container">
