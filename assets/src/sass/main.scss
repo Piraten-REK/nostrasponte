@@ -45,39 +45,38 @@ p {
 }
 
 a, button {
-  display: inline;
-  color: config.$accent;
-  text-decoration: none;
-  background: none;
-  border: none;
-  outline: none !important;
-  cursor: pointer;
-  font: inherit;
+  &, &:link, &:visited {
+    display: inline;
+    color: config.$accent;
+    text-decoration: none;
+    background: none;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+    font: inherit;
+  }
 
-  &:hover {
+  &:hover, &:active, &:focus {
     text-decoration: underline;
   }
 
   &.btn {
-    display: inline-block;
-    background-color: config.$accent;
-    color: #fff;
-    padding: .6em .8em;
-    border-radius: .2em;
-    box-shadow: 0 2pt 3pt #0004;
-    transition: all .25s ease-out;
-    text-transform: uppercase;
+    &, &:link, &:visited {
+      display: inline-block;
+      background-color: config.$accent;
+      color: #fff;
+      padding: .6em .8em;
+      border-radius: .2em;
+      box-shadow: 0 2pt 3pt #0004;
+      transition: all .25s ease-out;
+      text-transform: uppercase;
+    }
 
-    &:hover {
+    &:hover, &:active, &:visited {
       background-color: #fff;
       color: config.$accent;
       text-decoration: none;
       transition-timing-function: ease-in;
-    }
-
-    &.secondary {
-      background: config.$light-gray;
-      color: config.$dark;
     }
   }
 }

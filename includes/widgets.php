@@ -14,4 +14,5 @@ function ns_widgets() {
 
 function ns_widgets_init() {
 	register_widget('Ns_Share_Buttons');
+	register_widget('Ns_Article_Tags');
 }

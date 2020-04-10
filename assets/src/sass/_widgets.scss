@@ -87,3 +87,23 @@
     }
   }
 }
+
+// Article tags
+[id^="ns_article_tags_widget"] a {
+  &, &:link, &:visited {
+    display: inline-block;
+    color: config.$gray;
+    font-size: .8rem;
+    border: 1pt solid config.$gray;
+    padding: .15rem .25rem;
+    border-radius: .6rem;
+    transition: all .3s ease-in-out;
+  }
+
+  &:hover, &active, &:focus {
+    font-weight: 700;
+    text-decoration: none;
+    border-width: 2pt;
+    letter-spacing: .1em;
+  }
+}

@@ -10,6 +10,7 @@ include(get_theme_file_path('/includes/primary-nav-walker.php'));
 include(get_theme_file_path('/includes/widgets.php'));
 include(get_theme_file_path('/includes/theme-customizer.php'));
 include(get_theme_file_path('./includes/widgets/share-buttons.php'));
+include(get_theme_file_path('./includes/widgets/article-tags.php'));
 
 // Hooks
 add_action('wp_enqueue_scripts', 'ns_enqueue');
