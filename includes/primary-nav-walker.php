@@ -6,6 +6,7 @@ class NS_Primary_Nav_Walker extends Walker_Nav_Menu {
 	}
 
 	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
+		global $post;
 		$output .= '<li>';
 		$output .= $args->before;
 		if ($this->checkForTopButton($item, $depth)) {
@@ -14,6 +15,10 @@ class NS_Primary_Nav_Walker extends Walker_Nav_Menu {
 			$output .= '</button>';
 		} elseif ($this->checkForHr($item, $depth)) {
 			$output .= '<hr>';
+		} elseif ($item->object === 'page' && intval($item->object_id) === $post->ID) {
+			$output .= '<a href="#">';
+			$output .= $args->link_before . $item->title . $args->link_after;
+			$output .= '</a>';
 		} else {
 			$output .= '<a href="' . $item->url . '">';
 			$output .= $args->link_before . $item->title . $args->link_after;
