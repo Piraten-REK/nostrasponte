@@ -29,6 +29,17 @@
       width: 25%;
       height: auto;
 
+      @each $n, $pos in (
+              1: "top-left",
+              4: "top-right",
+              5: "bottom-left",
+              8: "bottom-right"
+      ) {
+        &:nth-child(#{$n}) > * {
+          border-#{$pos}-radius: .3rem;
+        }
+      }
+
       a, button {
         display: block;
         width: 100%;
