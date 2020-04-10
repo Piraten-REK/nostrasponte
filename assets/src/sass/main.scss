@@ -63,7 +63,7 @@ a, button {
   &.btn {
     &, &:link, &:visited {
       display: inline-block;
-      background-color: config.$accent;
+      background-color: config.$accent2;
       color: #fff;
       padding: .6em .8em;
       border-radius: .2em;
@@ -72,9 +72,8 @@ a, button {
       text-transform: uppercase;
     }
 
-    &:hover, &:active, &:visited {
-      background-color: #fff;
-      color: config.$accent;
+    &:hover, &:active, &:focus {
+      background-color: config.$accent;
       text-decoration: none;
       transition-timing-function: ease-in;
     }
