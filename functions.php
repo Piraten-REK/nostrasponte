@@ -4,12 +4,17 @@
 define('NS_DEV_MODE', true);
 
 // Includes
-include( get_theme_file_path( '/includes/front/enqueue.php' ) );
-include( get_theme_file_path( '/includes/front/js.php' ) );
-include( get_theme_file_path( '/includes/setup.php' ) );
-include( get_theme_file_path('/includes/custom-nav-walker.php') );
-include( get_theme_file_path('/includes/primary-nav-walker.php') );
-include( get_theme_file_path('/includes/widgets.php') );
+$includes = [
+	'setup',
+	'custom-nav-walker',
+	'primary-nav-walker',
+	'widgets',
+	'front/enqueue',
+	'front/js'
+];
+foreach ($includes as $inc) {
+	include( get_theme_file_path( "/includes/$inc.php" ) );
+}
 
 // Hooks
 add_action( 'after_setup_theme', 'ns_setup_theme' );
