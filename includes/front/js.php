@@ -1,0 +1,5 @@
+<?php
+
+function ns_defer_js ($tag, $handle, $src) {
+	return '<script src="' . esc_url($src) . '"' . ($handle === 'ns_main_js' ? 'type="module"' : '') . '></script>';
+}
