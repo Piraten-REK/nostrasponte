@@ -11,4 +11,6 @@ function ns_widgets() {
 		'before_title'  => '<h2 class="section-title">',
 		'after_title'   => '</h2>'
 	]);
+
+	register_widget( 'NS_Share_Buttons' );
 }

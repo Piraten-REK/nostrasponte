@@ -9,6 +9,7 @@ $includes = [
 	'custom-nav-walker',
 	'primary-nav-walker',
 	'widgets',
+	'widgets/share-buttons',
 	'front/enqueue',
 	'front/js'
 ];
