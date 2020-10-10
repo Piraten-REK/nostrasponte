@@ -9,6 +9,7 @@ $includes = [
 	'setup',
 	'custom-nav-walker',
 	'primary-nav-walker',
+	'theme-customizer',
 	'widgets',
 	'widgets/share-buttons',
 	'front/enqueue',
@@ -20,6 +21,7 @@ foreach ($includes as $inc) {
 
 // Hooks
 add_action( 'after_setup_theme', 'ns_setup_theme' );
+add_action( 'customize_register', 'ns_customize_register' );
 add_action( 'widgets_init', 'ns_widgets' );
 add_action( 'wp_enqueue_scripts', 'ns_enqueue' );
 
