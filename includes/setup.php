@@ -23,3 +23,8 @@ function ns_title (array $title) {
 		'site' => is_page_template('default') ? get_bloginfo('name') : $title['site'],
 	];
 }
+
+function ns_current_theme_template (string $template) {
+	$GLOBALS['current_theme_template'] = basename($template);
+	return $template;
+}
