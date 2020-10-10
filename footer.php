@@ -1,5 +1,5 @@
 </div>
-<footer class="site-footer px-2 pt-5 pb-6 px-md-4 py-md-8 px-lg-6 py-lg-10 container">
+<footer class="site-footer px-2 pt-5 pb-6 px-md-4 py-md-8 px-lg-6 py-lg-10 container" role="contentinfo">
 	<div class="site-footer__social mb-6 mb-md-0">
 		<h2 class="mb-2 mb-lg-3">Social Media</h2>
 		<?php wp_nav_menu([
@@ -25,7 +25,7 @@
 	<hr>
 	<div class="site-footer__license">
 		<img src="<?php echo get_theme_file_uri('/assets/img/cc_by.png'); ?>" alt="(CC) BY" class="mb-1 mb-lg-3">
-		<p class="mb-3">Die Inhalte dieser Seite sind, soweit nicht anders gekennzeichnet, lizenziert unter einer <a href="https://creativecommons.org/licenses/by/4.0/deed.de" target="_blank" class="site-footer__license__link">Creative Commons Namensnennung 4.0 International</a> Lizenz.</p>
+		<p class="mb-3">Die Inhalte dieser Seite sind, soweit nicht anders gekennzeichnet, lizenziert unter einer <a href="https://creativecommons.org/licenses/by/4.0/deed.de" target="_blank" class="site-footer__license__link" rel="license">Creative Commons Namensnennung 4.0 International</a> Lizenz.</p>
 		<p class="site-footer__license__copy mb-0">
 			<span>&copy;&nbsp;<?php echo date('Y'); ?></span>
 			<span>Piratenpartei&nbsp;Deutschland</span>

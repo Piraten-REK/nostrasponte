@@ -27,5 +27,6 @@ add_filter( 'document_title_parts', 'ns_title' );
 add_filter( 'document_title_separator', 'ns_title_sep' );
 add_filter( 'script_loader_tag', 'ns_defer_js', 10, 3 );
 add_filter( 'template_include', 'ns_current_theme_template', 1000 );
+add_filter( 'wp_nav_menu', 'ns_primary_nav_filter', 10, 2 );
 
 // Shortcodes
