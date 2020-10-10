@@ -18,9 +18,9 @@ function ns_title_sep (string $sep) {
 
 function ns_title (array $title) {
 	return [
-		'title' => is_404() ? '404' : (is_page_template('default') ? '501' : $title['title']),
+		'title' => is_404() ? '404' : (is_index() ? '501' : $title['title']),
 		'page' => $title['page'],
-		'site' => is_page_template('default') ? get_bloginfo('name') : $title['site'],
+		'site' => is_index() ? get_bloginfo('name') : $title['site'],
 	];
 }
 
