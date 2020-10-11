@@ -10,7 +10,7 @@
         </section>
         <section class="mt-6 mx-2 mt-md-8 mx-md-4 mt-md-10 mx-lg-6 blog">
             <h2 class="section-title mt-0 mb-2 mb-md-3 mb-lg-5">Aktuelles</h2>
-            <?php $posts = new WP_Query([ 'posts_per_page' => 6 ]); ?>
+            <?php $posts = new WP_Query([ 'posts_per_page' => 6, 'offset' => ns_homepage_hero_type() === 'last_post' ? 1 : 0 ]); ?>
             <div class="slider slider--mobile grid--desktop">
                 <div class="slider__wrapper" data-num="<?php echo esc_attr( $posts->post_count ); ?>">
                     <?php while ($posts -> have_posts()) { $posts -> the_post(); ?>
@@ -50,7 +50,6 @@
 	                            <?php } ?>
                                 <div class="card--post__foot__date">
                                     <i class="feather icon-calendar" title="Datum"></i>
-<!--                                    Sa, 12. September 2020 -->
                                     <a href="#"><time datetime="<?php the_date( 'Y-m-d' ); ?>"><?php printf('%s, %s. %s %s',
                                                 _x( NS_DAY_OF_WEEK[ intval( get_the_date( 'w' ) ) ] ,'day of week', 'nostrasponte' ),
                                                 get_the_date( 'j' ),
