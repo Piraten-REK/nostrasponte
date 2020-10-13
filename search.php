@@ -5,6 +5,9 @@
         </section>
         <section class="mt-6 mx-2 mt-md-8 mx-md-4 mx-lg-6 mt-lg-10 blog">
             <h2 class="section-title mt-0 mb-2 mb-md-5 mb-lg-7"><?php printf( __( 'Suchergebnisse für<br>&bdquo;%s&ldquo;', 'nostrasponte' ), esc_html( get_search_query( false ) ) ); ?></h2>
+            <?php if ( empty( $wp_query->post_count ) ) { ?>
+            <p class="center"><em><?php _e( 'Deine Suche lieferte leider keine Ergebnisse', 'nostrasponte' ); ?></em></p>
+            <?php } else { ?>
             <div class="post-grid" data-num="<?php esc_attr_e( $wp_query->post_count ); ?>" data-total="<?php echo $wp_query->max_num_pages; ?>">
 				<?php while (have_posts()) { the_post(); ?>
                     <article class="card card--post">
@@ -55,7 +58,8 @@
                     </article>
 				<?php } ?>
             </div>
-            <?php ns_pagination($wp_query, 'center mt-7 mb-5 mt-md-10 mb-md-12 mt-lg-8 mb-lg-11'); ?>
+            <?php ns_pagination($wp_query, 'center mt-7 mb-5 mt-md-10 mb-md-12 mt-lg-8 mb-lg-11');
+            } ?>
         </section>
 	</main>
 <?php get_sidebar(); ?>
