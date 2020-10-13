@@ -1,6 +1,6 @@
 <?php get_header(); ?>
     <main class="pt-6 pt-md-0">
-        <section class="hero--homepage hero--top" data-hero-type="<?php echo esc_attr( ns_homepage_hero_type() ); ?>">
+        <section class="hero--homepage hero--top" data-hero-type="<?php esc_attr_e( ns_homepage_hero_type() ); ?>">
             <div class="hero--homepage__img" style="background-image: url('<?php ns_homepage_hero_image(); ?>');"></div>
             <div class="hero--homepage__wrapper px-2 pb-5 px-md-4 py-md-4 px-lg-6 py-lg-6">
                 <h2 class="hero--homepage__title"><?php ns_homepage_hero_title(); ?></h2>
@@ -9,10 +9,10 @@
             </div>
         </section>
         <section class="mt-6 mx-2 mt-md-8 mx-md-4 mt-md-10 mx-lg-6 blog">
-            <h2 class="section-title mt-0 mb-2 mb-md-3 mb-lg-5">Aktuelles</h2>
+            <h2 class="section-title mt-0 mb-2 mb-md-3 mb-lg-5"><?php _ex( 'Aktuelles', 'Blog Section Caption', 'nostrasponte' ); ?></h2>
             <?php $posts = new WP_Query([ 'posts_per_page' => 6, 'offset' => ns_homepage_hero_type() === 'last_post' ? 1 : 0 ]); ?>
             <div class="slider slider--mobile grid--desktop">
-                <div class="slider__wrapper" data-num="<?php echo esc_attr( $posts->post_count ); ?>">
+                <div class="slider__wrapper" data-num="<?php esc_attr_e( $posts->post_count ); ?>">
                     <?php while ($posts -> have_posts()) { $posts -> the_post(); ?>
                     <div class="slider__content">
                         <article class="card card--post">
@@ -23,14 +23,14 @@
                             <p class="card--post__excerpt"><?php echo wp_trim_words(get_the_excerpt(), 18, '&hellip;'); ?></p>
                             <footer class="card--post__foot">
                                 <div class="card--post__foot__category">
-                                    <i class="feather icon-bookmark" title="Kategorien"></i>
+                                    <i class="feather icon-bookmark" title="<?php esc_attr_e( 'Kategorien', 'nostrasponte' ); ?>"></i>
                                     <ul>
                                         <?php wp_list_categories( [ 'title_li' => '' ] ); ?>
                                     </ul>
                                 </div>
                                 <?php if ( has_tag() ) { ?>
                                 <div class="card--post__foot__tags">
-                                    <i class="feather icon-tag" title="Tags"></i>
+                                    <i class="feather icon-tag" title="<?php esc_attr_e( 'Tags', 'nostrasponte' ); ?>"></i>
                                     <ul>
                                         <?php foreach ( get_tags() as $tag ) { ?>
                                         <li><a href="<?php echo get_tag_link( $tag->term_id ); ?>" <?php if ( !empty($tag->description) ) { ?>title="<?php echo esc_attr($tag->description); ?>"<?php } ?>><?php echo esc_html( $tag->name ); ?></a></li>
@@ -40,7 +40,7 @@
                                 <?php }
                                 if( has_term( '', 'municipality' ) ) { ?>
                                     <div class="card--post__foot__municipalities">
-                                        <i class="feather icon-home" title="Kommune"></i>
+                                        <i class="feather icon-home" title="<?php esc_attr_e( 'Kommune', 'nostrasponte' ); ?>"></i>
                                         <ul>
 				                            <?php foreach ( get_tags( [ 'taxonomy' => 'municipality' ] ) as $tag ) { ?>
                                                 <li><a href="<?php echo get_tag_link( $tag->term_id ); ?>" <?php if ( !empty($tag->description) ) { ?>title="<?php echo esc_attr($tag->description); ?>"<?php } ?>><?php echo esc_html( $tag->name ); ?></a></li>
@@ -49,15 +49,15 @@
                                     </div>
 	                            <?php } ?>
                                 <div class="card--post__foot__date">
-                                    <i class="feather icon-calendar" title="Datum"></i>
+                                    <i class="feather icon-calendar" title="<?php esc_attr_e( 'Datum', 'nostrasponte' ); ?>"></i>
                                     <a href="#"><time datetime="<?php the_date( 'Y-m-d' ); ?>"><?php printf('%s, %s. %s %s',
-                                                _x( NS_DAY_OF_WEEK[ intval( get_the_date( 'w' ) ) ] ,'day of week', 'nostrasponte' ),
+                                                NS_DAY_OF_WEEK[ intval( get_the_date( 'w' ) ) ],
                                                 get_the_date( 'j' ),
-                                                __( NS_MONTH[ intval( get_the_date( 'n' ) ) ] ),
+                                                NS_MONTH[ intval( get_the_date( 'n' ) ) ],
                                                 get_the_date( 'Y' ) ); ?></time></a>
                                 </div>
                                 <div class="card--post__foot__author">
-                                    <i class="feather icon-user" title="Autor"></i><?php the_author_link(); ?>
+                                    <i class="feather icon-user" title="<?php esc_attr_e('Autor', 'nostrasponte' ); ?>"></i><?php the_author_link(); ?>
                                 </div>
                             </footer>
                         </article>
@@ -71,7 +71,7 @@
                 <nav class="slider__nav"><?php for ($i = 0; $i < $posts->post_count; $i++) echo '<span></span>'; ?></nav>
             </div>
             <div class="blog__more-wrapper pt-4 pb-8 pt-md-7 pb-md-12 pt-lg-12 pb-lg-18">
-                <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="btn mx-center">Mehr Posts</a>
+                <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="btn mx-center"><?php echo esc_html_x( 'Mehr Posts', 'Homepage Button', 'nostrasponte' ); ?></a>
             </div>
         </section>
     </main>

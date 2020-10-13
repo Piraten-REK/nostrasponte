@@ -32,7 +32,7 @@
 			<span>Kreisverband&nbsp;<span class="nobr">Rhein-Erft</span></span>
 		</p>
 	</div>
-	<button id="back-to-top" class="back-to-top" title="Zurück nach oben"><i class="feather icon-arrow-up"></i></button>
+	<button id="back-to-top" class="back-to-top" title="<?php esc_attr_e( 'Zurück nach oben', 'nostrasponte' ); ?>"><i class="feather icon-arrow-up"></i></button>
 </footer>
 <div class="site-header__navigation__darkener"></div>
 <?php wp_footer(); ?>

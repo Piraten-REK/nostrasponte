@@ -9,28 +9,28 @@ function is_index() {
 }
 
 define( 'NS_DAY_OF_WEEK', [
-	'So',
-	'Mo',
-	'Di',
-	'Mi',
-	'Do',
-	'Fr',
-	'Sa'
+	_x( 'So', 'Day of Week Abbreviation', 'nostrasponte' ),
+	_x( 'Mo', 'Day of Week Abbreviation', 'nostrasponte' ),
+	_x( 'Di', 'Day of Week Abbreviation', 'nostrasponte' ),
+	_x( 'Mi', 'Day of Week Abbreviation', 'nostrasponte' ),
+	_x( 'Do', 'Day of Week Abbreviation', 'nostrasponte' ),
+	_x( 'Fr', 'Day of Week Abbreviation', 'nostrasponte' ),
+	_x( 'Sa', 'Day of Week Abbreviation', 'nostrasponte' )
 ] );
 
 define( 'NS_MONTH', [
-	'Januar',
-	'Februar',
-	'März',
-	'April',
-	'Mai',
-	'Juni',
-	'Juli',
-	'August',
-	'September',
-	'Oktober',
-	'November',
-	'Dezember'
+	__( 'Januar', 'nostrasponte' ),
+	__( 'Februar', 'nostrasponte' ),
+	__( 'März', 'nostrasponte' ),
+	__( 'April', 'nostrasponte' ),
+	__( 'Mai', 'nostrasponte' ),
+	__( 'Juni', 'nostrasponte' ),
+	__( 'Juli', 'nostrasponte' ),
+	__( 'August', 'nostrasponte' ),
+	__( 'September', 'nostrasponte' ),
+	__( 'Oktober', 'nostrasponte' ),
+	__( 'November', 'nostrasponte' ),
+	__( 'Dezember', 'nostrasponte' )
 ] );
 
 /**
@@ -77,7 +77,7 @@ function ns_pagination( WP_Query $wp_query, string $addClass = '', bool $echo = 
 	$addClass = esc_attr( empty( $addClass ) ? $addClass : ' ' . $addClass );
 
 	$return = "<div class=\"pagination-wrapper${addClass}\">";
-	
+
 	$render = [];
 	if ( $current <= 4 ) $render = [ 2, 3, 4, -1, $pages - 1 ];
 	elseif ( $current >= $pages - 3 ) $render = [ 2, -1, $pages - 3, $pages - 2, $pages - 1 ];
