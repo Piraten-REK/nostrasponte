@@ -11,7 +11,7 @@
             <div class="post-grid" data-num="<?php esc_attr_e( $wp_query->post_count ); ?>" data-total="<?php echo $wp_query->max_num_pages; ?>">
 				<?php while (have_posts()) { the_post(); ?>
                     <article class="card card--post">
-                        <div class="card--post__img"<?php if (has_post_thumbnail()) { ?> style="background-image: url('<?php the_post_thumbnail_url(); ?>')"<?php } ?>></div>
+                        <div class="card--post__img"<?php if (has_post_thumbnail()) { ?> style="background-image: url('<?php the_post_thumbnail_url(); ?>')"<?php } ?> role="img"></div>
                         <header class="card--post__head">
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         </header>

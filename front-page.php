@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <main class="pt-6 pt-md-0">
         <section class="hero--homepage hero--top" data-hero-type="<?php esc_attr_e( ns_homepage_hero_type() ); ?>">
-            <div class="hero--homepage__img" style="background-image: url('<?php ns_homepage_hero_image(); ?>');"></div>
+            <div class="hero--homepage__img" style="background-image: url('<?php ns_homepage_hero_image(); ?>');" role="img"></div>
             <div class="hero--homepage__wrapper px-2 pb-5 px-md-4 py-md-4 px-lg-6 py-lg-6">
                 <h2 class="hero--homepage__title"><?php ns_homepage_hero_title(); ?></h2>
                 <p class="hero--homepage__subtitle"><?php ns_homepage_hero_text(); ?></p>
@@ -16,7 +16,7 @@
                     <?php while ($posts -> have_posts()) { $posts -> the_post(); ?>
                     <div class="slider__content">
                         <article class="card card--post">
-                            <div class="card--post__img"<?php if (has_post_thumbnail()) { ?> style="background-image: url('<?php the_post_thumbnail_url(); ?>')"<?php } ?>></div>
+                            <div class="card--post__img"<?php if (has_post_thumbnail()) { ?> style="background-image: url('<?php the_post_thumbnail_url(); ?>')"<?php } ?> role="img"></div>
                             <header class="card--post__head">
                                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             </header>

@@ -6,7 +6,7 @@ function ns_widgets() {
 		'id'            => 'ns_sidebar',
 		'description'   => __('Sidebar für Nostra Sponte', 'nostra sponte'),
 		'class'         => 'site-sidebar',
-		'before_widget' => '<section id="%1$s" class="site-sidebar__%2$s">',
+		'before_widget' => '<section id="%1$s" class="site-sidebar__%2$s" role="group">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="section-title">',
 		'after_title'   => '</h2>'
