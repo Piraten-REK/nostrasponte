@@ -1,11 +1,11 @@
 <?php
 function ns_get_share_link($platform) {
-	$url = urlencode( get_the_permalink() );
-	$title = urlencode( get_the_title() );
-	$blog_title = urlencode( get_bloginfo( 'title' ) );
-	$title_tag = urlencode( html_entity_decode( wp_get_document_title(), ENT_NOQUOTES | ENT_HTML5 ) );
-	$desc = urlencode( wp_trim_words( get_the_excerpt(), 12, '…' ) );
-	$img = urlencode( has_post_thumbnail() ? get_the_post_thumbnail_url() : get_site_icon_url() );
+	$url = str_replace('+', '%20', urlencode( get_the_permalink() ));
+	$title = str_replace('+', '%20', urlencode( get_the_title() ));
+	$blog_title = str_replace('+', '%20', urlencode( get_bloginfo( 'title' ) ));
+	$title_tag = str_replace('+', '%20', urlencode( html_entity_decode( wp_get_document_title(), ENT_NOQUOTES | ENT_HTML5 ) ));
+	$desc = str_replace('+', '%20', urlencode( wp_trim_words( get_the_excerpt(), 12, '…' ) ));
+	$img = str_replace('+', '%20', urlencode( has_post_thumbnail() ? get_the_post_thumbnail_url() : get_site_icon_url() ));
 	$newLine = '%0A';
 
 	switch (strtolower($platform)) {
