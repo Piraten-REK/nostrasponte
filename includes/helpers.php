@@ -8,15 +8,20 @@ function is_index() {
 	return $GLOBALS['current_theme_template'] === 'index.php';
 }
 
-define( 'NS_DAY_OF_WEEK', [
-	_x( 'So', 'Day of Week Abbreviation', 'nostrasponte' ),
-	_x( 'Mo', 'Day of Week Abbreviation', 'nostrasponte' ),
-	_x( 'Di', 'Day of Week Abbreviation', 'nostrasponte' ),
-	_x( 'Mi', 'Day of Week Abbreviation', 'nostrasponte' ),
-	_x( 'Do', 'Day of Week Abbreviation', 'nostrasponte' ),
-	_x( 'Fr', 'Day of Week Abbreviation', 'nostrasponte' ),
-	_x( 'Sa', 'Day of Week Abbreviation', 'nostrasponte' )
-] );
+define ('NS_DAY_OF_WEEK_COMP', [
+	_x( 'Sonntag', 'Day of Week', 'nostrasponte' ),
+	_x( 'Montag', 'Day of Week', 'nostrasponte' ),
+	_x( 'Dienstag', 'Day of Week', 'nostrasponte' ),
+	_x( 'Mittwoch', 'Day of Week', 'nostrasponte' ),
+	_x( 'Donnerstag', 'Day of Week', 'nostrasponte' ),
+	_x( 'Freitag', 'Day of Week', 'nostrasponte' ),
+	_x( 'Samstag', 'Day of Week', 'nostrasponte' )
+]);
+
+define(
+	'NS_DAY_OF_WEEK',
+	array_map(function ($it) { return substr($it, 0, 2); }, NS_DAY_OF_WEEK_COMP)
+);
 
 define( 'NS_MONTH', [
 	__( 'Januar', 'nostrasponte' ),
