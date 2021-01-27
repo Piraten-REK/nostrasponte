@@ -13,6 +13,7 @@ function ns_widgets() {
 	]);
 
 	register_widget( 'NS_Share_Buttons' );
+	register_widget('NS_Calendar_Widget');
 }
 
 function ns_primary_nav_filter(string $html, stdClass $args) {

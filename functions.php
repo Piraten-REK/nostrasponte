@@ -12,6 +12,7 @@ $includes = [
 	'theme-customizer',
 	'widgets',
 	'widgets/share-buttons',
+	'widgets/calendar',
 	'front/enqueue',
 	'front/js'
 ];
