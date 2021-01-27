@@ -75,5 +75,5 @@
             </div>
         </section>
     </main>
-<?php get_sidebar(); ?>
+<?php wp_reset_query(); get_sidebar(); ?>
 <?php get_footer();
