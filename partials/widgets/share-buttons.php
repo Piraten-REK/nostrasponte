@@ -22,7 +22,7 @@ function ns_get_share_link($platform) {
 		case 'telegram':
 			return "https://telegram.me/share/url?url=${url}&text=${title_tag}";
 		case 'mail':
-			return "mailto:info@piraten-rek.de?subject=${title_tag}&body=${url}";
+			return "mailto:?to=&subject=${title_tag}&body=${url}";
 		default:
 			throw new Error('Nope');
 	}
