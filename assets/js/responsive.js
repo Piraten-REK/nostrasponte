@@ -1,13 +1,13 @@
 export const breakPoints = [768, 1366]
 
 export const mediaSm = () => {
-  return window.outerWidth < breakPoints[0]
+  return document.body.clientWidth < breakPoints[0]
 }
 
 export const mediaMd = () => {
-  return window.outerWidth >= breakPoints[0]
+  return document.body.clientWidth >= breakPoints[0]
 }
 
 export const mediaLg = () => {
-  return window.outerWidth >= breakPoints[1]
+  return document.body.clientWidth >= breakPoints[1]
 }
