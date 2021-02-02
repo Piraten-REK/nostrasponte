@@ -15,7 +15,7 @@
 import { markExternalLinks, markMailLinks } from './links.js'
 import { toggleBack2TopButton, sliderNav } from './scroll.js'
 import share from './share.js'
-import { navToggle } from './nav.js'
+import { navToggle, searchStayOpen } from './nav.js'
 import ical from './ical-widget/index.js'
 import { mediaLg } from './responsive.js'
 
@@ -72,3 +72,5 @@ function autoOpenPartners (first = false) {
 }
 window.addEventListener('resize', autoOpenPartners)
 autoOpenPartners(true)
+
+searchStayOpen()
