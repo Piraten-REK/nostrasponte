@@ -40,7 +40,7 @@ function ns_share_link($platform) {
     <li><a href="<?php ns_share_link('whatsapp'); ?>" target="_blank" class="site-sidebar__social__link--whatsapp"></a></li>
     <li><a href="<?php ns_share_link('telegram'); ?>" target="_blank" class="site-sidebar__social__link--telegram"></a></li>
     <li><button class="site-sidebar__social__link--link" data-url="<?php the_permalink(); ?>"></button></li>
-    <li><a href="<?php ns_share_link('mail'); ?>" class="site-sidebar__social__link--mail"></a></li>
+    <li><a href="<?php ns_share_link('mail'); ?>" class="site-sidebar__social__link--mail link--no-mark"></a></li>
 </ul>
 <button class="site-sidebar__social__buttons--share-api" data-title="<?php echo esc_attr(wp_get_document_title()); ?>" data-text="<?php echo esc_attr(get_the_excerpt()); ?>" data-url="<?php echo esc_attr(get_the_permalink()); ?>">
     <div class="site-sidebar__social__buttons--share-api__circle feather icon-share-2 mr-4"></div>
