@@ -1,0 +1,231 @@
+@use 'sass:math';
+@use 'sass:list';
+@use './includes/conf' as *;
+
+body.tax-municipality {
+
+  .hero--municipality {
+    position: relative;
+
+    &__img {
+      width: 100%;
+      height: 0;
+      padding-bottom: 55%;
+      background: center center / cover no-repeat;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, #000000bf);
+      }
+    }
+
+    .page-title {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      text-shadow: 0px 2px 3px #00000036;
+    }
+  }
+
+  section.municipality {
+    details.municipality__partners {
+      margin: s(4 - 2) s(-2) s(-2);
+      padding: s(2);
+      background: #f4f4f4;
+
+      @include m(1) {
+        margin: s(8 - 4) s(-4) s(-4);
+        padding: s(4);
+      }
+
+      @include m(2) {
+        margin: unset;
+        padding: unset;
+        background: none;
+      }
+
+      summary {
+        list-style: none;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        h3 {
+          margin: 0;
+
+          &::after {
+            display: inline-block;
+            @include icomoon;
+            content: "\e842";
+            transition: transform .3s ease-in-out;
+
+            @include m(2) {
+              content: none;
+            }
+          }
+        }
+      }
+
+      &[open] {
+        summary h3::after {
+          transform: rotate(-180deg);
+        }
+
+        .municipality__partners__wrapper {
+          transform-origin: center top;
+          margin-top: s(2);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          @media (max-width: #{list.nth($breakPoints, 2) - 1 px}) {
+            animation: openDetails .5s ease-in-out;
+          }
+
+          @include m(1) {
+            margin: s(4) 0 s(2);
+
+            &[data-num="1"] {
+              flex-direction: row;
+              justify-content: center;
+            }
+
+            &[data-num="2"] {
+              display: grid;
+              grid-template: auto / repeat(2, 1fr);
+              grid-gap: s(6);
+              justify-items: center;
+              align-items: stretch;
+            }
+
+            &[data-num="3"], &[data-num="4"] {
+              display: grid;
+              grid-template: repeat(2, auto) / repeat(2, 1fr);
+              grid-gap: s(6);
+              justify-items: center;
+              align-items: stretch;
+            }
+
+            .card--municipality-partner {
+              margin: 0;
+            }
+
+            &[data-num="3"] .card--municipality-partner:last-child {
+              grid-area: 2 / 1 / 3 / 3;
+            }
+          }
+
+          @include m(2) {
+            display: flex !important;
+            flex-direction: row;
+            justify-content: space-around !important;
+            grid-gap: 0 !important;
+
+            &[data-num="3"], &[data-num="4"] {
+              justify-content: space-between !important;
+            }
+
+            .card--municipality-partner {
+              margin: 0 s(2);
+
+              &:first-child {
+                margin-left: 0;
+              }
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .card--municipality-partner {
+        background: #fff;
+        width: 100%;
+        max-width: 320px;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+          margin-bottom: s(2);
+        }
+
+        &__avatar {
+          width: 100%;
+          height: 0;
+          padding: 0 0 80%;
+          background: center center / cover no-repeat;
+        }
+
+        &__head {
+          margin: s(1);
+          padding-bottom: s(.5);
+          border-bottom: 4px solid $piratePurple;
+
+          h3 {
+            font-size: s(3);
+            line-height: s(2) * 1.3;
+            padding-bottom: s(.5);
+            margin: 0;
+          }
+
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+              display: block;
+              font-size: .8rem;
+            }
+          }
+        }
+
+        &__bio {
+          margin-top: s(1.5);
+        }
+
+        &__footer a {
+          @include link {
+            display: block;
+            background: $primary;
+            text-align: center;
+            color: #fff;
+            width: 100%;
+            padding: s(1.5) s(1);
+            transition: background .2s ease-in-out;
+          }
+
+          @include hover {
+            background: $secondary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes openDetails {
+  from {
+    opacity: 0;
+    transform: scaleY(0) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

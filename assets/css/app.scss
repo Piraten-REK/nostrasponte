@@ -42,6 +42,30 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.page-title {
+    font-size: s(4);
+
+    span {
+        border-bottom: s(.5) solid $tertiary;
+    }
+
+    @include m(1) {
+        font-size: s(6);
+
+        span {
+            border-bottom-width: s(.75);
+        }
+    }
+
+    @include m(2) {
+        font-size: s(8);
+
+        span {
+            border-bottom-width: s(1);
+        }
+    }
+}
+
 hr {
     margin: s(4) 0;
     padding: 0;
@@ -113,6 +137,9 @@ ul {
     border: 1px solid $lightGray;
     border-radius: s(.5);
     overflow: hidden;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
 
     &--post {
         &__img {
@@ -147,10 +174,11 @@ ul {
 
         &__excerpt {
             margin: s(1) s(1) s(1.5);
+            flex-grow: 1;
         }
 
         &__foot {
-            margin: s(1.5) 0 s(1) s(1);
+            margin: s(1.5) s(1) s(1) s(1);
             color: $gray;
             font-size: s(1.5);
 
@@ -198,7 +226,7 @@ ul {
 
     &__wrapper {
         display: flex;
-        width: calc(100% + s(4));
+        width: calc(100% + #{s(4)});
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
@@ -207,7 +235,7 @@ ul {
         margin: 0 s(-2);
 
         @include m(1) {
-            width: calc(100% + s(8));
+            width: calc(100% + #{s(8)});
             margin: 0 s(-4);
         }
     
@@ -236,6 +264,11 @@ ul {
                 padding: 0 s(4);
             }
         }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
     }
 
     &__nav-arrows {
@@ -428,6 +461,7 @@ ul {
 .post-grid {
     display: grid;
     grid-gap: s(3);
+    justify-items: center;
     
     @for $i from 1 through 6 {
         &[data-num="#{$i}"] {
@@ -444,10 +478,18 @@ ul {
                 grid-template: repeat(#{$i}, 1fr) / repeat(2, 1fr);
             }
         }
+
+        &> :nth-child(odd) {
+            justify-self: end;
+        }
+        &> :nth-child(even) {
+            justify-self: start;
+        }
     }
 
     @include m(2) {
         grid-gap: s(3);
+        justify-items: stretch;
 
         @for $i from 1 through 2 {
             &[data-num="#{$i * 3 - 2}"],
@@ -535,6 +577,23 @@ ul {
     }
 }
 
+.external-link__insert {
+    white-space: nowrap;
+
+    &::after {
+        @include icomoon();
+        content: "\0020\e869";
+    }
+}
+.mail-link__insert {
+    white-space: nowrap;
+
+    &::after {
+        @include icomoon();
+        content: "\0020\e88a";
+    }
+}
+
 @import 'header';
 @import 'sidebar';
 @import 'footer';
@@ -543,3 +602,4 @@ ul {
 @import '404';
 @import '501';
 @import 'archive';
+@import 'municipality';

@@ -262,7 +262,6 @@
                 display: flex;
 
                 &> li.site-header__navigation__item {
-                    margin: 0 s(-1.5) 0 0;
                     display: inline-block;
                     height: 100%;
                     padding: 0 s(1.5);
@@ -309,6 +308,7 @@
                             opacity: 0;
                             pointer-events: none;
                             transition: opacity .2s linear;
+                            z-index: 1;
                         }
                     }
 

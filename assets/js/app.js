@@ -17,6 +17,7 @@ import { toggleBack2TopButton, sliderNav } from './scroll.js'
 import share from './share.js'
 import { navToggle } from './nav.js'
 import ical from './ical-widget/index.js'
+import { mediaLg } from './responsive.js'
 
 import scrollBehaviorPolyfill from './scroll-behavior-polyfill.js'
 
@@ -59,3 +60,15 @@ document.querySelector('#back-to-top').addEventListener('click', function () {
 })
 
 ical()
+
+const partners = document.querySelector('.municipality__partners')
+partners.addEventListener('click', event => { if (mediaLg()) event.preventDefault() })
+function autoOpenPartners (first = false) {
+  if (mediaLg()) {
+    partners.setAttribute('open', '')
+  } else if (!first) {
+    partners.removeAttribute('open')
+  }
+}
+window.addEventListener('resize', autoOpenPartners)
+autoOpenPartners(true)

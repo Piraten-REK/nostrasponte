@@ -18,7 +18,7 @@ function ns_title_sep (string $sep) {
 
 function ns_title (array $title) {
 	return [
-		'title' => is_404() ? '404' : (is_index() ? '501' : $title['title']),
+		'title' => is_404() ? '404' : (is_index() ? '501' : (is_tax('municipality') ? get_term_meta(get_queried_object_id(), 'municipality_data', true)['long_title'] : $title['title'])),
 		'page' => $title['page'],
 		'site' => is_index() ? get_bloginfo('name') : $title['site'],
 	];

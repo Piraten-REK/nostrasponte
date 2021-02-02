@@ -3952,6 +3952,29 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.page-title {
+  font-size: 32px;
+}
+.page-title span {
+  border-bottom: 4px solid #652480;
+}
+@media (min-width: 768px) {
+  .page-title {
+    font-size: 48px;
+  }
+  .page-title span {
+    border-bottom-width: 6px;
+  }
+}
+@media (min-width: 1366px) {
+  .page-title {
+    font-size: 64px;
+  }
+  .page-title span {
+    border-bottom-width: 8px;
+  }
+}
+
 hr {
   margin: 32px 0;
   padding: 0;
@@ -4029,6 +4052,9 @@ ul {
   border: 1px solid #ccc;
   border-radius: 4px;
   overflow: hidden;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
 }
 .card--post__img {
   width: 100%;
@@ -4057,9 +4083,10 @@ ul {
 }
 .card--post__excerpt {
   margin: 8px 8px 12px;
+  flex-grow: 1;
 }
 .card--post__foot {
-  margin: 12px 0 8px 8px;
+  margin: 12px 8px 8px 8px;
   color: #999;
   font-size: 12px;
 }
@@ -4101,7 +4128,7 @@ ul {
 }
 .slider__wrapper {
   display: flex;
-  width: calc(100% + s(4));
+  width: calc(100% + 32px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -4110,7 +4137,7 @@ ul {
 }
 @media (min-width: 768px) {
   .slider__wrapper {
-    width: calc(100% + s(8));
+    width: calc(100% + 64px);
     margin: 0 -32px;
   }
 }
@@ -4136,6 +4163,10 @@ ul {
     width: 50%;
     padding: 0 32px;
   }
+}
+.slider__content {
+  display: flex;
+  justify-content: center;
 }
 .slider__nav-arrows button {
   background: none;
@@ -4292,6 +4323,7 @@ ul {
 .post-grid {
   display: grid;
   grid-gap: 24px;
+  justify-items: center;
 }
 .post-grid[data-num="1"] {
   grid-template: repeat(1, 1fr)/1fr;
@@ -4324,10 +4356,17 @@ ul {
   .post-grid[data-num="5"], .post-grid[data-num="6"] {
     grid-template: repeat(3, 1fr)/repeat(2, 1fr);
   }
+  .post-grid > :nth-child(odd) {
+    justify-self: end;
+  }
+  .post-grid > :nth-child(even) {
+    justify-self: start;
+  }
 }
 @media (min-width: 1366px) {
   .post-grid {
     grid-gap: 24px;
+    justify-items: stretch;
   }
   .post-grid[data-num="1"], .post-grid[data-num="2"], .post-grid[data-num="3"] {
     grid-template: repeat(1, 1fr)/repeat(3, 1fr);
@@ -4398,6 +4437,40 @@ ul {
 }
 .pagination__ellipsis {
   cursor: default;
+}
+
+.external-link__insert {
+  white-space: nowrap;
+}
+.external-link__insert::after {
+  font-family: "feather" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: " ";
+}
+
+.mail-link__insert {
+  white-space: nowrap;
+}
+.mail-link__insert::after {
+  font-family: "feather" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: " ";
 }
 
 .site-header {
@@ -4632,7 +4705,6 @@ ul {
     display: flex;
   }
   .site-header__navigation > ul > li.site-header__navigation__item {
-    margin: 0 -12px 0 0;
     display: inline-block;
     height: 100%;
     padding: 0 12px;
@@ -4674,6 +4746,7 @@ ul {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s linear;
+    z-index: 1;
   }
   .site-header__navigation > ul > li.site-header__navigation__item > a, .site-header__navigation > ul > li.site-header__navigation__item > .site-header__navigation__label {
     line-height: 80px;
@@ -5452,3 +5525,210 @@ body.index-php .error-content {
 .search main .searchform {
   width: 100%;
 }
+
+body.tax-municipality .hero--municipality {
+  position: relative;
+}
+body.tax-municipality .hero--municipality__img {
+  width: 100%;
+  height: 0;
+  padding-bottom: 55%;
+  background: center center/cover no-repeat;
+  position: relative;
+}
+body.tax-municipality .hero--municipality__img::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #000000bf);
+}
+body.tax-municipality .hero--municipality .page-title {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  text-shadow: 0px 2px 3px #00000036;
+}
+body.tax-municipality section.municipality details.municipality__partners {
+  margin: 16px -16px -16px;
+  padding: 16px;
+  background: #f4f4f4;
+}
+@media (min-width: 768px) {
+  body.tax-municipality section.municipality details.municipality__partners {
+    margin: 32px -32px -32px;
+    padding: 32px;
+  }
+}
+@media (min-width: 1366px) {
+  body.tax-municipality section.municipality details.municipality__partners {
+    margin: unset;
+    padding: unset;
+    background: none;
+  }
+}
+body.tax-municipality section.municipality details.municipality__partners summary {
+  list-style: none;
+}
+body.tax-municipality section.municipality details.municipality__partners summary::-webkit-details-marker {
+  display: none;
+}
+body.tax-municipality section.municipality details.municipality__partners summary h3 {
+  margin: 0;
+}
+body.tax-municipality section.municipality details.municipality__partners summary h3::after {
+  display: inline-block;
+  font-family: "feather" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  transition: transform 0.3s ease-in-out;
+}
+@media (min-width: 1366px) {
+  body.tax-municipality section.municipality details.municipality__partners summary h3::after {
+    content: none;
+  }
+}
+body.tax-municipality section.municipality details.municipality__partners[open] summary h3::after {
+  transform: rotate(-180deg);
+}
+body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+  transform-origin: center top;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 1365px px) {
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+    animation: openDetails 0.5s ease-in-out;
+  }
+}
+@media (min-width: 768px) {
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+    margin: 32px 0 16px;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="1"] {
+    flex-direction: row;
+    justify-content: center;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="2"] {
+    display: grid;
+    grid-template: auto/repeat(2, 1fr);
+    grid-gap: 48px;
+    justify-items: center;
+    align-items: stretch;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="3"], body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="4"] {
+    display: grid;
+    grid-template: repeat(2, auto)/repeat(2, 1fr);
+    grid-gap: 48px;
+    justify-items: center;
+    align-items: stretch;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner {
+    margin: 0;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="3"] .card--municipality-partner:last-child {
+    grid-area: 2/1/3/3;
+  }
+}
+@media (min-width: 1366px) {
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around !important;
+    grid-gap: 0 !important;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="3"], body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="4"] {
+    justify-content: space-between !important;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner {
+    margin: 0 16px;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:first-child {
+    margin-left: 0;
+  }
+  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:last-child {
+    margin-right: 0;
+  }
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner {
+  background: #fff;
+  width: 100%;
+  max-width: 320px;
+  justify-content: space-between;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner:not(:last-child) {
+  margin-bottom: 16px;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__avatar {
+  width: 100%;
+  height: 0;
+  padding: 0 0 80%;
+  background: center center/cover no-repeat;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head {
+  margin: 8px;
+  padding-bottom: 4px;
+  border-bottom: 4px solid #652480;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head h3 {
+  font-size: 24px;
+  line-height: 20.8px;
+  padding-bottom: 4px;
+  margin: 0;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head ul li {
+  display: block;
+  font-size: 0.8rem;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__bio {
+  margin-top: 12px;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:link, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:visited {
+  display: block;
+  background: #ff8700;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  padding: 12px 8px;
+  transition: background 0.2s ease-in-out;
+}
+body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:hover, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:active, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:focus {
+  background: #ffaf40;
+}
+
+@keyframes openDetails {
+  from {
+    opacity: 0;
+    transform: scaleY(0) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */
