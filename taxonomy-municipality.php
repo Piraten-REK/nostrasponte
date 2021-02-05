@@ -21,7 +21,8 @@ $allowed_html = [
         </section>
 		<?php } ?>
         <section class="mt-3 mx-2 mt-md-6 mx-md-4 mx-lg-6 municipality">
-            <?php if (empty($data['bg-image'])) { ?><h2 class="page-title mt-0 mb-4 mb-md-8"><span><?php echo esc_html($data['long_title']); ?></span></h2><?php } ?>
+            <?php if (empty($data['bg-image'])) { ?><h2 class="page-title mt-0 mb-4 mb-md-8"><span><?php echo esc_html($data['long_title']); ?></span></h2><?php }
+            if (!is_paged()) { ?>
             <div class="municipality__info mb-md-6">
                 <?php $desc = nl2br(trim(wp_kses($municipality->description, $allowed_html)));;
                 $desc = preg_split("/<br(?: \/)?>\r?\n<br(?: \/)>/", $desc);
@@ -56,6 +57,7 @@ $allowed_html = [
 	                <?php } ?>
                 </div>
             </details>
+            <?php } ?>
 
             <?php // ToDo: Anträge ?>
         </section>
