@@ -24,7 +24,7 @@ class NS_Primary_Nav_Walker extends NS_Custom_Nav_Walker {
 			$output .= '"' . (isset($extra) ? ' ' . $extra : '') . '>';
 			$output .= get_search_form([ 'echo' => false ]);
 		} else if ($this->is_label($item)) {
-			$output .= '<li class="' . $class . '"' . (isset($extra) ? ' ' . $extra : '') . '>';
+			$output .= '<li class="' . $class . '"' . (isset($extra) ? ' ' . $extra : '') . '">';
 			$output .= $args->before;
 			$output .= '<span class="' . $this->get_container_class($args, '__label');
 			if (!empty($item->attr_title)) $output .= ' title="' . $item->attr_title . '"';
@@ -37,10 +37,16 @@ class NS_Primary_Nav_Walker extends NS_Custom_Nav_Walker {
 		}
 	}
 
-	protected function get_element_class( WP_Post $item, stdClass $args ) {
+	protected function get_element_class( WP_Post $item, stdClass $args ): array {
 		$class = [ $this->get_container_class( $args, '__item' ) ];
 		if ( $this->is_search( $item ) ) array_push( $class, $this->get_container_class( $args, '__search' ) );
-		return array_map( function ( string $it ) { return trim( $it ); }, array_merge( $class, parent::get_element_class( $item, $args )) );
+		if (!empty( $item->classes ) && array_reduce( $item->classes, 'self::classCurrent', false )) array_push($class, 'current');
+		return array_unique(array_map( function ( string $it ) { return trim( $it ); }, array_merge( $class, parent::get_element_class( $item, $args ))), SORT_REGULAR);
+	}
+
+	private static function classCurrent (bool $carry, string $item): bool {
+		if ($carry || preg_match('/^current-/', $item)) return true;
+		else return $carry;
 	}
 
 

@@ -158,6 +158,15 @@
                 a {
                     color: #fff;
                 }
+
+                &.current:not(.site-header__navigation__home),
+                &.site-header__navigation__item--open,
+                &:hover, &:focus, &:active, &:focus-within {
+                    &> a {
+                        color: $secondary;
+                    }
+                }
+
                 .site-header__navigation__label {
                     color: #fff;
                     display: block;
@@ -182,6 +191,14 @@
                         
                         &> li {
                             font-size: s(2);
+
+                            &.current,
+                            &.site-header__navigation__item--open,
+                            &:hover, &:focus, &:active, &:focus-within {
+                                * {
+                                    color: $secondary;
+                                }
+                            }
 
                             &:not(:last-child) {
                                 margin-bottom: s(1);
@@ -269,6 +286,10 @@
                     transition: border .2s linear;
                     margin: 0;
                     position: relative;
+
+                    &.current:not(.site-header__navigation__home) {
+                        border-bottom: 4px solid $tertiary;
+                    }
 
                     &.site-header__navigation__item--open,
                     &:hover, &:focus, &:active, &:focus-within {

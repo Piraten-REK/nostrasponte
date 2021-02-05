@@ -36,10 +36,11 @@ class NS_Custom_Nav_Walker extends Walker_Nav_Menu {
 		return $class . $add;
 	}
 
-	protected function get_element_class (WP_Post $item, stdClass $args) {
+	protected function get_element_class (WP_Post $item, stdClass $args): array {
 		$class = [];
 		if ($this->is_separator( $item )) array_push(  $class, $this->get_container_class($args, '__separator' ) );
-		if (!empty( $item->classes[0] )) array_push($class, $item->classes[0]);
+		if ($item->url === get_site_url(null, '/')) array_push(  $class, $this->get_container_class($args, '__home' ) );
+		if (!empty( $item->classes ) && !empty( $item->classes[0] )) array_push($class, $item->classes[0]);
 		$class = array_map( function (string $it) { return trim( $it ); }, $class );
 
 		return $class;

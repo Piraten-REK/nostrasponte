@@ -4621,6 +4621,9 @@ ul {
 .site-header__navigation > ul > li a {
   color: #fff;
 }
+.site-header__navigation > ul > li.current:not(.site-header__navigation__home) > a, .site-header__navigation > ul > li.site-header__navigation__item--open > a, .site-header__navigation > ul > li:hover > a, .site-header__navigation > ul > li:focus > a, .site-header__navigation > ul > li:active > a, .site-header__navigation > ul > li:focus-within > a {
+  color: #ffaf40;
+}
 .site-header__navigation > ul > li .site-header__navigation__label {
   color: #fff;
   display: block;
@@ -4642,6 +4645,9 @@ ul {
 }
 .site-header__navigation > ul > li .site-header__navigation__label + ul > li {
   font-size: 16px;
+}
+.site-header__navigation > ul > li .site-header__navigation__label + ul > li.current *, .site-header__navigation > ul > li .site-header__navigation__label + ul > li.site-header__navigation__item--open *, .site-header__navigation > ul > li .site-header__navigation__label + ul > li:hover *, .site-header__navigation > ul > li .site-header__navigation__label + ul > li:focus *, .site-header__navigation > ul > li .site-header__navigation__label + ul > li:active *, .site-header__navigation > ul > li .site-header__navigation__label + ul > li:focus-within * {
+  color: #ffaf40;
 }
 .site-header__navigation > ul > li .site-header__navigation__label + ul > li:not(:last-child) {
   margin-bottom: 8px;
@@ -4712,6 +4718,9 @@ ul {
     transition: border 0.2s linear;
     margin: 0;
     position: relative;
+  }
+  .site-header__navigation > ul > li.site-header__navigation__item.current:not(.site-header__navigation__home) {
+    border-bottom: 4px solid #652480;
   }
   .site-header__navigation > ul > li.site-header__navigation__item.site-header__navigation__item--open, .site-header__navigation > ul > li.site-header__navigation__item:hover, .site-header__navigation > ul > li.site-header__navigation__item:focus, .site-header__navigation > ul > li.site-header__navigation__item:active, .site-header__navigation > ul > li.site-header__navigation__item:focus-within {
     border-bottom: 4px solid #ff8700;
