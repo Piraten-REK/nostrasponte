@@ -52,7 +52,7 @@ function ns_pagination( WP_Query $wp_query, string $addClass = '', bool $echo = 
 	$current = get_query_var( 'paged' ) > 0 ? intval( get_query_var( 'paged' ) ) : 1;
 
 	function build_link ( int $page = null ) {
-		$query = '?s=' . urlencode( get_query_var( 's' ) );
+		$query = is_search() ? '?s=' . urlencode( get_query_var( 's' ) ) : '';
 		global $wp;
 		$link = home_url( $wp->request );
 		if ( strpos( $link, '/page/' ) ) $link = substr( $link, 0, strpos( $link, '/page/' ) );
