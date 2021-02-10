@@ -40,7 +40,7 @@
 						get_the_date( 'Y' ) ); ?></time>
 		</div>
 		<div class="card--post__foot__author">
-			<i class="feather icon-user" title="<?php esc_attr_e('Autor', 'nostrasponte' ); ?>"></i><?php the_author_link(); ?>
+			<i class="feather icon-user" title="<?php esc_attr_e('Autor', 'nostrasponte' ); ?>"></i><span><?php the_author(); ?></span>
 		</div>
 	</footer>
 </article>
