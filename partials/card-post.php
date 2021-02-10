@@ -33,11 +33,11 @@
 		<?php } ?>
 		<div class="card--post__foot__date">
 			<i class="feather icon-calendar" title="<?php esc_attr_e( 'Datum', 'nostrasponte' ); ?>"></i>
-			<a href="#"><time datetime="<?php the_date( 'Y-m-d' ); ?>"><?php printf('%s, %s. %s %s',
+			<time datetime="<?php the_date( 'Y-m-d' ); ?>"><?php printf('%s, %s. %s %s',
 						NS_DAY_OF_WEEK[ intval( get_the_date( 'w' ) ) ],
 						get_the_date( 'j' ),
 						NS_MONTH[ intval( get_the_date( 'n' ) ) ],
-						get_the_date( 'Y' ) ); ?></time></a>
+						get_the_date( 'Y' ) ); ?></time>
 		</div>
 		<div class="card--post__foot__author">
 			<i class="feather icon-user" title="<?php esc_attr_e('Autor', 'nostrasponte' ); ?>"></i><?php the_author_link(); ?>
