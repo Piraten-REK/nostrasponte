@@ -1,4 +1,4 @@
-<article class="card card--post">
+<article <?php post_class('card card--post'); ?>>
 	<div class="card--post__img"<?php if (has_post_thumbnail()) { ?> style="background-image: url('<?php the_post_thumbnail_url(); ?>')"<?php } ?> role="img"></div>
 	<header class="card--post__head">
 		<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
