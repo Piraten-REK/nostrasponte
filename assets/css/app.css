@@ -5187,7 +5187,8 @@ ul {
   max-height: calc(100% - 64px);
   border: none;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.7);
-  overflow: hidden scroll;
+  overflow: hidden auto;
+  border-radius: 4px;
 }
 .nostrasponte-calendar-widget__day__dialog__title {
   position: sticky;
@@ -5222,7 +5223,7 @@ ul {
   vertical-align: top;
 }
 .nostrasponte-calendar-widget__day__dialog__close {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   background: 0;

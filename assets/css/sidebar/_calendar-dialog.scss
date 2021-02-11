@@ -14,7 +14,8 @@ $class: '.nostrasponte-calendar-widget';
     max-height: calc(100% - #{s(8)});
     border: none;
     box-shadow: 0 2px 3px rgba(#000, .7);
-    overflow: hidden scroll;
+    overflow: hidden auto;
+    border-radius: s(.5);
 
     &__title {
         position: sticky;
@@ -59,7 +60,7 @@ $class: '.nostrasponte-calendar-widget';
     }
 
     &__close {
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         background: 0;

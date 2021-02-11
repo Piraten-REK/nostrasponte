@@ -344,6 +344,7 @@ export default class Widget {
       darkener.remove()
       document.body.style.overflow = ''
     })
+    wrapper.onscroll = () => close.style.top = wrapper.scrollTop + 'px'
 
     const darkener = document.createElement('div')
     darkener.classList.add(this.className + '__day__dialog__darkener')
