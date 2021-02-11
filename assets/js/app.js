@@ -61,16 +61,18 @@ document.querySelector('#back-to-top').addEventListener('click', function () {
 
 ical()
 
-const partners = document.querySelector('.municipality__partners')
-partners.addEventListener('click', event => { if (mediaLg()) event.preventDefault() })
-function autoOpenPartners (first = false) {
-  if (mediaLg()) {
-    partners.setAttribute('open', '')
-  } else if (!first) {
-    partners.removeAttribute('open')
+if (document.body.classList.contains('archive') && document.body.classList.contains('tax-municipality')) {
+  const partners = document.querySelector('.municipality__partners')
+  partners.addEventListener('click', event => { if (mediaLg()) event.preventDefault() })
+  function autoOpenPartners (first = false) {
+    if (mediaLg()) {
+      partners.setAttribute('open', '')
+    } else if (!first) {
+      partners.removeAttribute('open')
+    }
   }
+  window.addEventListener('resize', autoOpenPartners)
+  autoOpenPartners(true)
 }
-window.addEventListener('resize', autoOpenPartners)
-autoOpenPartners(true)
 
 searchStayOpen()
