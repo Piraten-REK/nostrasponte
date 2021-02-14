@@ -37,7 +37,7 @@ $maxWidth: 1400px;
     @return $mod * $base;
 }
 
-@mixin disableDefaults() {
+%disableDefaults {
     -webkit-appearance: none;
     -moz-appearance: none;
     background: none;
