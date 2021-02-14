@@ -4126,6 +4126,48 @@ ul {
 .site-sidebar .nostrasponte-calendar-widget__month thead tr:nth-child(1) .card--post__foot .nostrasponte-calendar-widget__next, .card--post__foot .site-header__navigation > ul > li .site-header__navigation__label::after, .site-header__navigation > ul > li .card--post__foot .site-header__navigation__label::after, .card--post__foot .site-header__navigation > ul > li.site-header__navigation__search::before, .card--post__foot .searchform button, .searchform .card--post__foot button {
   padding-right: 4px;
 }
+.card--author {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+@media (min-width: 600px) {
+  .card--author {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+.card--author__avatar {
+  width: 112px;
+  height: 112px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+@media (min-width: 600px) {
+  .card--author__avatar {
+    margin: 0;
+  }
+}
+@media (min-width: 600px) {
+  .card--author__wrapper {
+    width: calc(100% - 144px);
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+}
+.card--author__title {
+  color: #777;
+}
+.card--author__description {
+  color: #777;
+}
 
 .slider {
   position: relative;
@@ -5540,6 +5582,86 @@ body.index-php .error-content {
 .archive main .searchform,
 .search main .searchform {
   width: 100%;
+}
+
+.btn, .btn:link, .btn:visited, .site-header__menu-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.btn, .btn:link, .btn:visited, .site-header__menu-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+body.single-post .post__header__meta {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0 0.3em;
+}
+@media (min-width: 768px) {
+  body.single-post .post__header__meta {
+    display: block;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+}
+body.single-post .post__header__meta * {
+  font-size: 0.8rem;
+  color: #999;
+}
+body.single-post .post__header__meta a, body.single-post .post__header__meta a:link, body.single-post .post__header__meta a:visited {
+  color: inherit;
+}
+body.single-post .post__header__meta a:hover, body.single-post .post__header__meta a:active, body.single-post .post__header__meta a:focus {
+  color: #ffaf40;
+}
+body.single-post .post__header__meta > div {
+  display: table-row;
+}
+@media (min-width: 768px) {
+  body.single-post .post__header__meta > div {
+    display: inline-block;
+  }
+  body.single-post .post__header__meta > div:not(:last-child) {
+    margin-right: 1em;
+  }
+}
+body.single-post .post__header__meta > div > * {
+  display: table-cell;
+}
+@media (min-width: 768px) {
+  body.single-post .post__header__meta > div > * {
+    display: inline;
+  }
+}
+body.single-post .post__header__meta > div > *:nth-child(2) {
+  padding-left: 0.3em;
+}
+body.single-post .post__header__meta > div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body.single-post .post__header__meta > div ul li {
+  display: inline-block;
+}
+body.single-post .post__header__meta > div ul li:not(:last-child)::after {
+  content: " · ";
+}
+
+.btn, .btn:link, .btn:visited, .site-header__menu-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  border: none;
+  outline: none;
 }
 
 body.tax-municipality .hero--municipality {

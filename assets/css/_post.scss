@@ -1,0 +1,73 @@
+@use 'includes/conf' as *;
+
+body.single-post {
+
+  .post {
+    &__header {
+      &__meta {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 0 .3em;
+
+        @include m(1) {
+          display: block;
+          border-collapse: collapse;
+          border-spacing: 0;
+        }
+
+        * {
+          font-size: .8rem;
+          color: $gray;
+        }
+
+        a {
+          @include link {
+            color: inherit;
+          }
+          @include hover {
+            color: $secondary;
+          }
+        }
+
+        &> div {
+          display: table-row;
+
+          @include m(1) {
+            display: inline-block;
+            &:not(:last-child) {
+
+              margin-right: 1em;
+            }
+          }
+
+          &> * {
+            display: table-cell;
+
+            @include m(1) {
+              display: inline;
+            }
+
+            &:nth-child(2) {
+              padding-left: .3em;
+            }
+          }
+
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+              display: inline-block;
+
+              &:not(:last-child)::after {
+                content: "\0020\00b7\0020";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
