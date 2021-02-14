@@ -3998,12 +3998,7 @@ a:hover, a:active, a:focus {
   white-space: nowrap;
 }
 
-.btn {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: none;
-  border: none;
-  outline: none;
+.btn, .btn:link, .btn:visited {
   text-decoration: none;
   background: #ff8700;
   color: #fff !important;
@@ -4012,7 +4007,7 @@ a:hover, a:active, a:focus {
   border-radius: 8px;
   display: inline-block;
   box-shadow: 0 0 3px #00000028;
-  transition: background 0.2s linear;
+  transition: all 0.2s linear;
 }
 .btn:hover, .btn:active, .btn:focus {
   background-color: #ffaf40;
@@ -4037,6 +4032,17 @@ a:hover, a:active, a:focus {
 .site-sidebar .nostrasponte-calendar-widget__month thead tr:nth-child(1) .btn > i.mr-minus.nostrasponte-calendar-widget__next, .site-header__navigation > ul > li .btn > i.mr-minus.site-header__navigation__label::after {
   display: inline-block;
   margin-right: -0.3em;
+}
+.btn.btn--secondary, .btn.btn--secondary:link, .btn.btn--secondary:visited {
+  background: #fff;
+  color: #999 !important;
+  border: 2px solid #ccc;
+  box-shadow: none;
+}
+.btn.btn--secondary:hover, .btn.btn--secondary:active, .btn.btn--secondary:focus {
+  background: #ffaf40;
+  color: #fff !important;
+  border-color: #ffaf40;
 }
 
 p {

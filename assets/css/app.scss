@@ -90,19 +90,21 @@ hr {
 }
 
 .btn {
-    @include disableDefaults;
-    text-decoration: none;
-    background: $orange;
-    color: #fff !important;
-    font: normal normal 400 1rem/#{1.3} $fontFamily;
-    padding: s(1) s(2);
-    border-radius: s(1);
-    display: inline-block;
-    box-shadow: 0 0 3px #00000028;
-    transition: background .2s linear;
+    @include link {
+        @extend %disableDefaults;
+        text-decoration: none;
+        background: $primary;
+        color: #fff !important;
+        font: normal normal 400 1rem/#{1.3} $fontFamily;
+        padding: s(1) s(2);
+        border-radius: s(1);
+        display: inline-block;
+        box-shadow: 0 0 3px #00000028;
+        transition: all .2s linear;
+    }
 
-    &:hover, &:active, &:focus {
-        background-color: $lightOrange;
+    @include hover {
+        background-color: $secondary;
     }
 
     @include m(1) {
@@ -121,6 +123,20 @@ hr {
     &> i.feather.mr-minus {
         display: inline-block;
         margin-right: -.3em;
+    }
+
+    @at-root .btn.btn--secondary {
+        @include link {
+            background: #fff;
+            color: $gray !important;
+            border: 2px solid $lightGray;
+            box-shadow: none;
+        }
+        @include hover {
+            background: $secondary;
+            color: #fff !important;
+            border-color: $secondary;
+        }
     }
 }
 
@@ -156,7 +172,7 @@ ul {
                 font-size: s(3);
                 line-height: s(2) * 1.3;
                 padding-bottom: s(.5);
-                border-bottom: 4px solid $piratePurple;
+                border-bottom: 4px solid $tertiary;
                 margin: 0;
 
                 a {
