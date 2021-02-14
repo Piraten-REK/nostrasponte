@@ -1,3 +1,5 @@
+@use 'sass:selector';
+@use 'sass:list';
 @use 'includes/conf' as *;
 
 .site-header {
@@ -5,11 +7,18 @@
     height: s(6);
     background: #fff;
     filter: drop-shadow(0 2px 3px #00000028);
-    position: fixed;
+    position: sticky;
     z-index: 100;
     top: 0;
     left: 0;
-    
+
+    // WP ADMIN BAR FIX
+    @at-root #{selector.nest('body.admin-bar', &)} {
+        @media (min-width: 601px) and (max-width: #{list.nth($breakPoints, 1) - 1px}) {
+            top: 46px;
+        }
+    }
+
     @include m(1) {
         position: relative;
         filter: none;
