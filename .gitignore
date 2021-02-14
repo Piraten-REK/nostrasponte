@@ -5,6 +5,4 @@
 
 .sass-cache
 
-./assets/src/node_modules/
-./assets/src/yarn.lock
-./tsconfig.json
+assets/css/app.css.map
