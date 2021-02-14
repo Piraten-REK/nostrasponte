@@ -7,6 +7,14 @@
 
 @import 'icons';
 
+%disableDefaults {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+}
+
 @mixin -spacerClasses($classMod: null) {
     @each $c, $parameter in ('m': 'margin', 'p': 'padding') {
         $mods: ();

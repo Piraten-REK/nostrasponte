@@ -37,14 +37,6 @@ $maxWidth: 1400px;
     @return $mod * $base;
 }
 
-%disableDefaults {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: none;
-    border: none;
-    outline: none;
-}
-
 @mixin hover() {
     &:hover, &:active, &:focus {
         @content;
