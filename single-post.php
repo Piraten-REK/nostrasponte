@@ -2,7 +2,7 @@
 	<main class="pt-2 pb-6 pt-md-0">
         <?php while (have_posts()) { the_post(); ?>
 		<section class="mt-3 mx-2 mt-md-6 mx-md-4 mx-lg-6 post">
-			<?php if (has_post_thumbnail()) { ?><div class="post__image__wrapper mb-4">
+			<?php if (has_post_thumbnail()) { ?><div class="post__image__wrapper">
 				<div class="post__image" style="background-image: url('<?php the_post_thumbnail_url(); ?>')" role="img"></div>
 			</div><?php } ?>
             

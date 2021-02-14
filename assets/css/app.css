@@ -5598,6 +5598,32 @@ body.index-php .error-content {
   width: 100%;
 }
 
+body.single-post .post__image {
+  width: 100%;
+  height: 0;
+  padding: 0 0 56.25%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (min-width: 768px) and (max-width: 1365px) {
+  body.single-post .post__image {
+    padding-bottom: 42.8571429%;
+  }
+}
+body.single-post .post__image__wrapper {
+  margin: -40px -16px 32px;
+}
+@media (min-width: 768px) {
+  body.single-post .post__image__wrapper {
+    margin: -64px -32px 32px;
+  }
+}
+@media (min-width: 1366px) {
+  body.single-post .post__image__wrapper {
+    margin: -48px -48px 32px;
+  }
+}
 body.single-post .post__header__meta {
   display: table;
   border-collapse: separate;
