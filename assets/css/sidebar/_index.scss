@@ -7,15 +7,21 @@
 
     @media (min-width: #{list.nth($breakPoints, 1)}) and (max-width: #{list.nth($breakPoints, 2) - 1px}) {
         display: grid;
-        grid-template: auto / 1fr 1fr;
+        grid-template: auto / repeat(2, 1fr);
         grid-gap: s(4);
     }
 
-    section:not(:last-child) {
-        margin: 0 0 s(7);
+    section {
+        width: 100%;
+        max-width: s(50);
+        margin: 0 auto;
 
-        @include m(2) {
-            margin: 0 0 s(8);
+        &:not(:last-child) {
+            margin-bottom: s(7);
+
+            @include m(2) {
+                margin-bottom: s(8);
+            }
         }
     }
 

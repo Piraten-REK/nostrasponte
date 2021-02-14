@@ -4902,16 +4902,21 @@ ul {
 @media (min-width: 768px) and (max-width: 1365px) {
   .site-sidebar {
     display: grid;
-    grid-template: auto/1fr 1fr;
+    grid-template: auto/repeat(2, 1fr);
     grid-gap: 32px;
   }
 }
+.site-sidebar section {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
 .site-sidebar section:not(:last-child) {
-  margin: 0 0 56px;
+  margin-bottom: 56px;
 }
 @media (min-width: 1366px) {
   .site-sidebar section:not(:last-child) {
-    margin: 0 0 64px;
+    margin-bottom: 64px;
   }
 }
 @media (min-width: 1366px) {
