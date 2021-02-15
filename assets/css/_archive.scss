@@ -1,6 +1,28 @@
+@use './includes/conf' as *;
+
 .archive,
 .search {
     main .searchform {
         width: 100%;
+    }
+}
+
+.archive {
+    .page-title {
+        small {
+            display: block;
+            font-size: s(2);
+            line-height: 1;
+            margin-bottom: s(-.5);
+
+            @include m(1) {
+                font-size: s(3);
+                margin-bottom: s(-1);
+            }
+
+            @include m(2) {
+                margin-bottom: s(-1.5);
+            }
+        }
     }
 }

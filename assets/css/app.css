@@ -5598,6 +5598,24 @@ body.index-php .error-content {
   width: 100%;
 }
 
+.archive .page-title small {
+  display: block;
+  font-size: 16px;
+  line-height: 1;
+  margin-bottom: -4px;
+}
+@media (min-width: 768px) {
+  .archive .page-title small {
+    font-size: 24px;
+    margin-bottom: -8px;
+  }
+}
+@media (min-width: 1366px) {
+  .archive .page-title small {
+    margin-bottom: -12px;
+  }
+}
+
 body.page .page__image, body.single .page__image {
   width: 100%;
   height: 0;
