@@ -17,7 +17,7 @@ $allowed_html = [
 		<?php if (!empty($data['bg-image'])) { ?>
         <section class="mx-0 my-0 hero--municipality">
             <div class="hero--municipality__img" style="background-image: url(<?php echo esc_attr(wp_get_attachment_url($data['bg-image'])); ?>);" role="img"></div>
-            <h2 class="page-title my-2 mx-2 my-md-6 mx-md-4 mx-lg-6 my-lg-7"><span><?php echo esc_html($data['long_title']); ?></span></h2>
+            <h1 class="page-title my-2 mx-2 my-md-6 mx-md-4 mx-lg-6 my-lg-7"><span><?php echo esc_html($data['long_title']); ?></span></h1>
         </section>
 		<?php } ?>
         <section class="mt-3 mx-2 mt-md-6 mx-md-4 mx-lg-6 municipality">
