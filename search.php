@@ -4,7 +4,7 @@
 			<?php get_search_form(); ?>
         </section>
         <section class="mt-6 mx-2 mt-md-8 mx-md-4 mx-lg-6 mt-lg-10 search">
-            <h2 class="section-title mt-0 mb-2 mb-md-5 mb-lg-7"><?php printf( __( 'Suchergebnisse für<br>&bdquo;%s&ldquo;', 'nostrasponte' ), esc_html( get_search_query( false ) ) ); ?></h2>
+            <h1 class="section-title mt-0 mb-2 mb-md-5 mb-lg-7"><?php printf( __( 'Suchergebnisse für<br>&bdquo;%s&ldquo;', 'nostrasponte' ), esc_html( get_search_query( false ) ) ); ?></h1>
             <?php if ( empty( $wp_query->post_count ) ) { ?>
             <p class="center"><em><?php _e( 'Deine Suche lieferte leider keine Ergebnisse', 'nostrasponte' ); ?></em></p>
             <?php } else { ?>
