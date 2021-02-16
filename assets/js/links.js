@@ -1,5 +1,5 @@
 export function markExternalLinks (el = document.querySelectorAll('a')) {
-  const regEx = /^(?:https?:)\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft.de)|^\/[^/]?|^#|javascript:/
+  const regEx = /^(?:https?:)\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft\.de|127\.0\.0\.\d|wordpress\.localhost)|^\/[^\/]?|^#|javascript:/
   el.forEach(it => {
     if (regEx.test(it.getAttribute('href')) || it.classList.contains('link--no-mark')) return
     const insert = document.createElement('span')
