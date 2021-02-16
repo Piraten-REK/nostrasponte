@@ -8,7 +8,7 @@
 		<div class="card--post__foot__category" title="<?php esc_attr_e( 'Kategorien', 'nostrasponte' ); ?>">
 			<i class="feather icon-bookmark"></i>
 			<ul>
-				<?php foreach (get_categories() as $cat) { ?>
+				<?php foreach (wp_get_post_categories(get_the_ID(), ['fields' => 'all']) as $cat) { ?>
                     <li><a href="<?php echo get_category_link($cat); ?>" title="<?php echo esc_attr(sprintf('%s %s%s', __('Kategorie', 'nostrasponte'), $cat->name, empty($cat->description) ? '' : "\n\n" . strip_tags($cat->description))); ?>"><?php echo esc_html($cat->name); ?></a></li>
 				<?php } ?>
 			</ul>
