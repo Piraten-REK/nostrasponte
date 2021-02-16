@@ -144,7 +144,7 @@ function ns_homepage_hero_text ( $echo = true ) {
 	$text = get_theme_mod( 'ns-homepage-hero__text' ) ? get_theme_mod( 'ns-homepage-hero__text' ) : '';
 	if ( $text === '' && ns_homepage_hero_type() === 'last_post' ) {
 		$query = new WP_Query( [ 'posts_per_page' => 1 ] );
-		$text = get_the_excerpt( $query->post );
+		$text = wp_trim_words(get_the_excerpt( $query->post ), 12, '…');
 		wp_reset_query();
 	}
 	else if ( $text === '' && ns_homepage_hero_type() === 'page' ) $title = get_the_excerpt( ns_homepage_hero_page() );

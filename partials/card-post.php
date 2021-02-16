@@ -3,7 +3,7 @@
 	<header class="card--post__head">
 		<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 	</header>
-	<p class="card--post__excerpt"><?php echo wp_trim_words(get_the_excerpt(), 18, '&hellip;'); ?></p>
+	<p class="card--post__excerpt"><?php echo wp_trim_words(get_the_excerpt(), 12, '&hellip;'); ?></p>
 	<footer class="card--post__foot">
 		<div class="card--post__foot__category" title="<?php esc_attr_e( 'Kategorien', 'nostrasponte' ); ?>">
 			<i class="feather icon-bookmark"></i>
