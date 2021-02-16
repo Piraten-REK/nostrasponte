@@ -21,7 +21,7 @@
                         <div class="post__header__meta__tags" title="<?php esc_attr_e( 'Themen', 'nostrasponte' ); ?>">
                             <i class="feather icon-tag"></i>
                             <ul>
-				                <?php foreach ( get_tags() as $tag ) { ?>
+				                <?php foreach ( wp_get_post_tags(get_the_ID()) as $tag ) { ?>
                                     <li><a href="<?php echo get_tag_link( $tag->term_id ); ?>" title="<?php echo esc_attr(sprintf('%s %s%s', __('Thema', 'nostrasponte'), $tag->name, empty($tag->description) ? '' : "\n\n" . strip_tags($tag->description))); ?>"><?php echo esc_html( $tag->name ); ?></a></li>
 				                <?php } ?>
                             </ul>
