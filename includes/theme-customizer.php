@@ -87,7 +87,7 @@ function ns_customize_register ( WP_Customize_Manager $wp_customize) {
 		'ns-homepage-hero__image', [
 			'priority'  => 6,
 			'section'   => 'ns-homepage-hero',
-			'label'     => __( 'URL', 'nostrasponte' )
+			'label'     => __( 'Hintergrundbild', 'nostrasponte' )
 		]
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
