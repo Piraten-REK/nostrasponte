@@ -33,12 +33,12 @@ function ns_share_link($platform) {
 }
 ?>
 <ul class="site-sidebar__social__buttons--fallback">
-    <li><a href="<?php ns_share_link('facebook'); ?>" target="_blank" class="site-sidebar__social__link--facebook"></a></li>
-    <li><a href="<?php ns_share_link('twitter'); ?>" target="_blank" class="site-sidebar__social__link--twitter"></a></li>
-    <li><a href="<?php ns_share_link('reddit'); ?>" target="_blank" class="site-sidebar__social__link--reddit"></a></li>
-    <li><a href="<?php ns_share_link('mastodon'); ?>" target="_blank" class="site-sidebar__social__link--mastodon"></a></li>
-    <li><a href="<?php ns_share_link('whatsapp'); ?>" target="_blank" class="site-sidebar__social__link--whatsapp"></a></li>
-    <li><a href="<?php ns_share_link('telegram'); ?>" target="_blank" class="site-sidebar__social__link--telegram"></a></li>
+    <li><a href="<?php ns_share_link('facebook'); ?>" target="_blank" class="site-sidebar__social__link--facebook link--no-mark"></a></li>
+    <li><a href="<?php ns_share_link('twitter'); ?>" target="_blank" class="site-sidebar__social__link--twitter link--no-mark"></a></li>
+    <li><a href="<?php ns_share_link('reddit'); ?>" target="_blank" class="site-sidebar__social__link--reddit link--no-mark"></a></li>
+    <li><a href="<?php ns_share_link('mastodon'); ?>" target="_blank" class="site-sidebar__social__link--mastodon link--no-mark"></a></li>
+    <li><a href="<?php ns_share_link('whatsapp'); ?>" target="_blank" class="site-sidebar__social__link--whatsapp link--no-mark"></a></li>
+    <li><a href="<?php ns_share_link('telegram'); ?>" target="_blank" class="site-sidebar__social__link--telegram link--no-mark"></a></li>
     <li><button class="site-sidebar__social__link--link" data-url="<?php the_permalink(); ?>"></button></li>
     <li><a href="<?php ns_share_link('mail'); ?>" class="site-sidebar__social__link--mail link--no-mark"></a></li>
 </ul>
