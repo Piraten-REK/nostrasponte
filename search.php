@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<main class="pt-6 pt-md-0">
+	<main class="pb-6">
         <section class="mt-7 mb-6 px-2 my-md-8 px-md-4 my-lg-10 px-lg-6 fl-center">
 			<?php get_search_form(); ?>
         </section>

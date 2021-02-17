@@ -13,7 +13,7 @@ $allowed_html = [
     'br' => []
 ];
 ?>
-	<main class="py-6 pt-md-0">
+	<main class="pb-6">
 		<?php if (!empty($data['bg-image'])) { ?>
         <section class="mx-0 my-0 hero--municipality">
             <div class="hero--municipality__img" style="background-image: url(<?php echo esc_attr(wp_get_attachment_url($data['bg-image'])); ?>);" role="img"></div>

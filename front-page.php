@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <main class="pt-6 pt-md-0">
+    <main>
         <section class="hero--homepage hero--top" data-hero-type="<?php esc_attr_e( ns_homepage_hero_type() ); ?>">
             <div class="hero--homepage__img" style="background-image: url('<?php ns_homepage_hero_image(); ?>');" role="img"></div>
             <div class="hero--homepage__wrapper px-2 pb-5 px-md-4 py-md-4 px-lg-6 py-lg-6">

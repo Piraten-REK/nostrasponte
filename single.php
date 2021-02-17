@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <main class="py-6 pt-md-0">
+    <main class="pb-6">
 		<?php while (have_posts()) { the_post(); ?>
             <section class="mt-3 mx-2 mt-md-6 mx-md-4 mx-lg-6 page single-fallback">
 				<?php if (has_post_thumbnail()) { ?><div class="page__image__wrapper mb-4">
