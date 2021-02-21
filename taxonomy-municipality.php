@@ -10,7 +10,8 @@ $allowed_html = [
     'del' => [],
     'b' => [],
     'i' => [],
-    'br' => []
+    'br' => [],
+    'a' => []
 ];
 ?>
 	<main class="pb-6">
