@@ -11,7 +11,11 @@ $allowed_html = [
     'b' => [],
     'i' => [],
     'br' => [],
-    'a' => []
+    'a' => [
+    	'href' => [],
+	'title' => [],
+	'target' => []
+    ]
 ];
 ?>
 	<main class="pb-6">
