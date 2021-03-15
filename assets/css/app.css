@@ -4543,6 +4543,10 @@ ul {
   content: " ";
 }
 
+.content {
+  hyphens: auto;
+}
+
 .site-header {
   width: 100%;
   height: 48px;

@@ -1,23 +1,24 @@
+/**
+ * @param {NodeListOf<HTMLAnchorElement>} el
+ */
 export function markExternalLinks (el = document.querySelectorAll('a')) {
-  const regEx = /^(?:https?:)\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft\.de|127\.0\.0\.\d|wordpress\.localhost)|^\/[^\/]?|^#|javascript:/
+  const regEx = /^(?:https?:)\/\/(?:www\.)?(?:piraten-rek\.de|piratenpartei-rhein-erft\.de|127\.0\.0\.\d|wordpress\.localhost)|^\/[^\/]?|^#|javascript:|mailto:/
+
   el.forEach(it => {
     if (regEx.test(it.getAttribute('href')) || it.classList.contains('link--no-mark')) return
+    /** @type {HTMLSpanElement} */
     const insert = document.createElement('span')
     insert.classList.add('external-link__insert')
 
-    const [sp, sl] = [it.innerText.lastIndexOf(' '), it.innerText.lastIndexOf('/')]
-
-    if ([sp, sl].every(it => it === -1)) {
+    const match = it.innerText.match(/([\s-/])(\w+)$/)
+    if (match) {
+      insert.innerText = match[1] + match[2]
+      it.innerText = it.innerText.slice(0, match.index)
+      // Add Zero Width Space when triggered by / or -
+      if (['/', '-'].some(e => e === match[1])) it.innerText += String.fromCharCode(0x200b)
+    } else {
       insert.innerHTML = it.innerHTML
       it.innerHTML = ''
-    } else if (sp > sl) {
-      const p = it.innerText.lastIndexOf(' ') + 1
-      insert.innerText = it.innerText.slice(p)
-      it.innerText = it.innerText.slice(0, p)
-    } else {
-      const p = it.innerText.lastIndexOf('/') + 1
-      insert.innerText = it.innerText.slice(p)
-      it.innerText = it.innerText.slice(0, p) + String.fromCharCode(8203)
     }
     it.appendChild(insert)
   })

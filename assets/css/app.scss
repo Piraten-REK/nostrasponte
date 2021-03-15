@@ -673,6 +673,10 @@ ul {
     }
 }
 
+.content {
+    hyphens: auto;
+}
+
 @import 'header';
 @import 'sidebar';
 @import 'footer';
