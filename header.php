@@ -5,6 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=dege">
 	<?php wp_head(); ?>
+	<style>
+		/*.site-header {*/
+		/*	height: 56px;*/
+		/*	border: none;*/
+		/*	background: linear-gradient(to top, #ffd500, #ffd500 6px, #05b 6px, #05b 12px, #fff 12px, #fff);*/
+		/*}*/
+		/*@media (min-width: 768px) {*/
+		/*	.site-header {*/
+		/*		height: 88px;*/
+		/*	}*/
+		/*}*/
+	</style>
 </head>
 <body <?php body_class( is_index() ? 'index-php' : '' ); ?>>
 <header class="site-header px-2 py-1 px-md-4 px-lg-6 container" role="banner">

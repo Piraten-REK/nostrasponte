@@ -5739,17 +5739,23 @@ body.single-post .post__header__meta > div ul li:not(:last-child)::after {
   content: " · ";
 }
 
-body.tax-municipality .hero--municipality {
+body.tax-municipality .hero--municipality,
+body.category-253 .hero--municipality,
+body.category-257 .hero--municipality {
   position: relative;
 }
-body.tax-municipality .hero--municipality__img {
+body.tax-municipality .hero--municipality__img,
+body.category-253 .hero--municipality__img,
+body.category-257 .hero--municipality__img {
   width: 100%;
   height: 0;
   padding-bottom: 55%;
   background: center center/cover no-repeat;
   position: relative;
 }
-body.tax-municipality .hero--municipality__img::after {
+body.tax-municipality .hero--municipality__img::after,
+body.category-253 .hero--municipality__img::after,
+body.category-257 .hero--municipality__img::after {
   content: "";
   display: block;
   position: absolute;
@@ -5762,7 +5768,9 @@ body.tax-municipality .hero--municipality__img::after {
   height: 100%;
   background: linear-gradient(to bottom, transparent, #000000bf);
 }
-body.tax-municipality .hero--municipality .page-title {
+body.tax-municipality .hero--municipality .page-title,
+body.category-253 .hero--municipality .page-title,
+body.category-257 .hero--municipality .page-title {
   position: absolute;
   z-index: 2;
   right: 0;
@@ -5771,34 +5779,48 @@ body.tax-municipality .hero--municipality .page-title {
   color: #fff;
   text-shadow: 0px 2px 3px #00000036;
 }
-body.tax-municipality section.municipality details.municipality__partners {
+body.tax-municipality section.municipality .municipality__partners,
+body.category-253 section.municipality .municipality__partners,
+body.category-257 section.municipality .municipality__partners {
   margin: 16px -16px -16px;
   padding: 16px;
   background: #f4f4f4;
 }
 @media (min-width: 768px) {
-  body.tax-municipality section.municipality details.municipality__partners {
+  body.tax-municipality section.municipality .municipality__partners,
+body.category-253 section.municipality .municipality__partners,
+body.category-257 section.municipality .municipality__partners {
     margin: 32px -32px -32px;
     padding: 32px;
   }
 }
 @media (min-width: 1366px) {
-  body.tax-municipality section.municipality details.municipality__partners {
+  body.tax-municipality section.municipality .municipality__partners,
+body.category-253 section.municipality .municipality__partners,
+body.category-257 section.municipality .municipality__partners {
     margin: unset;
     padding: unset;
     background: none;
   }
 }
-body.tax-municipality section.municipality details.municipality__partners summary {
+body.tax-municipality section.municipality .municipality__partners summary,
+body.category-253 section.municipality .municipality__partners summary,
+body.category-257 section.municipality .municipality__partners summary {
   list-style: none;
 }
-body.tax-municipality section.municipality details.municipality__partners summary::-webkit-details-marker {
+body.tax-municipality section.municipality .municipality__partners summary::-webkit-details-marker,
+body.category-253 section.municipality .municipality__partners summary::-webkit-details-marker,
+body.category-257 section.municipality .municipality__partners summary::-webkit-details-marker {
   display: none;
 }
-body.tax-municipality section.municipality details.municipality__partners summary h3 {
+body.tax-municipality section.municipality .municipality__partners summary h3,
+body.category-253 section.municipality .municipality__partners summary h3,
+body.category-257 section.municipality .municipality__partners summary h3 {
   margin: 0;
 }
-body.tax-municipality section.municipality details.municipality__partners summary h3::after {
+body.tax-municipality section.municipality .municipality__partners summary h3::after,
+body.category-253 section.municipality .municipality__partners summary h3::after,
+body.category-257 section.municipality .municipality__partners summary h3::after {
   display: inline-block;
   font-family: "feather" !important;
   speak: none;
@@ -5814,14 +5836,20 @@ body.tax-municipality section.municipality details.municipality__partners summar
   transition: transform 0.3s ease-in-out;
 }
 @media (min-width: 1366px) {
-  body.tax-municipality section.municipality details.municipality__partners summary h3::after {
+  body.tax-municipality section.municipality .municipality__partners summary h3::after,
+body.category-253 section.municipality .municipality__partners summary h3::after,
+body.category-257 section.municipality .municipality__partners summary h3::after {
     content: none;
   }
 }
-body.tax-municipality section.municipality details.municipality__partners[open] summary h3::after {
+body.tax-municipality section.municipality .municipality__partners[open] summary h3::after,
+body.category-253 section.municipality .municipality__partners[open] summary h3::after,
+body.category-257 section.municipality .municipality__partners[open] summary h3::after {
   transform: rotate(-180deg);
 }
-body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper {
   transform-origin: center top;
   margin-top: 16px;
   display: flex;
@@ -5829,98 +5857,148 @@ body.tax-municipality section.municipality details.municipality__partners[open] 
   align-items: center;
 }
 @media (max-width: 1365px px) {
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper {
     animation: openDetails 0.5s ease-in-out;
   }
 }
 @media (min-width: 768px) {
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper {
     margin: 32px 0 16px;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="1"] {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="1"],
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="1"],
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="1"] {
     flex-direction: row;
     justify-content: center;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="2"] {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="2"],
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="2"],
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="2"] {
     display: grid;
     grid-template: auto/repeat(2, 1fr);
     grid-gap: 48px;
     justify-items: center;
     align-items: stretch;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="3"], body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="4"] {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"], body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="4"],
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"],
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="4"],
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"],
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="4"] {
     display: grid;
     grid-template: repeat(2, auto)/repeat(2, 1fr);
     grid-gap: 48px;
     justify-items: center;
     align-items: stretch;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner {
     margin: 0;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="3"] .card--municipality-partner:last-child {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"] .card--municipality-partner:last-child,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"] .card--municipality-partner:last-child,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"] .card--municipality-partner:last-child {
     grid-area: 2/1/3/3;
   }
 }
 @media (min-width: 1366px) {
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper {
     display: flex !important;
     flex-direction: row;
     justify-content: space-around !important;
     grid-gap: 0 !important;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="3"], body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper[data-num="4"] {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"], body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="4"],
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"],
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="4"],
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="3"],
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper[data-num="4"] {
     justify-content: space-between !important;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner {
     margin: 0 16px;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:first-child {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:first-child,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:first-child,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:first-child {
     margin-left: 0;
   }
-  body.tax-municipality section.municipality details.municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:last-child {
+  body.tax-municipality section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:last-child,
+body.category-253 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:last-child,
+body.category-257 section.municipality .municipality__partners[open] .municipality__partners__wrapper .card--municipality-partner:last-child {
     margin-right: 0;
   }
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner {
   background: #fff;
   width: 100%;
   max-width: 320px;
   justify-content: space-between;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner:not(:last-child) {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner:not(:last-child),
+body.category-253 section.municipality .municipality__partners .card--municipality-partner:not(:last-child),
+body.category-257 section.municipality .municipality__partners .card--municipality-partner:not(:last-child) {
   margin-bottom: 16px;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__avatar {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__avatar,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__avatar,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__avatar {
   width: 100%;
   height: 0;
   padding: 0 0 80%;
   background: center center/cover no-repeat;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__head,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__head,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__head {
   margin: 8px;
   padding-bottom: 4px;
   border-bottom: 4px solid #652480;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head h3 {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__head h3,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__head h3,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__head h3 {
   font-size: 24px;
   line-height: 20.8px;
   padding-bottom: 4px;
   margin: 0;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head ul {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__head ul,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__head ul,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__head ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__head ul li {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__head ul li,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__head ul li,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__head ul li {
   display: block;
   font-size: 0.8rem;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__bio {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__bio,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__bio,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__bio {
   margin-top: 12px;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:link, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:visited {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__footer a, body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__footer a:link, body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__footer a:visited,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__footer a,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__footer a:link,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__footer a:visited,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__footer a,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__footer a:link,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__footer a:visited {
   display: block;
   background: #ff8700;
   text-align: center;
@@ -5929,7 +6007,13 @@ body.tax-municipality section.municipality details.municipality__partners .card-
   padding: 12px 8px;
   transition: background 0.2s ease-in-out;
 }
-body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:hover, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:active, body.tax-municipality section.municipality details.municipality__partners .card--municipality-partner__footer a:focus {
+body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__footer a:hover, body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__footer a:active, body.tax-municipality section.municipality .municipality__partners .card--municipality-partner__footer a:focus,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__footer a:hover,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__footer a:active,
+body.category-253 section.municipality .municipality__partners .card--municipality-partner__footer a:focus,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__footer a:hover,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__footer a:active,
+body.category-257 section.municipality .municipality__partners .card--municipality-partner__footer a:focus {
   background: #ffaf40;
 }
 
@@ -5943,3 +6027,17 @@ body.tax-municipality section.municipality details.municipality__partners .card-
     transform: none;
   }
 }
+.kandidaten-btw, .kandidaten-ltw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .kandidaten-btw, .kandidaten-ltw {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */

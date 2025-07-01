@@ -2,7 +2,9 @@
 @use 'sass:list';
 @use './includes/conf' as *;
 
-body.tax-municipality {
+body.tax-municipality,
+body.category-253,
+body.category-257 {
 
   .hero--municipality {
     position: relative;
@@ -41,7 +43,7 @@ body.tax-municipality {
   }
 
   section.municipality {
-    details.municipality__partners {
+    .municipality__partners {
       margin: s(4 - 2) s(-2) s(-2);
       padding: s(2);
       background: #f4f4f4;
@@ -227,5 +229,16 @@ body.tax-municipality {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+.kandidaten-btw, .kandidaten-ltw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .kandidaten-btw, .kandidaten-ltw {
+    flex-direction: row;
+    justify-content: space-around;
   }
 }

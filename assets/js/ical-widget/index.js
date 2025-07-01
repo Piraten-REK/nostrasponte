@@ -13,6 +13,7 @@ import Widget from './Widget.js'
  * @type {Map<HTMLElement, Widget>}
  */
 export const widgets = new Map()
+window.widgets = widgets
 
 export default function init () {
   document.querySelectorAll('[class*="ns-calendar-container"]').forEach(it => createWidget(it))

@@ -1,7 +1,4 @@
-// import Time from './Time.js'
 import { markExternalLinks } from '../links.js'
-
-const sanitizeRegEx = /(?:<script.*?>.*?<\/script>)|(?:<\/?a.*?>)|(?:(?<=<[^>]*?)on\w+=".*?")|(?:<\/?i?frame.*?>)/g
 
 /**
  * @class Widget
@@ -113,6 +110,44 @@ export default class Widget {
     return obj === null || obj === undefined || isNaN(obj) || obj === '' || obj.length === 0 || obj.size === 0
       ? replacement
       : obj
+  }
+
+  /**
+   * Sanitizes the given string and returns it
+   * @param {string} str
+   * @param {boolean} [nl2br=false] if true, newLines will be converted to `<br>` tags
+   * @param {boolean} [convertLinks=false] if true, links will be converted to anchors
+   * @returns {string}
+   * @static
+   * @private
+   */
+  static _sanitizeString (str, nl2br = false, convertLinks = false) {
+    const parsed = new DOMParser().parseFromString(str, 'text/html')
+    // Remove anchor tags, leaving their content
+    Array.from(parsed.getElementsByTagName('a')).forEach(it => {
+      it.parentNode.replaceChild(document.createTextNode(it.innerHTML), it)
+    })
+    // Remove all script, iframe and frame tags
+    Array.from(parsed.getElementsByTagName('script')).forEach(it => {
+      it.remove()
+    })
+    Array.from(parsed.getElementsByTagName('iframe')).forEach(it => {
+      it.remove()
+    })
+    Array.from(parsed.getElementsByTagName('frame')).forEach(it => {
+      it.remove()
+    })
+    // Remove all onEvent attributes from all elements
+    Array.from(parsed.getElementsByTagName('*')).forEach(it => {
+      Array.from(it.attributes).forEach(attr => {
+        if (/^on\w+/.test(attr.name)) it.removeAttributeNode(attr)
+      })
+    })
+
+    const res = parsed.body.innerHTML
+    if (nl2br) return res.replace(/\r?\n/g, '<br>')
+    else if (convertLinks) return res.replace(/(https?:\/\/\S+)/g, '<a href="$1" target="_blank">$1</a>')
+    else return res
   }
 
   /**
@@ -280,7 +315,7 @@ export default class Widget {
       const evTitle = document.createElement('h3')
       evWrapper.appendChild(evTitle)
       evTitle.classList.add(this.className + '__day__dialog__event__title', 'mb-1')
-      evTitle.innerHTML = event.title.replace(sanitizeRegEx, '').replace(/\n/g, '<br>')
+      evTitle.innerHTML = Widget._sanitizeString(event.title, true)
 
       const evTable = document.createElement('table')
       evWrapper.appendChild(evTable)
@@ -318,16 +353,14 @@ export default class Widget {
         evLocationThIcon.classList.add('feather', 'icon-map-pin')
         const evLocationTd = document.createElement('td')
         evLocation.appendChild(evLocationTd)
-        evLocationTd.innerHTML = event.location.replace(sanitizeRegEx, '').replace(/\n/g, '<br>')
+        evLocationTd.innerHTML = Widget._sanitizeString(event.location, true)
       }
 
       if (event.description) {
         const desc = document.createElement('p')
         evWrapper.appendChild(desc)
         desc.classList.add(this.className + '__day__dialog__event__description', 'mt-1', 'mb-0')
-        desc.innerHTML = event.description.replace(sanitizeRegEx, '')
-          .replace(/(?<=^|\s)(https?:\/\/\S+?)(?:\s|$)/g, '<a href="$1" target="_blank">$1</a>')
-          .replace(/\n/g, '<br>')
+        desc.innerHTML = Widget._sanitizeString(event.description, true, true)
 
         markExternalLinks(desc.querySelectorAll('a'))
       }
@@ -746,3 +779,4 @@ class Time {
     return new Time(year, month, day, undefined, 0, 0, true)
   }
 }
+

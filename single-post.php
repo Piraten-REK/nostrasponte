@@ -42,7 +42,7 @@
                         <time datetime="<?php the_date( 'Y-m-d' ); ?>"><?php printf('%s, %s. %s %s',
 				                NS_DAY_OF_WEEK[ intval( get_the_date( 'w' ) ) ],
 				                get_the_date( 'j' ),
-				                NS_MONTH[ intval( get_the_date( 'n' ) ) ],
+				                NS_MONTH[ intval( get_the_date( 'n' ) ) - 1 ],
 				                get_the_date( 'Y' ) ); ?></time>
                     </div>
                     <div class="post__header__meta__author" title="<?php echo esc_attr(sprintf('%s: %s', __('Autor', 'nostrasponte'), get_the_author())); ?>">
