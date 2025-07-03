@@ -43,7 +43,7 @@ function shift_down_headings (string $content): string {
           'container_class'   => 'wahlprogramm__navigation px-2 py-4 px-md-4',
           'menu_class'        => '',
           'menu_id'           => '',
-          'depth'             => 2,
+          'depth'             => 3,
           'walker'            => new NS_Custom_Nav_Walker()
         ]);
       }
