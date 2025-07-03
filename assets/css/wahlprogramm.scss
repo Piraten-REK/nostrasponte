@@ -119,7 +119,7 @@
       line-height: 1.6;
     }
 
-    & + blockquote {
+    & > blockquote:first-child {
       font-size: 1.2rem;
       font-style: italic;
     }
