@@ -31,7 +31,7 @@ function shift_down_headings (string $content): string {
   <body <?php body_class( 'wahlprogramm' ); ?>>
     <header class="site-header px-2 py-1 px-md-4 px-lg-6 container" role="banner">
       <a href="<?php echo is_front_page() ? '#' : get_home_url(); ?>" class="site-header__logo" rel="start"><img class="site-header__logo__img" src="<?php echo get_theme_file_uri('/assets/img/logo.svg'); ?>" alt="Piraten Rhein-Erft-Kreis"></a>
-      <h1><a href="/kerpen2025"><span>Wahlprogramm</span> Alessa Flohe 2025</a></h1>
+      <h1><a href="/kerpen2025"><span>Wahlprogramm</span> Flohe 2025</a></h1>
     </header>
   <div class="main-wrapper container">
     <aside class="site-sidebar px-2 py-6 px-md-4 py-md-9 px-lg-6 py-lg-10">
