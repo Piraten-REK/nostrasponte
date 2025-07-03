@@ -1,7 +1,7 @@
 <?php
 
 // Setup
-define('NS_DEV_MODE', true);
+define('NS_DEV_MODE', false);
 
 // Includes
 $includes = [

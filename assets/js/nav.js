@@ -4,6 +4,7 @@ const menuButton = document.querySelector('.site-header__menu-button')
 const darkener = document.querySelector('.site-header__navigation__darkener')
 
 export const navToggle = () => {
+  if (menuButton == null || darkener == null) return
   menuButton.addEventListener('click', () => {
     toggleMenu()
   })
@@ -26,6 +27,7 @@ const toggleMenu = () => {
 
 export function searchStayOpen () {
   const search = document.querySelector('.site-header__navigation__search')
+  if (search == null) return
   search.addEventListener('mouseover', function () {
     if (mediaLg()) this.classList.add('site-header__navigation__item--open')
     else if (this.classList.contains('site-header__navigation__item--open')) this.classList.remove('site-header__navigation__item--open')
