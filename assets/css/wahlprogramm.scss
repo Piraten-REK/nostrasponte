@@ -93,18 +93,18 @@
           color: $primary;
         }
       }
+    }
 
-      &.current::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: -2rem;
-        translate: 0 -50%;
-        $_width: .75rem;
-        border-left: $_width solid $primary;
-        border-top: $_width solid transparent;
-        border-bottom: $_width solid transparent;
-      }
+    & > ul > li.current::before {
+      content: "";
+      position: absolute;
+      top: 1.1em;
+      left: -2rem;
+      translate: 0 -50%;
+      $_width: .75rem;
+      border-left: $_width solid $primary;
+      border-top: $_width solid transparent;
+      border-bottom: $_width solid transparent;
     }
   }
 }
