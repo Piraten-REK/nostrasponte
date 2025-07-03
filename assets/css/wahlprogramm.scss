@@ -114,7 +114,10 @@
   }
 
   .content {
-    p {
+    li + li {
+      margin-top: .5rem;
+    }
+    p, ul {
       margin-bottom: 1.2rem;
       line-height: 1.6;
     }
